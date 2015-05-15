@@ -1,0 +1,11 @@
+{
+  "repositories": [
+    {
+      "url": "https://github.com/ctubio/php-proxy",
+      "type": "git"
+    }
+  ],
+  "require": {
+    "jenssegers/proxy": "2.*"
+  }
+}
