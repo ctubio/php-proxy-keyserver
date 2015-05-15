@@ -1,5 +1,4 @@
-RewriteEngine on
-RewriteBase /pks
-
+RewriteEngine On
+RewriteBase /
 RewriteCond %{REQUEST_URI} ^\/pks/.*$ [NC]
-RewriteRule ^.*$ /php-proxy-sks.php [L]
+RewriteRule ^.*$ php-proxy-sks.php [L]
