@@ -3,53 +3,68 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>SKS OpenPGP Public Key Server</title>
+    <title>PGP Public Key Server</title>
   </head>
   <body>
-  <h1>SKS OpenPGP Public Key Server</h1>
-  <hr />
-  <h2>
-  <a id="extract" name="extract">Extracting a OpenPGP Key</a>
-  </h2>
-  <form action="/pks/lookup" method="get">
-    <p>Index: 
-    <input type="radio" name="op" value="index" />
-     Verbose Index: 
-    <input type="radio" name="op" value="vindex" checked="checked" />
-    </p>
-    <p>Search String: 
-    <input name="search" size="40" value="openpkg" />
-    </p>
-    <p>
-    <input type="checkbox" name="fingerprint" checked="checked" />
-     Show OpenPGP &quot;fingerprints&quot; for keys</p>
-    <p>
-    <input type="checkbox" name="exact" />
-     Only return exact matches</p>
-    <p>
-    <input type="checkbox" name="options" value="mr" />
-     Machine readable</p>
-    <p>
-    <input type="reset" value="Reset" />
-     
-    <input type="submit" value="Search!" />
-    </p>
-  </form>
-  <hr />
-  <h2>
-  <a id="submit" name="submit">Submitting a new OpenPGP Key</a>
-  </h2>
-  <form action="/pks/add" method="post">
-    <p>Enter ASCII-armored OpenPGP key here:</p>
-    <p>
-    <textarea name="keytext" rows="20" cols="66"></textarea>
-    </p>
-    <p>
-    <input type="reset" value="Reset" />
-     
-    <input type="submit" value="Submit!" />
-    </p>
-  </form>
-  <hr />
+    <h1>PGP Public Key Server</h1>
+    <hr />
+    <h2>
+      <a id="extract" name="extract">Extracting a Key</a>
+    </h2>
+    <form action="/pks/lookup" method="get">
+      <p>
+        Search String:
+        <input name="search" size="40" value="" />
+      </p>
+      <p>
+        <input type="checkbox" name="op" value="vindex" checked="checked" />
+        Verbose output
+      </p>
+      <p>
+        <input type="checkbox" name="fingerprint" checked="checked" />
+        Show PGP fingerprints for keys
+      </p>
+      <p>
+        <input type="checkbox" name="exact" />
+        Only return exact matches
+      </p>
+      <p>
+        <input type="checkbox" name="options" value="mr" />
+        Machine readable output
+      </p>
+      <p>
+      <input type="submit" value="Search!" />
+      </p>
+    </form>
+    <hr />
+    <h2>
+    <a id="submit" name="submit">Submit a Key</a>
+    </h2>
+    <form action="/pks/add" method="post">
+      <p>Enter ASCII-armored PGP key here:</p>
+      <p>
+      <textarea name="keytext" rows="20" cols="66"></textarea>
+      </p>
+      <p>
+      <input type="reset" value="Clear" />
+      <input type="submit" value="Submit this key to the keyserver!" />
+      </p>
+    </form>
+    <hr />
+    <h2>
+      <a id="remove" name="remove">Remove a key</a>
+    </h2>
+    <form action="faq.html">
+      <p>Search String:
+      <input name="search" size="40" />
+      <input type="submit" value="Remove the key!" />
+      </p>
+    </form>
+    <hr />
+    <address>
+    Please send bug reports or problem reports to
+    <a href="mailto:bug-pks@pgpkeys.io">&lt;bug-pks@pgpkeys.io&gt;</a>
+    only after reading our <a href="faq.html">FAQ</a>.
+    </address>
   </body>
 </html>
