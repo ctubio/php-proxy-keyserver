@@ -21,26 +21,46 @@
       <form action="/pks/lookup" method="get">
         <p>
           Search String:
-          <input name="search" size="40" value="" />
+          <input name="search" size="45" value="" />
+          <input type="submit" value="Search!" />
         </p>
         <p>
-          <input type="checkbox" name="op" value="vindex" checked="checked" />
-          Verbose output
-        </p>
-        <p>
-          <input type="checkbox" name="fingerprint" checked="checked" />
-          Show PGP fingerprints for keys
-        </p>
-        <p>
-          <input type="checkbox" name="exact" />
-          Only return exact matches
-        </p>
-        <p>
-          <input type="checkbox" name="options" value="mr" />
-          Machine readable output
-        </p>
-        <p>
-        <input type="submit" value="Search!" />
+          <table>
+            <tr>
+              <td>
+                <input type="checkbox" name="op" value="vindex" checked="checked" />
+                Show verbose output
+              </td>
+              <td>
+              </td>
+              <td>
+                <input type="checkbox" name="exact" />
+                Only return exact matches
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" name="fingerprint" checked="checked" />
+                Show PGP fingerprints
+              </td>
+              <td>
+              </td>
+              <td>
+                <input type="checkbox" name="hash" />
+                Show full-key hashes
+              </td>
+            </tr>
+            <tr>
+              <td>
+              </td>
+              <td>
+              </td>
+              <td>
+                <input type="checkbox" name="options" value="mr" />
+                Show machine readable output
+              </td>
+            </tr>
+          </table>
         </p>
       </form>
       <hr />
@@ -50,7 +70,7 @@
       <form action="/pks/add" method="post">
         <p>Enter ASCII-armored PGP key here:</p>
         <p>
-        <textarea name="keytext" rows="20" cols="66"></textarea>
+        <textarea name="keytext" rows="21" cols="69"></textarea>
         </p>
         <p>
         <input type="reset" value="Clear" />
@@ -63,8 +83,8 @@
       </h2>
       <form action="/faq.html">
         <p>Search String:
-        <input name="search" size="40" />
-        <input type="submit" value="Remove the key!" />
+        <input name="search" size="45" />
+        <input type="submit" value="Remove my key!" />
         </p>
       </form>
       <hr />
