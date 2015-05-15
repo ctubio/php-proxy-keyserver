@@ -12,65 +12,67 @@
           alt="GNU/Linux Inside!" title="GNU/Linux Inside!" />
       </a>
     </div>
-    <h1>PGP Public Key Server</h1>
-    <hr />
-    <h2>
-      <a id="extract" name="extract">Extracting a Key</a>
-    </h2>
-    <form action="/pks/lookup" method="get">
-      <p>
-        Search String:
-        <input name="search" size="40" value="" />
-      </p>
-      <p>
-        <input type="checkbox" name="op" value="vindex" checked="checked" />
-        Verbose output
-      </p>
-      <p>
-        <input type="checkbox" name="fingerprint" checked="checked" />
-        Show PGP fingerprints for keys
-      </p>
-      <p>
-        <input type="checkbox" name="exact" />
-        Only return exact matches
-      </p>
-      <p>
-        <input type="checkbox" name="options" value="mr" />
-        Machine readable output
-      </p>
-      <p>
-      <input type="submit" value="Search!" />
-      </p>
-    </form>
-    <hr />
-    <h2>
-    <a id="submit" name="submit">Submit a Key</a>
-    </h2>
-    <form action="/pks/add" method="post">
-      <p>Enter ASCII-armored PGP key here:</p>
-      <p>
-      <textarea name="keytext" rows="20" cols="66"></textarea>
-      </p>
-      <p>
-      <input type="reset" value="Clear" />
-      <input type="submit" value="Submit this key to the keyserver!" />
-      </p>
-    </form>
-    <hr />
-    <h2>
-      <a id="remove" name="remove">Remove a key</a>
-    </h2>
-    <form action="/faq.html">
-      <p>Search String:
-      <input name="search" size="40" />
-      <input type="submit" value="Remove the key!" />
-      </p>
-    </form>
-    <hr />
-    <address>
-    Please send bug reports or problem reports to
-    <a href="mailto:bug-pks@pgpkeys.io">&lt;bug-pks@pgpkeys.io&gt;</a>
-    only after reading our <a href="/faq.html">FAQ</a>.
-    </address>
+    <div id="content" style="width:640px;margin:0px auto;">
+      <h1>PGP Public Key Server</h1>
+      <hr />
+      <h2>
+        <a id="extract" name="extract">Extract a Key</a>
+      </h2>
+      <form action="/pks/lookup" method="get">
+        <p>
+          Search String:
+          <input name="search" size="40" value="" />
+        </p>
+        <p>
+          <input type="checkbox" name="op" value="vindex" checked="checked" />
+          Verbose output
+        </p>
+        <p>
+          <input type="checkbox" name="fingerprint" checked="checked" />
+          Show PGP fingerprints for keys
+        </p>
+        <p>
+          <input type="checkbox" name="exact" />
+          Only return exact matches
+        </p>
+        <p>
+          <input type="checkbox" name="options" value="mr" />
+          Machine readable output
+        </p>
+        <p>
+        <input type="submit" value="Search!" />
+        </p>
+      </form>
+      <hr />
+      <h2>
+      <a id="submit" name="submit">Submit a Key</a>
+      </h2>
+      <form action="/pks/add" method="post">
+        <p>Enter ASCII-armored PGP key here:</p>
+        <p>
+        <textarea name="keytext" rows="20" cols="66"></textarea>
+        </p>
+        <p>
+        <input type="reset" value="Clear" />
+        <input type="submit" value="Submit this key to the keyserver!" />
+        </p>
+      </form>
+      <hr />
+      <h2>
+        <a id="remove" name="remove">Remove a key</a>
+      </h2>
+      <form action="/faq.html">
+        <p>Search String:
+        <input name="search" size="40" />
+        <input type="submit" value="Remove the key!" />
+        </p>
+      </form>
+      <hr />
+      <address>
+      Please send bug reports to
+      <a href="mailto:carles.tubio@pgpkeys.io">&lt;carles.tubio@pgpkeys.io&gt;</a>
+      only after reading the <a href="/faq.html">FAQ</a>.
+      </address>
+    </div>
   </body>
 </html>
