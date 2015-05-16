@@ -1,14 +1,14 @@
 {
-    "name": "ctubio/php-proxy-sks",
-    "description": "PHP proxy and interface forwarding any standard PKS HTTP request to a local SKS PGP Public Keyserver.",
-    "type": "project",
-    "keywords": ["php", "proxy", "sks", "keyserver"],
-    "homepage": "https://github.com/ctubio/php-proxy-sks",
-    "license": "MIT",
-    "authors": [{
-      "name": "Carles Tubio",
-      "homepage": "http://pgp.key-server.io"
-    }],
+  "name": "ctubio/php-proxy-sks",
+  "description": "PHP proxy and interface forwarding any standard PKS HTTP request to a local SKS PGP Public Keyserver.",
+  "type": "project",
+  "keywords": ["php", "proxy", "sks", "keyserver"],
+  "homepage": "https://github.com/ctubio/php-proxy-sks",
+  "license": "MIT",
+  "authors": [{
+    "name": "Carles Tubio",
+    "homepage": "http://pgp.key-server.io"
+  }],
   "repositories": [{
     "url": "https://github.com/ctubio/php-proxy",
     "type": "git"
