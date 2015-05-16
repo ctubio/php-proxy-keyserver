@@ -9,11 +9,21 @@
     "name": "Carles Tubio",
     "homepage": "http://pgp.key-server.io"
   }],
+  "support": {
+    "email": "carles.tubio@key-server.io",
+    "source": "https://github.com/ctubio/php-proxy-sks",
+    "issues": "https://github.com/ctubio/php-proxy-sks/issues"
+  },
   "repositories": [{
     "url": "https://github.com/ctubio/php-proxy",
     "type": "git"
   }],
   "require": {
     "jenssegers/proxy": "2.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "": "src/"
+    }
   }
 }
