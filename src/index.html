@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>PGP Public Key Server</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+  </head>
+  <body>
+    <div id="gnulinux-inside" style="position: absolute; top: 0px; right: 0px;">
+      <a href="https://www.gnu.org/philosophy/#mission-statement">
+        <img src="https://www.gnu.org/graphics/gnu-inside.png"
+          alt="GNU/Linux Inside!" title="GNU/Linux Inside!" />
+      </a>
+    </div>
+    <div id="content" style="width:640px;margin:0px auto;">
+      <h1>PGP Public Key Server</h1>
+      <hr />
+      <h2>
+        <a id="extract" name="extract">Extract a Key</a>
+      </h2>
+      <form action="/pks/lookup" method="get">
+        <p>
+          Search String:
+          <input name="search" size="45" value="" />
+          <input type="submit" value="Search!" />
+        </p>
+        <p>
+          <table>
+            <tr>
+              <td>
+                <input type="checkbox" name="op" value="vindex" checked="checked" />
+                Show verbose output
+              </td>
+              <td>
+              </td>
+              <td>
+                <input type="checkbox" name="exact" />
+                Only return exact matches
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" name="fingerprint" checked="checked" />
+                Show PGP fingerprints
+              </td>
+              <td>
+              </td>
+              <td>
+                <input type="checkbox" name="hash" />
+                Show full-key hashes
+              </td>
+            </tr>
+            <tr>
+              <td>
+              </td>
+              <td>
+              </td>
+              <td>
+                <input type="checkbox" name="options" value="mr" />
+                Show machine readable output
+              </td>
+            </tr>
+          </table>
+        </p>
+      </form>
+      <hr />
+      <h2>
+      <a id="submit" name="submit">Submit a Key</a>
+      </h2>
+      <form action="/pks/add" method="post">
+        <p>Enter ASCII-armored PGP key here:</p>
+        <p>
+        <textarea name="keytext" rows="21" cols="69"></textarea>
+        </p>
+        <p>
+        <input type="reset" value="Clear" />
+        <input type="submit" value="Submit this key to the keyserver!" />
+        </p>
+      </form>
+      <hr />
+      <h2>
+        <a id="remove" name="remove">Remove a key</a>
+      </h2>
+      <form action="/faq.html">
+        <p>Search String:
+        <input name="search" size="45" />
+        <input type="submit" value="Remove my key!" />
+        </p>
+      </form>
+      <hr />
+      <address>
+      Please send bug reports to
+      <a href="mailto:carles.tubio@pgpkeys.io">&lt;carles.tubio@pgpkeys.io&gt;</a>
+      only after reading the <a href="/faq.html">FAQ</a>.
+      </address>
+    </div>
+  </body>
+</html>
