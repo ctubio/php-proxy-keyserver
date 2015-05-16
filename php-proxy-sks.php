@@ -14,6 +14,7 @@ $response = Factory::forward($request)->to(
 
 if (
  ($statusCode = $response->getStatusCode()) !== '200'
+ and is_numeric($statusCode)
  and is_readable($statusCode.'.html')
 ) {
   $response->setContent(file_get_contents(
