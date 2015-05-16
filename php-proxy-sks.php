@@ -11,10 +11,14 @@ $response = Factory::forward($request)->to(
   .$request->server->get('REQUEST_URI')
 );
 
+
 if (
- $response->getStatusCode()!='200'
- and is_readable($response->getStatusCode().'.html')
-)
-  readfile($response->getStatusCode().'.html');
-else
-  $response->send();
+ ($statusCode = $response->getStatusCode()) !== '200'
+ and is_readable($statusCode.'.html')
+) {
+  $response->setContent(file_get_contents(
+    $statusCode.'.html'
+  ));
+}
+
+$response->send();
