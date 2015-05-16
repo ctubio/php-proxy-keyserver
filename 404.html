@@ -1,20 +1,17 @@
 <html>
   <head>
-    <title>key-server.io</title>
-    <meta http-equiv="refresh" content="3;URL='/'" />
+    <title>PGP Public Keyserver</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
     <style>
       *::selection {
-        background-color: gray;
-        color: #70AF00;
+        background-color: transparent;
+        color: yellow;
       }
       body {
         font-family: 'Press Start 2P';
+        font-size:16px;
         background-color:black;
-      }
-      #logo {
-        font-size:69px;
-        font-weight:600;
-        display:inline;
+        color: #70AF00;
       }
       #outer {
         position:absolute;
@@ -34,16 +31,25 @@
         height:100%;
         display:table-cell;
       }
+      h1 {
+        font-size:44px;
+        font-weight:600;
+        display:inline;
+      }
+      table {
+        margin:0px auto;
+      }
+      table span {
+        font-size:79%;
+      }
     </style>
-    <!--link href='//fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'-->
     <link href='//fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <div id="outer">
       <div id="table-container">
         <div id="table-cell">
-          <!--h1 id="logo">ctubio.github.io<h1-->
-          <svg xmlns="http://www.w3.org/2000/svg"
+          <svg xmlns="//www.w3.org/2000/svg"
             width="500" height="257" text-anchor="middle">
             <text x="260" y="222" font-size="160" font-weight="600">
               <animate attributeType="XML" attributeName="fill"
@@ -51,6 +57,13 @@
               404
             </text>
           </svg>
+          <br />
+          <table>
+            <tr>
+              <td><span>Hint!</span><br />goto:</td>
+              <td><h1>pgp.key-server.io<h1></td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
