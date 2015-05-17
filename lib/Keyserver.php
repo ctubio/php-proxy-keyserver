@@ -6,15 +6,11 @@ use Symfony\Component\HttpFoundation\Response;
 use PhpProxySks\Config;
 
 class Keyserver {
-
-  private $request = NULL;
-
-  private $config = NULL;
-
   public static function getResponse() {
-    $request = Request::createFromGlobals();
-    $config = new Config($request);
-    
+    $config = Config::getInstance(
+      $request = Request::createFromGlobals()
+    );
+
     $response = (isset($_GET['errno']))
       ? new Response(NULL, $_GET['errno'], array('content-type' => 'text/html'))
       : Factory::forward($request)->to(
@@ -28,10 +24,19 @@ class Keyserver {
      ) !== 200)
       $response->setContent(
         (is_readable($error = realpath('../lib/phtml/'.$errno.'.phtml')))
-          ? file_get_contents($error)
+          ? self::parsePhtml($error)
           : 'Errno: '.$errno
       );
 
     return $response;
+  }
+
+  public static function parsePhtml($phtml) {
+    if (!is_readable($phtml))
+      return NULL;
+    $config = Config::getInstance();
+    ob_start();
+    include($phtml);
+    return ob_get_clean();
   }
 }

@@ -4,6 +4,15 @@ use PhpProxySks\Config;
 use Symfony\Component\HttpFoundation\Request;
 
 class Config {
+  
+  public static $instance;
+
+  public static function getInstance($request = NULL) {
+    if (self::$instance === NULL)
+      self::$instance = new self($request);
+    return self::$instance;
+  }
+  
   public function __construct(Request $request) {
     foreach(
       array_merge(
@@ -17,5 +26,7 @@ class Config {
       ) as $k => $v
     ) $this->{$k} = $v;
     $this->hkp_uri = $request->server->get('REQUEST_URI');
+    
+    self::$instance = $this;
   }
 }
