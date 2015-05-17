@@ -6,7 +6,7 @@ class Config {
   
   public static $instance;
 
-  public static function getInstance($request = NULL) {
+  public static function getInstance(Request $request = NULL) {
     if (self::$instance === NULL)
       self::$instance = new self($request);
     return self::$instance;
