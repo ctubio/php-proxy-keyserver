@@ -1,6 +1,6 @@
 These sources are happy serving public keys at http://pgp.key-server.io
 
-How to run your very own keyserver behind a php proxy to extend the web interface:
+How to run your own Keyserver with PHP and friends:
   $ # Check the latest sks version:
   $ curl https://bitbucket.org/skskeyserver/sks-keyserver/raw/default/VERSION
   $ # Check the available sks versions in your sources:
@@ -22,6 +22,7 @@ How to run your very own keyserver behind a php proxy to extend the web interfac
   $ git clone ssh://git@github.com/ctubio/php-proxy-sks your.domain.name
   $ cd your.domain.name
   $ composer install
+  $ vim etc/php-proxy-sks.ini
   
   $ echo "Set ${PWD}/pub as the DocumentRoot of your domain in your webserver configs." 
   $ # Validate if your website can search/retrieve/submit pgp public keys.

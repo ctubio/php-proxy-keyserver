@@ -12,7 +12,7 @@ class Keyserver {
     );
 
     $response = (isset($_GET['errno']))
-      ? new Response(NULL, $_GET['errno'], array('content-type' => 'text/html'))
+      ? new Response(NULL, (int)$_GET['errno'], array('Content-Type' => 'text/html'))
       : Factory::forward($request)->to(
           'http://'.$config->hkp_addr.':'.$config->hkp_port
           .$config->hkp_uri

@@ -1,6 +1,5 @@
 <?php namespace PhpProxySks;
 
-use PhpProxySks\Config;
 use Symfony\Component\HttpFoundation\Request;
 
 class Config {
