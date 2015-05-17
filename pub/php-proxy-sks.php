@@ -27,9 +27,8 @@ if (
  ) !== '200'
  and is_numeric($errno)
  and is_readable($error = realpath($errno.'.html'))
-) {
+)
   $response->setContent(file_get_contents($error));
-}
 
 $response->send();
 
