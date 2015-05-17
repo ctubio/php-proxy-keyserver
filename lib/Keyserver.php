@@ -23,19 +23,10 @@ class Keyserver {
      ) !== 200)
       $response->setContent(
         (is_readable($error = realpath('../lib/phtml/'.$errno.'.phtml')))
-          ? self::parsePhtml($error)
+          ? Phtml::parse($error)
           : 'Errno: '.$errno
       );
 
     return $response;
-  }
-
-  public static function parsePhtml($phtml) {
-    if (!is_readable($phtml))
-      return NULL;
-    $config = Config::getInstance();
-    ob_start();
-    include($phtml);
-    return ob_get_clean();
   }
 }
