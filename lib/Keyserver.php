@@ -16,20 +16,15 @@ class Keyserver {
     $response = $errno
       ? new Response(NULL, $errno, array('Content-Type' => 'text/html'))
       : ($config->is_hkp_uri
-          ? Factory::forward($request)->to(
-              'http://'.$config->hkp_addr.':'.$config->hkp_port
-              .$config->uri
-            )
-          : new Response(
-              Phtml::parse($config->uri),
-              Response::HTTP_OK,
-              array('Content-Type' => 'text/html')
-            )
+          ? Phtml::wrapContent(Factory::forward($request)->to(
+              'http://'.$config->hkp_addr.':'.$config->hkp_port.$config->uri
+            ))
+          : Phtml::setContent(new Response, $config->uri)
         );
 
     if (($errno = ($errno ?: (int)$response->getStatusCode())) !== 200)
-      $response->setContent(Phtml::parse($errno));
-    
+      $response = Phtml::setContent($response, '/errno/'.$errno);
+
     return $response;
   }
 }

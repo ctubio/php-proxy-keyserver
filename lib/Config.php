@@ -26,14 +26,8 @@ class Config {
       ) as $k => $v
     ) $this->{$k} = $v;
     
-    $this->is_hkp_uri = !!(
-      $this->hkp_uri = $request->query->get('HKP_REQUEST_URI')
-    );
-    $this->uri = $request->server->get('REQUEST_URI');
-    if (!$this->is_hkp_uri) {
-      $this->uri = preg_replace('/^\//', '', $request->query->get('REQUEST_URI'));
-      if (!$this->uri) $this->uri = 'index';
-    }
+    $this->is_hkp_uri = !!$request->query->get('HKP_REQUEST_URI');
+    $this->uri = preg_replace('/^\/$/', '/index', $request->server->get('REQUEST_URI'));
     
     self::$instance = $this;
   }

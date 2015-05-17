@@ -10,6 +10,6 @@ RewriteBase /
 RewriteCond %{REQUEST_URI} ^\/pks/.*$ [NC]
 RewriteRule ^(.*)$ php-proxy-sks.php?HKP_REQUEST_URI=$1 [L]
 
-RewriteCond %{REQUEST_URI} ^\/faq$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^\/doc/faq$ [NC,OR]
 RewriteCond %{REQUEST_URI} ^\/$ [NC]
-RewriteRule ^(.*)$ php-proxy-sks.php?REQUEST_URI=$1 [L]
+RewriteRule ^(.*)$ php-proxy-sks.php [L]
