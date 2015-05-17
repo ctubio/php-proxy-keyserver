@@ -1,7 +1,7 @@
 {
   "packages": {
     "ctubio/php-proxy-sks": {
-      "master": { @composer.json }
+      "master": { "@composer.json" }
     }
   }
 }
