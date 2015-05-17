@@ -20,10 +20,5 @@
   }],
   "require": {
     "jenssegers/proxy": "2.*"
-  },
-  "autoload": {
-    "psr-4": {
-      "": "src/"
-    }
   }
 }
