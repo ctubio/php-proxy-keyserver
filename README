@@ -1,12 +1,31 @@
 These sources are happy serving public keys at http://pgp.key-server.io
 
-How to install on your own server:
-  $ cd ~/www 2>&1 || cd /var/www 
+How to run your very own keyserver behind a php proxy to extend the web interface:
+  $ # Check the latest sks version:
+  $ curl https://bitbucket.org/skskeyserver/sks-keyserver/raw/default/VERSION
+  $ # Check the available sks versions in your sources:
+  $ apt-cache policy sks
+  $ # Check your current sks version:
+  $ sks version
+  $ # Decide if you wanna download and compile the latest sks version.
+  
+  $ # Check if your keyserver is up and running:
+  $ netstat -l | grep hkp
+  $ # If you dont see any output, please configure and run the keyserver: man sks.
+  
+  $ # Check if your webserver is up and running:
+  $ netstat -l | grep http
+  $ # If you dont see any output, please install and run the webserver (apache2 maybe?).
+  
+  $ # Download and install the php proxy with a basic web interface:
+  $ cd /var/www 
   $ git clone ssh://git@github.com/ctubio/php-proxy-sks your.domain.name
   $ cd your.domain.name
   $ composer install
-  $ echo "Please, point your DocumentRoot to /pub."
-  $ vim httpd.conf
+  
+  $ echo "Set ${PWD}/pub as the DocumentRoot of your domain in your webserver configs." 
+  $ # Validate if your website is working as expected (can you search/retrieve/submit keys?).
+  $ # Please, feel free to extend as you need the web interface!
 
 Very special thanks to:
   https://keyserver.mattrude.com
