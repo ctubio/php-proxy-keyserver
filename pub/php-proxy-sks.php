@@ -2,7 +2,7 @@
 use Proxy\Factory;
 use Symfony\Component\HttpFoundation\Request;
 
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
 $request = Request::createFromGlobals();
 
