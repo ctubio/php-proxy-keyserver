@@ -9,7 +9,8 @@ $request = Request::createFromGlobals();
 $config = (object)array_merge(
   array(
     'hkp_port' => '11371',
-    'hkp_addr' => $request->server->get('SERVER_ADDR')
+    'hkp_addr' => $request->server->get('SERVER_ADDR'),
+    'hostname' => $request->server->get('SERVER_NAME')
   ),
   parse_ini_file(realpath('../etc/php-proxy-sks.ini'))
 );
