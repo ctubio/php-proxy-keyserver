@@ -3,6 +3,8 @@
 use Proxy\Factory;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use PhpProxySks\Keyserver\Config;
+use PhpProxySks\Keyserver\Phtml;
 
 class Keyserver {
   public static function getResponse() {

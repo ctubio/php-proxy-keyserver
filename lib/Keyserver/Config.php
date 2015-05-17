@@ -1,4 +1,4 @@
-<?php namespace PhpProxySks;
+<?php namespace PhpProxySks\Keyserver;
 
 use Symfony\Component\HttpFoundation\Request;
 
