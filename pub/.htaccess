@@ -1,4 +1,4 @@
-ErrorDocument 404 /php-proxy-sks?errno=404
+ErrorDocument 404 /php-proxy-sks.php?errno=404
 RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_URI} ^\/pks/.*$ [NC]

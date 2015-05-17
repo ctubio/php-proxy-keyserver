@@ -20,5 +20,10 @@
   }],
   "require": {
     "jenssegers/proxy": "2.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "PhpProxySks\\": "lib/"
+    }
   }
 }
