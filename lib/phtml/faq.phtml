@@ -1,6 +1,6 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>PGP Key Server -- Frequently Asked Questions</title>
 
-</head><body><h1>PGP Public Key Server</h1>
+</head><body><h1><?php echo $config->html_title ?></h1>
 
 <h3>Frequently Asked Questions</h3>
 
@@ -71,9 +71,11 @@ already answered below.
 
 <hr>
 
+
 <address>
-Please send bug reports or problem reports to 
-<a href="mailto:bug-pks@pgpkeys.io" onclick="window.open(&#39;https://mail.google.com/mail/?view=cm&amp;tf=1&amp;to=bug-pks@pgpkeys.io&amp;cc=&amp;bcc=&amp;su=&amp;body=&#39;,&#39;_blank&#39;);return false;">&lt;bug-pks@pgpkeys.io&gt;</a><br>
+Please send bug reports to
+<a href="mailto:<?php echo $config->contact_email ?>">&lt;<?php echo $config->contact_email ?>&gt;</a>
+only after reading the <a href="/faq">FAQ</a>.
 </address>
 
 

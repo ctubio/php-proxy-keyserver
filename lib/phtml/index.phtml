@@ -1,9 +1,8 @@
-<?xml version="1.0"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>PGP Public Key Server</title>
+    <title><?php echo $config->html_title ?></title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
   </head>
   <body>
@@ -82,7 +81,7 @@
       <h2>
         <a id="remove" name="remove">Remove a key</a>
       </h2>
-      <form action="/faq.html">
+      <form action="/faq">
         <p>Search String:
         <input name="search" size="45" />
         <input type="submit" value="Remove my key!" />
@@ -91,8 +90,8 @@
       <hr />
       <address>
       Please send bug reports to
-      <a href="mailto:carles.tubio@pgpkeys.io">&lt;carles.tubio@pgpkeys.io&gt;</a>
-      only after reading the <a href="/faq.html">FAQ</a>.
+      <a href="mailto:<?php echo $config->contact_email ?>">&lt;<?php echo $config->contact_email ?>&gt;</a>
+      only after reading the <a href="/faq">FAQ</a>.
       </address>
     </div>
   </body>

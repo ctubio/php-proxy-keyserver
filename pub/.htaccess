@@ -1,5 +1,15 @@
-ErrorDocument 404 /php-proxy-sks.php?errno=404
+ErrorDocument 404 /php-proxy-sks.php?ERRNO=404
+ErrorDocument 401 /php-proxy-sks.php?ERRNO=401
+ErrorDocument 403 /php-proxy-sks.php?ERRNO=403
+ErrorDocument 500 /php-proxy-sks.php?ERRNO=500
+
 RewriteEngine On
+
 RewriteBase /
+
 RewriteCond %{REQUEST_URI} ^\/pks/.*$ [NC]
-RewriteRule ^.*$ php-proxy-sks.php [L]
+RewriteRule ^(.*)$ php-proxy-sks.php?HKP_REQUEST_URI=$1 [L]
+
+RewriteCond %{REQUEST_URI} ^\/faq$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^\/$ [NC]
+RewriteRule ^(.*)$ php-proxy-sks.php?REQUEST_URI=$1 [L]

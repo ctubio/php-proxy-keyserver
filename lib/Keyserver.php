@@ -10,23 +10,26 @@ class Keyserver {
       $request = Request::createFromGlobals()
     );
 
-    $response = (isset($_GET['errno']))
-      ? new Response(NULL, (int)$_GET['errno'], array('Content-Type' => 'text/html'))
-      : Factory::forward($request)->to(
-          'http://'.$config->hkp_addr.':'.$config->hkp_port
-          .$config->hkp_uri
+    $errno = (isset($_GET['ERRNO']) and !empty($_GET['ERRNO']))
+      ? (int)$_GET['ERRNO'] : FALSE;
+
+    $response = $errno
+      ? new Response(NULL, $errno, array('Content-Type' => 'text/html'))
+      : ($config->is_hkp_uri
+          ? Factory::forward($request)->to(
+              'http://'.$config->hkp_addr.':'.$config->hkp_port
+              .$config->uri
+            )
+          : new Response(
+              Phtml::parse($config->uri),
+              Response::HTTP_OK,
+              array('Content-Type' => 'text/html')
+            )
         );
 
-    if (($errno = isset($_GET['errno'])
-       ? (int)$_GET['errno']
-       : (int)$response->getStatusCode()
-     ) !== 200)
-      $response->setContent(
-        (is_readable($error = realpath('../lib/phtml/'.$errno.'.phtml')))
-          ? Phtml::parse($error)
-          : 'Errno: '.$errno
-      );
-
+    if (($errno = ($errno ?: (int)$response->getStatusCode())) !== 200)
+      $response->setContent(Phtml::parse($errno));
+    
     return $response;
   }
 }
