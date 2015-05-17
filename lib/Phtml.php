@@ -12,10 +12,10 @@ class Phtml {
   }
   
   public static function setContent(Response $response, $phtml) {
-    if (!is_readable($file = realpath('../phtml'.$phtml.'.phtml')))
+    $config = Config::getInstance();
+    if (!is_readable($file = realpath('../skin/'.$config->html_skin.$phtml.'.phtml')))
       $content = 'Err'.(is_numeric(basename($phtml))?'no':'or').': '.$phtml;
     else {
-      $config = Config::getInstance();
       ob_start();
       include($file);
       $content = ob_get_clean();

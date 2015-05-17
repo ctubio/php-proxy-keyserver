@@ -20,6 +20,7 @@ class Config {
           'hkp_addr' => $request->server->get('SERVER_ADDR'),
           'hostname' => $request->server->get('SERVER_NAME'),
           'html_title' => 'PGP Public Key Server',
+          'html_skin' => 'default',
           'contact_email' => 'bugs@'.$request->server->get('SERVER_NAME')
         ),
         parse_ini_file(realpath('../etc/php-proxy-sks.ini'))
