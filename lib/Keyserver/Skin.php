@@ -8,16 +8,12 @@ class Skin {
   public static function wrapContent(Response $response, $forcedContent = FALSE) {
     $response->headers->set('Content-Type', 'text/html');
     
-    if ($forcedContent)
-      $response->setContent($forcedContent);
+    if ($forcedContent) $response->setContent($forcedContent);
     
     return $response;
   }
 
   public static function getContent(Response $response, $phtml) {
-    return self::wrapContent(
-      $response,
-      (string)new Phtml($phtml)
-    );
+    return self::wrapContent($response, (string)new Phtml($phtml));
   }
 }
