@@ -26,7 +26,7 @@ How to run your own Keyserver with PHP and friends:
   
   $ echo "Set ${PWD}/pub as the DocumentRoot of your domain in your webserver configs." 
   $ # Validate if your website can search/retrieve/submit pgp public keys.
-  $ # Please, feel free to extend as you need the web interface!
+  $ # Please, feel free to extend or customize as you need the web interface!
 
 Very special thanks to:
   https://keyserver.mattrude.com
