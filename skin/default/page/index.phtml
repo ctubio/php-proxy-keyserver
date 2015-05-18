@@ -1,7 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
+<?php echo $this->getBlock('header'); ?>
     <title><?php echo $this->getConfig('html_title') ?></title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
   </head>
@@ -13,7 +10,7 @@
       </a>
     </div>
     <div id="content" style="width:640px;margin:0px auto;">
-      <h1>PGP Public Key Server</h1>
+      <h1><?php echo $this->getConfig('html_title') ?></h1>
       <hr />
       <h2>
         <a id="extract" name="extract">Extract a Key</a>
@@ -24,44 +21,60 @@
           <input name="search" size="45" value="" />
           <input type="submit" value="Search!" />
         </p>
-        <p>
-          <table>
-            <tr>
-              <td>
-                <input type="checkbox" name="op" value="vindex" checked="checked" />
-                Show verbose output
-              </td>
-              <td>
-              </td>
-              <td>
-                <input type="checkbox" name="exact" />
-                Only return exact matches
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <input type="checkbox" name="fingerprint" checked="checked" />
-                Show PGP fingerprints
-              </td>
-              <td>
-              </td>
-              <td>
-                <input type="checkbox" name="hash" />
-                Show full-key hashes
-              </td>
-            </tr>
-            <tr>
-              <td>
-              </td>
-              <td>
-              </td>
-              <td>
-                <input type="checkbox" name="options" value="mr" />
-                Show machine readable output
-              </td>
-            </tr>
-          </table>
-        </p>
+        <table>
+          <tr>
+            <td>
+              <input type="checkbox" name="fingerprint" checked="checked" />
+              Show PGP fingerprints
+            </td>
+            <td>
+            </td>
+            <td>
+              <input type="radio" name="op" value="vindex" checked="checked" />
+              Show verbose output
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" name="hash" />
+              Show full-key hashes
+            </td>
+            <td>
+            </td>
+            <td>
+              <input type="radio" name="op" value="index" />
+              Show regular output
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="checkbox" name="options" value="mr" />
+              Show machine readable output
+            </td>
+            <td>
+            </td>
+            <td>
+              <input type="radio" name="op" value="get" />
+              <span style="display:none;">Download</span>
+              <span>Show</span>
+              ASCII-armored keys
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <input type="checkbox" name="exact" />
+              Only return exact matches
+            </td>
+          </tr>
+        </table>
+        <script type="text/javascript">
+          $(document).ready(function(){
+            $('input[value="mr"]').change(function(){
+              $('input[value="get"]').next()[$(this).is(':checked')?'show':'hide']();
+              $('input[value="get"]').next().next()[$(this).is(':checked')?'hide':'show']();
+            }).change();
+          });
+        </script>
       </form>
       <hr />
       <h2>

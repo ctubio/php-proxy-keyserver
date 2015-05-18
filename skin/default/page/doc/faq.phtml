@@ -1,73 +1,63 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>PGP Key Server -- Frequently Asked Questions</title>
-
-</head><body><h1><?php echo $this->getConfig('html_title') ?></h1>
-
-<h3>Frequently Asked Questions</h3>
-
-Before you send mail with a question, please check that it isn't
-already answered below.
-<p>
-
-</p><ol>
-  <li> <h4>Can you delete my key from the key server?</h4>
-
-  No, we cannot remove your key from the key server.  When you submit
-  a key to our key server the key is also forwarded to other key
-  servers around the world, and they in turn forward the key to still
-  other servers.  Deleting the key from our server would not cause it
-  to be deleted from any of the other servers in the world and so this
-  is not an effective way to ensure the discontinued use of your key.
-
-  </li><li> <h4>So, you can't delete my key, is there <em>anything</em> I
-  can do?</h4>
-
-  If you still have the private key, you can use your PGP software to
-  generate a revocation certificate, and upload that to the keyserver.
-  The exact procedure for generating a revocation certificate varies
-  depending on what PGP software you are using, please consult the
-  documentation for more information.  This will not delete your key
-  from the key server, but it will tell people who download it that
-  the key has been revoked, and should not be used.
-
-  </li><li> <h4>But the reason I want to delete my key from the keyserver
-  is that I lost the private key (so I can't generate a revocation
-  certificate), can you please delete my key for me?</h4>
-
-  No.
-
-  </li><li> <h4>Can I delete old email addresses / IDs from my key on the
-  keyserver?</h4>
-
-  No, For the same reasons you can't delete a key.
-
-  </li><li> <h4>I'm having trouble submitting my key with a photo to the
-  keyserver, any idea what the problem is?</h4>
-
-  <em>This problem should now be fixed.</em>
-
-  </li><li> <h4>I think spammers got my email address from the PGP
-  keyserver.  What can I do?</h4>
-
-  Yes, there have been reports of spammers harvesting addresses from
-  PGP keyservers.  Unfortunately, there is not much that either we or
-  you can do about this.  Our best suggestion is you take advantage of
-  any spam filtering technology offered by your ISP.
-
-  </li><li> <h4>I get a "Malformed Key" error when trying to upload a
-  revocation certificate.  Why doesn't this work?</h4>
-
-  Try applying the revocation certificate to your local key-ring and
-  then re-uploading your key to the keyserver.
-
-  </li><li> <h4>I can't look up keys on the keyserver, and may be seeing the
-  error "connection timed out."  However, I can read this FAQ.</h4>
-
-  The usual cause for this is that your machine is behind a firewall
-  that is blocking traffic (on port 11371) to the keyserver, and are
-  using an older cached URL.  Please remove the ":11371" from the URL
-  and try again.
-
-</li></ol>
+<?php echo $this->getBlock('header'); ?>
+    <title><?php echo $this->getConfig('html_title') ?> -- Frequently Asked Questions</title>
+  </head>
+  <body>
+    <div id="gnulinux-inside" style="position: absolute; top: 0px; right: 0px;">
+      <a href="https://www.gnu.org/philosophy/#mission-statement">
+        <img src="https://www.gnu.org/graphics/gnu-inside.png"
+          alt="GNU/Linux Inside!" title="GNU/Linux Inside!" />
+      </a>
+    </div>
+    <div id="content" style="width:640px;margin:0px auto;">
+      <h1><?php echo $this->getConfig('html_title') ?></h1>
+      <h3>Frequently Asked Questions</h3>
+      <p>
+      Before you send mail with a question, please check that it isn't
+      already answered below.
+      </p>
+      <ol>
+        <li> <h4>Can you delete my key from the key server?</h4>
+        No, we cannot remove your key from the key server.  When you submit
+        a key to our key server the key is also forwarded to other key
+        servers around the world, and they in turn forward the key to still
+        other servers.  Deleting the key from our server would not cause it
+        to be deleted from any of the other servers in the world and so this
+        is not an effective way to ensure the discontinued use of your key.
+        </li><li> <h4>So, you can't delete my key, is there <em>anything</em> I
+        can do?</h4>
+        If you still have the private key, you can use your PGP software to
+        generate a revocation certificate, and upload that to the keyserver.
+        The exact procedure for generating a revocation certificate varies
+        depending on what PGP software you are using, please consult the
+        documentation for more information.  This will not delete your key
+        from the key server, but it will tell people who download it that
+        the key has been revoked, and should not be used.
+        </li><li> <h4>But the reason I want to delete my key from the keyserver
+        is that I lost the private key (so I can't generate a revocation
+        certificate), can you please delete my key for me?</h4>
+        No.
+        </li><li> <h4>Can I delete old email addresses / IDs from my key on the
+        keyserver?</h4>
+        No, For the same reasons you can't delete a key.
+        </li><li> <h4>I'm having trouble submitting my key with a photo to the
+        keyserver, any idea what the problem is?</h4>
+        <em>This problem should now be fixed.</em>
+        </li><li> <h4>I think spammers got my email address from the PGP
+        keyserver.  What can I do?</h4>
+        Yes, there have been reports of spammers harvesting addresses from
+        PGP keyservers.  Unfortunately, there is not much that either we or
+        you can do about this.  Our best suggestion is you take advantage of
+        any spam filtering technology offered by your ISP.
+        </li><li> <h4>I get a "Malformed Key" error when trying to upload a
+        revocation certificate.  Why doesn't this work?</h4>
+        Try applying the revocation certificate to your local key-ring and
+        then re-uploading your key to the keyserver.
+        </li><li> <h4>I can't look up keys on the keyserver, and may be seeing the
+        error "connection timed out."  However, I can read this FAQ.</h4>
+        The usual cause for this is that your machine is behind a firewall
+        that is blocking traffic (on port 11371) to the keyserver, and are
+        using an older cached URL.  Please remove the ":11371" from the URL
+        and try again.
+        </li>
+      </ol>
 <?php echo $this->getBlock('footer'); ?>
-
-
