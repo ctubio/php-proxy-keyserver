@@ -26,10 +26,15 @@ class Config {
         parse_ini_file(realpath('../etc/php-proxy-sks.ini'))
       ) as $k => $v
     ) $this->{$k} = $v;
-    
-    $this->is_hkp_uri = !!$request->query->get('HKP_REQUEST_URI');
-    $this->uri = preg_replace('/^\/$/', '/index', $request->server->get('REQUEST_URI'));
-    
+
+    $this->is_hkp_request_uri = !!$request->query->get('HKP_REQUEST_URI');
+
+    $this->request_uri = preg_replace('/^\/$/', '/index',
+      $request->server->get('REQUEST_URI')
+    );
+
+    $this->request_errno = (int)$request->query->get('ERRNO');
+
     self::$instance = $this;
   }
 }
