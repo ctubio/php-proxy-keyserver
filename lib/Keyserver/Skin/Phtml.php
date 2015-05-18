@@ -22,20 +22,22 @@ class Phtml {
   }
   
   private function getBlock($phtml) {
-    if (is_readable($file = realpath(
+    if (!is_readable($file = realpath(
       $path = $this->getSkinPath().'/block/'.$phtml.'.phtml'
     )))
-      return $this->parsePhtml($file);
-    else throw Exception('Unknown block: "'.$path.'".');
+      throw new \Exception('Unknown block: "'.$path.'".');
+    return $this->parsePhtml($file);
   }
   
   private function getConfig($key) {
-    if (property_exists($config = Keyserver::getConfig(), $key))
-      return $config->{$key};
-    else throw Exception('Unknown config: "'.$key.'".');
+    if (!property_exists($config = Keyserver::getConfig(), $key))
+      throw new \Exception('Unknown config: "'.$key.'".');
+    return $config->{$key};
   }
   
   private function parsePhtml($file) {
+    if (strpos(realpath($file), realpath($this->getSkinPath()))!==0)
+      throw new \Exception('Unknown skin path: '.$file.'.');
     ob_start();
     include($file);
     return ob_get_clean();
