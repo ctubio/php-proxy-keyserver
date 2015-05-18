@@ -4,12 +4,8 @@ ErrorDocument 403 /php-proxy-sks.php?ERRNO=403
 ErrorDocument 500 /php-proxy-sks.php?ERRNO=500
 
 RewriteEngine On
-
 RewriteBase /
-
-RewriteCond %{REQUEST_URI} ^\/pks/.*$ [NC]
-RewriteRule ^(.*)$ php-proxy-sks.php?HKP_REQUEST_URI=$1 [L]
-
+RewriteCond %{REQUEST_URI} ^\/pks/.*$ [NC,OR]
 RewriteCond %{REQUEST_URI} ^\/doc/faq$ [NC,OR]
 RewriteCond %{REQUEST_URI} ^\/$ [NC]
 RewriteRule ^(.*)$ php-proxy-sks.php [L]

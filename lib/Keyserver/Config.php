@@ -1,14 +1,15 @@
 <?php namespace PhpProxySks\Keyserver;
 
+use PhpProxySks\Keyserver;
 use Symfony\Component\HttpFoundation\Request;
 
 class Config {
 
   public static $instance;
 
-  public static function getInstance(Request $request = NULL) {
+  public static function getInstance() {
     if (self::$instance === NULL)
-      self::$instance = new self($request);
+      self::$instance = new self(Keyserver::getRequest());
     return self::$instance;
   }
 
@@ -26,14 +27,6 @@ class Config {
         parse_ini_file(realpath('../etc/php-proxy-sks.ini'))
       ) as $k => $v
     ) $this->{$k} = $v;
-
-    $this->is_hkp_request_uri = !!$request->query->get('HKP_REQUEST_URI');
-
-    $this->request_uri = preg_replace('/^\/$/', '/index',
-      $request->server->get('REQUEST_URI')
-    );
-
-    $this->request_errno = (int)$request->query->get('ERRNO');
 
     self::$instance = $this;
   }

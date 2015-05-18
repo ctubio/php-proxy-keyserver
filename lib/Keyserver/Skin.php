@@ -1,48 +1,30 @@
 <?php namespace PhpProxySks\Keyserver;
 
-use Proxy\Factory;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use PhpProxySks\Keyserver;
 use PhpProxySks\Keyserver\Config;
+use Symfony\Component\HttpFoundation\Response;
 
 class Skin {
 
-  public static function makeResponse(Config $config, Request $request) {
-    $response = $config->request_errno
-      ? new Response(NULL, $config->request_errno)
-      : ($config->is_hkp_request_uri
-          ? self::wrapContent(Factory::forward($request)->to(
-              'http://'.$config->hkp_addr.':'.$config->hkp_port
-              .$config->request_uri
-            ))
-          : self::setContent(new Response, $config->request_uri)
-        );
-
-    if (($config->request_errno = (
-      $config->request_errno ?: (int)$response->getStatusCode()
-    )) !== 200)
-      $response = self::setContent($response, '/errno/'.$config->request_errno);
-
-    return $response;
-  }
-
-  public static function wrapContent(Response $response, $content = NULL) {
+  public static function wrapContent(Response $response, $setContent = FALSE) {
     $response->headers->set('Content-Type', 'text/html');
-    if (!is_null($content))
-      $response->setContent($content);
+    
+    if ($setContent) $response->setContent($setContent);
+    
     return $response;
   }
 
   public static function setContent(Response $response, $phtml) {
-    $config = Config::getInstance();
+    $config = Keyserver::getConfig();
 
-    if (!is_readable($file = realpath('../skin/'.$config->html_skin.$phtml.'.phtml')))
-      $content = 'Err'.(is_numeric(basename($phtml))?'no':'or').': '.$phtml;
-    else {
+    if (is_readable(
+      $file = realpath('../skin/'.$config->html_skin.$phtml.'.phtml')
+    )) {
       ob_start();
       include($file);
       $content = ob_get_clean();
-    }
+    } else
+      $content = 'Err'.(is_numeric(basename($phtml))?'no':'or').': '.$phtml;
 
     return self::wrapContent($response, $content);
   }

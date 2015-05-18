@@ -19,6 +19,7 @@
     "type": "git"
   }],
   "require": {
+    "php": "~5.3",
     "jenssegers/proxy": "2.*"
   },
   "autoload": {
