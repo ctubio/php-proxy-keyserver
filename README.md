@@ -43,4 +43,4 @@ These sources are happy serving public keys at http://pgp.key-server.io
 - https://pgp.mit.edu
 - https://bitbucket.org/skskeyserver/sks-keyserver
 - https://github.com/jenssegers/php-proxy
-  https://getcomposer.org/
+- https://getcomposer.org/
