@@ -1,6 +1,6 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>PGP Key Server -- Frequently Asked Questions</title>
 
-</head><body><h1><?php echo $config->html_title ?></h1>
+</head><body><h1><?php echo $this->get('html_title') ?></h1>
 
 <h3>Frequently Asked Questions</h3>
 
@@ -68,18 +68,6 @@ already answered below.
   and try again.
 
 </li></ol>
-
-<hr>
-
-
-<address>
-Please send bug reports to
-<a href="mailto:<?php echo $config->contact_email ?>">&lt;<?php echo $config->contact_email ?>&gt;</a>
-only after reading the <a href="/doc/faq">FAQ</a>.
-</address>
+<?php echo $this->getBlock('footer'); ?>
 
 
-
-
-
-</body></html>

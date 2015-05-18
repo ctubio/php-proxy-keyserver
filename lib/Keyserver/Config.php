@@ -18,7 +18,7 @@ class Config {
       array_merge(
         array(
           'hkp_port' => '11371',
-          'hkp_addr' => $request->server->get('SERVER_ADDR'),
+          'hkp_addr' => '127.0.0.1',
           'hostname' => $request->server->get('SERVER_NAME'),
           'html_title' => 'PGP Public Key Server',
           'html_skin' => 'default',

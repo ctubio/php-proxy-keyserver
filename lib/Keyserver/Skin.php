@@ -1,31 +1,23 @@
 <?php namespace PhpProxySks\Keyserver;
 
-use PhpProxySks\Keyserver;
-use PhpProxySks\Keyserver\Config;
+use PhpProxySks\Keyserver\Skin\Phtml;
 use Symfony\Component\HttpFoundation\Response;
 
 class Skin {
 
-  public static function wrapContent(Response $response, $setContent = FALSE) {
+  public static function wrapContent(Response $response, $forcedContent = FALSE) {
     $response->headers->set('Content-Type', 'text/html');
     
-    if ($setContent) $response->setContent($setContent);
+    if ($forcedContent)
+      $response->setContent($forcedContent);
     
     return $response;
   }
 
-  public static function setContent(Response $response, $phtml) {
-    $config = Keyserver::getConfig();
-
-    if (is_readable(
-      $file = realpath('../skin/'.$config->html_skin.$phtml.'.phtml')
-    )) {
-      ob_start();
-      include($file);
-      $content = ob_get_clean();
-    } else
-      $content = 'Err'.(is_numeric(basename($phtml))?'no':'or').': '.$phtml;
-
-    return self::wrapContent($response, $content);
+  public static function getContent(Response $response, $phtml) {
+    return self::wrapContent(
+      $response,
+      (string)new Phtml($phtml)
+    );
   }
 }
