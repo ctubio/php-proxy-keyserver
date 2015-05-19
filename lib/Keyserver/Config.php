@@ -22,7 +22,9 @@ class Config {
           'hostname' => $request->server->get('SERVER_NAME'),
           'html_title' => 'PGP Public Key Server',
           'html_skin' => 'default',
-          'contact_email' => 'bugs@'.$request->server->get('SERVER_NAME')
+          'contact_email' => 'bugs@'.$request->server->get('SERVER_NAME'),
+          'debug_mode' => 0,
+          'use_skin_layout_in_errors' => 0
         ),
         parse_ini_file(realpath('../etc/php-proxy-sks.ini'))
       ) as $k => $v

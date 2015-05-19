@@ -1,0 +1,54 @@
+    <style>
+      *::selection {
+        background-color: transparent;
+        color: yellow;
+      }
+      body {
+        font-family: 'Press Start 2P';
+        font-size:16px;
+        background-color:black;
+        color: #70AF00;
+      }
+      #table-container {
+        height:100%;
+        width:100%;
+        display:table;
+      }
+      #table-cell {
+        vertical-align:middle;
+        text-align:center;
+        height:100%;
+        display:table-cell;
+      }
+      h1 {
+        font-size:44px;
+        font-weight:600;
+        display:inline;
+      }
+      table {
+        margin:0px auto;
+      }
+      table span {
+        font-size:79%;
+      }
+    </style>
+    <link href='//fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+      <div id="table-container">
+        <div id="table-cell">
+          <svg xmlns="//www.w3.org/2000/svg"
+            width="500" height="257" text-anchor="middle">
+            <text x="260" y="222" font-size="160" font-weight="600">
+              <animate attributeType="XML" attributeName="fill"
+                from="white" to="black" dur="0.1s" repeatCount="indefinite"/>
+              404
+            </text>
+          </svg>
+          <br />
+          <table>
+            <tr>
+              <td><span>Hint!</span><br />goto:</td>
+              <td><h1><?php echo $this->getConfig('hostname') ?><h1></td>
+            </tr>
+          </table>
+        </div>
+      </div>

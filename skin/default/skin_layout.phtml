@@ -1,0 +1,10 @@
+<?php echo $this->getBlock('header'); ?>
+    <title><?php echo $this->getConfig('html_title') ?> -- Frequently Asked Questions</title>
+  </head>
+  <body>
+    <?php echo $this->getBlock('gnu_inside'); ?>
+    <div id="content" style="width:640px;margin:0px auto;">
+      <h1><?php echo $this->getConfig('html_title') ?></h1>
+      <hr />
+    <?php echo $this->getPage(); ?>
+<?php echo $this->getBlock('footer'); ?>
