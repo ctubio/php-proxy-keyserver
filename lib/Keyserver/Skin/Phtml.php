@@ -16,7 +16,7 @@ class Phtml {
       return $this->_parsePhtml($this->_getSkinPath().((
         strpos($this->_page, '/errors/')===0
         and !Keyserver::getConfig()->layout_404
-      ) ? $this->_page : '/skin_layout' ).'.phtml');
+      ) ? '/plain_'.ltrim($this->_page,'/') : '/skin_layout' ).'.phtml');
     } catch (\Exception $e) {
       Log::catchError($e);
       return "";
