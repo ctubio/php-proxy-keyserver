@@ -16,11 +16,11 @@ class Router {
           ? Skin::wrapContent(Factory::forward(Keyserver::getRequest())->to(
               'http://'.$config->hkp_addr.':'.$config->hkp_port.$uri
             ))
-          : Skin::getPage(new Response(), $uri)
+          : Skin::getPhtml(new Response(), '/pages'.$uri)
         );
 
     if (($errno = ($errno ?: (int)$response->getStatusCode())) !== 200)
-      $response = Skin::getError($response, $errno);
+      $response = Skin::getPhtml($response, '/errors/'.$errno);
 
     return $response;
   }

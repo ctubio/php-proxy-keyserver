@@ -13,11 +13,7 @@ class Skin {
     return $response;
   }
   
-  public static function getPage(Response $response, $phtml) {
-    return self::wrapContent($response, (string)new Phtml('/pages'.$phtml));
-  }
-
-  public static function getError(Response $response, $phtml) {
-    return self::getPage($response, '/errors/'.$phtml);
+  public static function getPhtml(Response $response, $phtml) {
+    return self::wrapContent($response, (string)new Phtml($phtml));
   }
 }
