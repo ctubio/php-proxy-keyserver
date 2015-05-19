@@ -36,7 +36,7 @@ These sources are happy serving public keys at http://pgp.key-server.io
   
   $ echo "Set ${PWD}/pub as the DocumentRoot of your domain in your webserver configs." 
   $ # ProxyPass doesn't need to be configured because PHP supplies the proxy.
-  $ # Validate if your website can search/retrieve/submit pgp public keys.
+  $ # Just validate if your website can search/retrieve/submit pgp public keys.
   $ # Please, feel free to extend or customize as you need the web interface!
 ```
 ### Very special thanks to:
