@@ -16,6 +16,5 @@ class Log {
     @file_put_contents($path, $error.PHP_EOL
       .(file_exists($path)?@file_get_contents($path):NULL)
     );
-    @header('Location:/error');
   }
 }
