@@ -3,12 +3,7 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
   </head>
   <body>
-    <div id="gnulinux-inside" style="position: absolute; top: 0px; right: 0px;">
-      <a href="https://www.gnu.org/philosophy/#mission-statement">
-        <img src="https://www.gnu.org/graphics/gnu-inside.png"
-          alt="GNU/Linux Inside!" title="GNU/Linux Inside!" />
-      </a>
-    </div>
+    <?php echo $this->getBlock('gnu_inside'); ?>
     <div id="content" style="width:640px;margin:0px auto;">
       <h1><?php echo $this->getConfig('html_title') ?></h1>
       <hr />
