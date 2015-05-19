@@ -23,7 +23,7 @@ class Phtml {
   
   private function getBlock($phtml) {
     if (!is_readable($file = realpath(
-      $path = $this->getSkinPath().'/block/'.$phtml.'.phtml'
+      $path = $this->getSkinPath().'/blocks/'.$phtml.'.phtml'
     )))
       throw new \Exception('Unknown block: "'.$path.'".');
     return $this->parsePhtml($file);

@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title><?php echo $this->get('html_title') ?></title>
+    <title><?php echo $this->getConfig('html_title') ?></title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
     <style>
       *::selection {
@@ -61,7 +61,7 @@
           <table>
             <tr>
               <td><span>Hint!</span><br />goto:</td>
-              <td><h1><?php echo $this->get('hostname') ?><h1></td>
+              <td><h1><?php echo $this->getConfig('hostname') ?><h1></td>
             </tr>
           </table>
         </div>
