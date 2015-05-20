@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class Skin {
 
-  public static function setContent(Response $response, $content = FALSE) {
+  public static function parseContent(Response $response, $content = FALSE) {
     if (!$content) $content = $response->getContent($content);
     $content = utf8_encode($content);
     
@@ -19,8 +19,8 @@ class Skin {
     return $response->setContent($content);
   }
   
-  public static function getPhtml(Response $response, $phtml) {
-    return self::setContent($response, (string)new Phtml($phtml));
+  public static function parsePhtml(Response $response, $phtml) {
+    return self::parseContent($response, (string)new Phtml($phtml));
   }
   
   public static function _indentStrictHtml($content) {

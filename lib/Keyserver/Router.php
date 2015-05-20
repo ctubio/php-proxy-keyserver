@@ -13,14 +13,14 @@ class Router {
     $response = ($errno = Keyserver::getErrno())
       ? new Response(NULL, $errno)
       : (strpos($uri = Keyserver::getUri(), '/pks/') === 0
-          ? Skin::setContent(Factory::forward(Keyserver::getRequest())->to(
+          ? Skin::parseContent(Factory::forward(Keyserver::getRequest())->to(
               'http://'.$config->hkp_addr.':'.$config->hkp_port.$uri
             ))
-          : Skin::getPhtml(new Response(), $uri)
+          : Skin::parsePhtml(new Response(), $uri)
         );
 
     if (($errno = ($errno ?: (int)$response->getStatusCode())) !== 200)
-      $response = Skin::getPhtml($response, '/errors/'.$errno);
+      $response = Skin::parsePhtml($response, '/errors/'.$errno);
 
     return $response;
   }
