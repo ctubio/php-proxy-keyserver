@@ -6,11 +6,15 @@ use Symfony\Component\HttpFoundation\Response;
 
 class Skin {
 
+  public static function parsePhtml(Response $response, $phtml) {
+    return self::parseContent($response, (string)new Phtml($phtml));
+  }
+
   public static function parseContent(Response $response, $content = FALSE) {
     if (strpos($response->headers->get('content-disposition'), 'attachment')===0)
       return $response;
 
-    if (!$content) $content = $response->getContent();
+    if (!$content) $content = self::_importContent($response);
 
     $content = utf8_encode($content);
 
@@ -23,8 +27,9 @@ class Skin {
     return $response->setContent($content);
   }
 
-  public static function parsePhtml(Response $response, $phtml) {
-    return self::parseContent($response, (string)new Phtml($phtml));
+  public static function _importContent(Response $response) {
+    $content = $response->getContent();
+    return $content;
   }
 
   public static function _indentStrictHtml($content) {
