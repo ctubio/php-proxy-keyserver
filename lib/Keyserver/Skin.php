@@ -11,7 +11,7 @@ class Skin {
     $content = utf8_encode($content);
     
     if (Keyserver::getConfig()->indent_strict_html)
-      $content = Skin::_indentStrictHtml($content);
+      $content = self::_indentStrictHtml($content);
     
     $response->headers->set('Content-Type', 'text/html;charset=UTF-8');
     $response->headers->set('Content-Length', strlen($content));
@@ -23,11 +23,11 @@ class Skin {
     return self::setContent($response, (string)new Phtml($phtml));
   }
   
-  public static function _indentStrictHtml($html) {
+  public static function _indentStrictHtml($content) {
     $dom = new \DOMDocument('1.0');
     $dom->preserveWhiteSpace = false;
     $dom->formatOutput = true;
-    $dom->loadXML($html);
+    $dom->loadXML($content);
     return preg_replace('~></(?:area|base(?:font)?|br|col|command|embed|frame|hr|img|input|keygen|link|meta|param|source|track|wbr)>~', '/>',
       substr($dom = $dom->saveXML($dom, LIBXML_NOEMPTYTAG), strpos($dom, '?'.'>') + 3)
     );

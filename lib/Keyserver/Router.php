@@ -21,7 +21,7 @@ class Router {
 
     if (($errno = ($errno ?: (int)$response->getStatusCode())) !== 200)
       $response = Skin::getPhtml($response, '/errors/'.$errno);
-    
+
     return $response;
   }
 }
