@@ -14,9 +14,7 @@ class Skin {
     if (strpos($response->headers->get('content-disposition'), 'attachment')===0)
       return $response;
 
-    if (!$content) $content = self::_importContent($response);
-
-    $content = utf8_encode($content);
+    if (!$content) $content = (string)new Phtml(FALSE, $response->getContent());
 
     if (Keyserver::getConfig()->indent_strict_html)
       $content = self::_indentStrictHtml($content);
@@ -27,18 +25,13 @@ class Skin {
     return $response->setContent($content);
   }
 
-  public static function _importContent(Response $response) {
-    $content = $response->getContent();
-    return $content;
-  }
-
   public static function _indentStrictHtml($content) {
     $dom = new \DOMDocument('1.0');
     $dom->preserveWhiteSpace = false;
     $dom->formatOutput = true;
-    $dom->loadXML($content);
+    $dom->loadXML(utf8_encode($content));
     return preg_replace('~></(?:area|base(?:font)?|br|col|command|embed|frame|hr|img|input|keygen|link|meta|param|source|track|wbr)>~', '/>',
-      substr($dom = $dom->saveXML($dom, LIBXML_NOEMPTYTAG), strpos($dom, '?'.'>') + 3)
+      utf8_decode(substr($dom = $dom->saveXML($dom, LIBXML_NOEMPTYTAG), strpos($dom, '?'.'>') + 3))
     );
   }
 }

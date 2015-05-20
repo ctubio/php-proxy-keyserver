@@ -6,9 +6,12 @@ use PhpProxySks\Keyserver\Log;
 class Phtml {
 
   private $_page;
+  private $_content;
 
-  public function __construct($page) {
-    $this->_page = $page;
+  public function __construct($page, $content = FALSE) {
+    $this->_page = (string)$page;
+    if ($content)
+      $this->_content = self::_importData($content);
   }
 
   public function __toString() {
@@ -21,6 +24,16 @@ class Phtml {
       Log::catchError($e);
       return "";
     }
+  }
+
+  public static function _importData($content) {
+    $dom = new \DOMDocument('1.0');
+    $dom->loadHTML(utf8_encode($content));
+    $xpath = new \DOMXPath($dom);
+    $body = $xpath->query('/html/body');
+    return preg_replace('/^<body>(.*)<\/body>$/s', '$1',
+      utf8_decode($dom->saveXml($body->item(0)))
+    );
   }
 
   private function _getSkinPath() {
@@ -53,7 +66,11 @@ class Phtml {
   }
 
   private function getPage($phtml = NULL) {
-    if (is_null($phtml)) $phtml = $this->_page;
+    if (is_null($phtml)) {
+      if (!$this->_page and $this->_content)
+        return $this->_content;
+      $phtml = $this->_page;
+    }
 
     if (!is_readable($file = realpath(
       $path = $this->_getSkinPath().'/pages/'.ltrim($phtml, '/').'.phtml'
