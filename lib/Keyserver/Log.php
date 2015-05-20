@@ -5,7 +5,8 @@ use PhpProxySks\Keyserver;
 class Log {
 
   public static function catchError($e) {
-    $e = $e->getMessage().PHP_EOL.$e->getTraceAsString();
+    if (!is_string($e))
+      $e = $e->getMessage().PHP_EOL.$e->getTraceAsString();
 
     if ((bool)(int)Keyserver::getConfig()->display_errors)
       die('<pre>'.$e.'</pre>');

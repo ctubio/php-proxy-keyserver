@@ -28,7 +28,14 @@ class Phtml {
 
   public static function _importData($content) {
     $dom = new \DOMDocument('1.0');
-    $dom->loadHTML(utf8_encode($content));
+    libxml_use_internal_errors(true);
+    if (!$dom->loadHTML(utf8_encode($content))) {
+      $_error = "Validation of Strict HTML failed:";
+      foreach(libxml_get_errors() as $error)
+        $_error .= "\n\t".$error->message;
+      Log::catchError($_error);
+      return preg_replace('/.*<body>(.*)<\/body>.*$/s', '$1', $content);
+    }
     $xpath = new \DOMXPath($dom);
     $body = $xpath->query('/html/body');
     return preg_replace('/^<body>(.*)<\/body>$/s', '$1',
