@@ -14,7 +14,6 @@ class Skin {
 
     $content = utf8_encode($content);
 
-
     if (Keyserver::getConfig()->indent_strict_html)
       $content = self::_indentStrictHtml($content);
 
