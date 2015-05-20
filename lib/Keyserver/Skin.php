@@ -10,7 +10,7 @@ class Skin {
     if (strpos($response->headers->get('content-disposition'), 'attachment')===0)
       return $response;
 
-    if (!$content) $content = $response->getContent($content);
+    if (!$content) $content = $response->getContent();
 
     $content = utf8_encode($content);
 
