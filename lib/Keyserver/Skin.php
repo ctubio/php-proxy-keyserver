@@ -7,22 +7,27 @@ use Symfony\Component\HttpFoundation\Response;
 class Skin {
 
   public static function parseContent(Response $response, $content = FALSE) {
+    if (strpos($response->headers->get('content-disposition'), 'attachment')===0)
+      return $response;
+
     if (!$content) $content = $response->getContent($content);
+
     $content = utf8_encode($content);
-    
+
+
     if (Keyserver::getConfig()->indent_strict_html)
       $content = self::_indentStrictHtml($content);
-    
-    $response->headers->set('Content-Type', 'text/html;charset=UTF-8');
-    $response->headers->set('Content-Length', strlen($content));
-    
+
+    $response->headers->set('content-type', 'text/html;charset=UTF-8');
+    $response->headers->set('content-length', strlen($content));
+
     return $response->setContent($content);
   }
-  
+
   public static function parsePhtml(Response $response, $phtml) {
     return self::parseContent($response, (string)new Phtml($phtml));
   }
-  
+
   public static function _indentStrictHtml($content) {
     $dom = new \DOMDocument('1.0');
     $dom->preserveWhiteSpace = false;
