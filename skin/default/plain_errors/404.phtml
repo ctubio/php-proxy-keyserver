@@ -1,8 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title><?php echo $this->getConfig('html_title') ?></title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
-    <style>
+    <meta charset="utf-8" />
+    <style type="text/css">
+      /* <![CDATA[ */
       *::selection {
         background-color: transparent;
         color: yellow;
@@ -42,14 +45,15 @@
       table span {
         font-size:79%;
       }
+      /* ]]> */
     </style>
-    <link href='//fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css' />
   </head>
   <body>
     <div id="outer">
       <div id="table-container">
         <div id="table-cell">
-          <svg xmlns="//www.w3.org/2000/svg"
+          <svg xmlns="https://www.w3.org/2000/svg"
             width="500" height="257" text-anchor="middle">
             <text x="260" y="222" font-size="160" font-weight="600">
               <animate attributeType="XML" attributeName="fill"
@@ -61,7 +65,7 @@
           <table>
             <tr>
               <td><span>Hint!</span><br />goto:</td>
-              <td><h1><?php echo $this->getConfig('hostname') ?><h1></td>
+              <td><h1><?php echo $this->getConfig('hostname') ?></h1></td>
             </tr>
           </table>
         </div>

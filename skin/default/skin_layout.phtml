@@ -1,10 +1,13 @@
-<?php echo $this->getBlock('header'); ?>
-    <title><?php echo $this->getConfig('html_title') ?> -- Frequently Asked Questions</title>
-  </head>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<?php echo $this->getBlock('head'); ?>
   <body>
     <?php echo $this->getBlock('gnu_inside'); ?>
     <div id="content" style="width:640px;margin:0px auto;">
       <h1><?php echo $this->getConfig('html_title') ?></h1>
       <hr />
-    <?php echo $this->getPage(); ?>
-<?php echo $this->getBlock('footer'); ?>
+      <?php echo $this->getPage(); ?>
+      <?php echo $this->getBlock('footer'); ?>
+    </div>
+  </body>
+</html>

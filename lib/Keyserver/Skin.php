@@ -1,19 +1,35 @@
 <?php namespace PhpProxySks\Keyserver;
 
+use PhpProxySks\Keyserver;
 use PhpProxySks\Keyserver\Skin\Phtml;
 use Symfony\Component\HttpFoundation\Response;
 
 class Skin {
 
-  public static function wrapContent(Response $response, $forcedContent = FALSE) {
-    $response->headers->set('Content-Type', 'text/html');
+  public static function setContent(Response $response, $content = FALSE) {
+    if (!$content) $content = $response->getContent($content);
+    $content = utf8_encode($content);
     
-    if ($forcedContent) $response->setContent($forcedContent);
+    if (Keyserver::getConfig()->indent_strict_html)
+      $content = Skin::_indentStrictHtml($content);
     
-    return $response;
+    $response->headers->set('Content-Type', 'text/html;charset=UTF-8');
+    $response->headers->set('Content-Length', strlen($content));
+    
+    return $response->setContent($content);
   }
   
   public static function getPhtml(Response $response, $phtml) {
-    return self::wrapContent($response, (string)new Phtml($phtml));
+    return self::setContent($response, (string)new Phtml($phtml));
+  }
+  
+  public static function _indentStrictHtml($html) {
+    $dom = new \DOMDocument('1.0');
+    $dom->preserveWhiteSpace = false;
+    $dom->formatOutput = true;
+    $dom->loadXML($html);
+    return preg_replace('~></(?:area|base(?:font)?|br|col|command|embed|frame|hr|img|input|keygen|link|meta|param|source|track|wbr)>~', '/>',
+      substr($dom = $dom->saveXML($dom, LIBXML_NOEMPTYTAG), strpos($dom, '?'.'>') + 3)
+    );
   }
 }
