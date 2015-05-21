@@ -1,0 +1,3 @@
+[submodule "skin/pgpkeyserver-lite"]
+	path = skin/pgpkeyserver-lite
+	url = https://github.com/mattrude/pgpkeyserver-lite

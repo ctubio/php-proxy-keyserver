@@ -2,6 +2,7 @@
 
 use PhpProxySks\Keyserver;
 use PhpProxySks\Keyserver\Log;
+use PhpProxySks\Keyserver\Skin;
 
 class Phtml {
 
@@ -16,7 +17,7 @@ class Phtml {
 
   public function __toString() {
     try {
-      return $this->_parsePhtml($this->_getSkinPath().((
+      return $this->_parsePhtml(Skin::getPath().((
         strpos($this->_page, '/errors/')===0
         and !Keyserver::getConfig()->layout_404
       ) ? '/plain_'.ltrim($this->_page,'/') : '/skin_layout' ).'.phtml');
@@ -43,12 +44,8 @@ class Phtml {
     );
   }
 
-  private function _getSkinPath() {
-    return '../skin/'.Keyserver::getConfig()->html_skin;
-  }
-
   private function _parsePhtml($file) {
-    if (strpos(realpath($file), realpath($this->_getSkinPath()))!==0)
+    if (strpos(realpath($file), realpath(Skin::getPath()))!==0)
       throw new \Exception('Unknown skin path: "'.$file.'".');
 
     ob_start();
@@ -65,7 +62,7 @@ class Phtml {
 
   private function getBlock($phtml) {
     if (!is_readable($file = realpath(
-      $path = $this->_getSkinPath().'/blocks/'.$phtml.'.phtml'
+      $path = Skin::getPath().'/blocks/'.$phtml.'.phtml'
     )))
       throw new \Exception('Unknown block: "'.$path.'".');
 
@@ -80,7 +77,7 @@ class Phtml {
     }
 
     if (!is_readable($file = realpath(
-      $path = $this->_getSkinPath().'/pages/'.ltrim($phtml, '/').'.phtml'
+      $path = Skin::getPath().'/pages/'.ltrim($phtml, '/').'.phtml'
     )))
       throw new \Exception('Unknown page: "'.$path.'".');
 
