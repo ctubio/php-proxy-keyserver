@@ -6,12 +6,19 @@ use PhpProxySks\Keyserver\Skin\Phtml;
 use Symfony\Component\HttpFoundation\Response;
 
 class Skin {
-  public static function isPhtml() {
-    return (file_exists(self::getPath().'/index.phtml'));
+
+  public static function _isPhtml() {
+    return file_exists(self::getPath().'/index.phtml');
   }
 
   public static function getPath() {
     return '../skin/'.Keyserver::getConfig()->html_skin;
+  }
+
+  public static function parsePhtml(Response $response, $phtml) {
+    return self::_isPhtml()
+      ? self::parseContent($response, (string)new Phtml($phtml))
+      : self::parseNonPhtml($response, $phtml);
   }
 
   public static function parseNonPhtml(Response $response, $file) {
@@ -23,28 +30,22 @@ class Skin {
     if (strpos($file=realpath($file), realpath(Skin::getPath()))!==0)
       throw new \Exception('Unknown skin path: "'.$file.'".');
 
-    $response->headers->set('content-type', self::getMimeType($file));
+    $response->headers->set('content-type', self::_getMimeType($file));
     $response->setContent($file=file_get_contents($file));
     $response->headers->set('content-length', strlen($file));
 
     return $response;
   }
 
-  public static function parsePhtml(Response $response, $phtml) {
-    return self::isPhtml()
-      ? self::parseContent($response, (string)new Phtml($phtml))
-      : self::parseNonPhtml($response, $phtml);
-  }
-
   public static function parseContent(Response $response, $content = FALSE) {
     if (strpos($response->headers->get('content-disposition'), 'attachment')===0)
       return $response;
 
-    if (!$content) $content = self::isPhtml()
+    if (!$content) $content = self::_isPhtml()
       ? (string)new Phtml(FALSE, $response->getContent())
       : $response->getContent();
 
-    if (self::isPhtml() and Keyserver::getConfig()->indent_strict_html)
+    if (self::_isPhtml() and Keyserver::getConfig()->indent_strict_html)
       $content = self::_indentStrictHtml($content);
 
     $response->headers->set('content-type', 'text/html;charset=UTF-8');
@@ -70,7 +71,7 @@ class Skin {
     );
   }
 
-  function getMimeType($filename, $dontForce =  FALSE){
+  function _getMimeType($filename, $dontForce =  FALSE){
     # https://chrisjean.com/generating-mime-type-in-php-is-not-magic
     $fext	= strtolower(substr(strrchr($filename, "."), 1));
     $allowed_ext = array (
