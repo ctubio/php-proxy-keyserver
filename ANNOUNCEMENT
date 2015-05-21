@@ -5,6 +5,7 @@ GitHub link: https://github.com/ctubio/php-proxy-sks
 Skins wanted:
   If you made a skin and would like to share it,
   please, make a pull request at github (see link above).
+  You can choose to maintain it yourself, just add a submodule.
 
 Improvements and bugfixes are very welcome:
   If your issue is not tracked yet, feel free to open a new issue
