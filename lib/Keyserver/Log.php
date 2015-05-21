@@ -4,9 +4,11 @@ use PhpProxySks\Keyserver;
 
 class Log {
 
-  public static function catchError($e) {
+  public static function catchError($e, $hint = NULL) {
     if (!is_string($e))
       $e = $e->getMessage().PHP_EOL.$e->getTraceAsString();
+
+    if ($hint) $e = 'Hint! '.$hint.PHP_EOL.$e;
 
     if ((bool)(int)Keyserver::getConfig()->display_errors)
       die('<pre>'.$e.'</pre>');
