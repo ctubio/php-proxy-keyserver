@@ -1,3 +1,4 @@
+handle unreachable keyserver
 get elements out of body from keyserver
 beautify body from keyserver
 show error message only when its true
