@@ -65,7 +65,7 @@ class Skin {
     $dom->preserveWhiteSpace = false;
     $dom->formatOutput = true;
     libxml_use_internal_errors(true);
-    if (!$dom->loadXML(utf8_encode($content))) {
+    if (!$dom->loadXML(utf8_encode($content), LIBXML_PARSEHUGE)) {
       $_error = "Validation of Strict HTML failed:";
       foreach(libxml_get_errors() as $error)
         $_error .= "\n\t".$error->message;

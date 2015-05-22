@@ -29,10 +29,12 @@ class Phtml {
   }
 
   public static function _importData($content) {
+    if (substr(trim($content), 0, 1)!=='<')
+      return '<pre>'.htmlentities($content).'</pre>';
     $dom = new \DOMDocument('1.0');
     libxml_use_internal_errors(true);
-    if (!$dom->loadHTML(utf8_encode($content))) {
-      $_error = "Validation of Strict HTML failed:";
+    if (!$dom->loadHTML(utf8_encode($content), LIBXML_PARSEHUGE)) {
+      $_error = "Validation of Strict HTML in ".__METHOD__." failed:";
       foreach(libxml_get_errors() as $error)
         $_error .= "\n\t".$error->message;
       Log::catchError($_error);
