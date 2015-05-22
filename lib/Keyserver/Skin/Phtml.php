@@ -34,7 +34,7 @@ class Phtml {
     $dom = new \DOMDocument('1.0');
     libxml_use_internal_errors(true);
     if (!$dom->loadHTML(utf8_encode($content), LIBXML_PARSEHUGE)) {
-      $_error = "Validation of Strict HTML in ".__METHOD__." failed:";
+      $_error = "Validation of Strict HTML in from Keyserver's output failed:";
       foreach(libxml_get_errors() as $error)
         $_error .= "\n\t".$error->message;
       Log::catchError($_error);
