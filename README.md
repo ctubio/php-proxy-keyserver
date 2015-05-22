@@ -9,7 +9,7 @@ These sources are happy serving public keys at http://pgp.key-server.io
 [![Coverage Status](https://img.shields.io/coveralls/ctubio/php-proxy-keyserver/master.svg?label=code%20coverage)](https://coveralls.io/r/ctubio/php-proxy-keyserver?branch=master)
 [![Open Issues](https://img.shields.io/github/issues/ctubio/php-proxy-keyserver.svg)](https://github.com/ctubio/php-proxy-keyserver/issues)
 
-### How to run your own Keyserver with PHP and friends:
+### How to run your own SKS Keyserver with PHP and friends:
 ```bash
   $ # Check the latest sks version:
   $ curl https://bitbucket.org/skskeyserver/sks-keyserver/raw/default/VERSION
