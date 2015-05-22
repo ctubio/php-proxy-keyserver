@@ -9,17 +9,18 @@ class Phtml {
   private $_page;
   private $_content;
 
-  public function __construct($page, $content = FALSE) {
+  public function __construct($page, $content = FALSE, $skin = FALSE) {
     $this->_page = (string)$page;
     if ($content)
       $this->_content = self::_importData($content);
+    $this->_skin = (string)$skin;
   }
 
   public function __toString() {
     try {
-      return $this->_parsePhtml(Skin::getPath().((
+      return $this->_parsePhtml(Skin::getPath($this->_skin).((
         strpos($this->_page, '/errors/')===0
-        and !Keyserver::getConfig()->layout_404
+        and !Keyserver::getConfig()->plain_errors
       ) ? '/plain_'.ltrim($this->_page,'/') : '/skin_layout' ).'.phtml');
     } catch (\Exception $e) {
       Log::catchError($e);
@@ -45,7 +46,7 @@ class Phtml {
   }
 
   private function _parsePhtml($file) {
-    if (strpos(realpath($file), realpath(Skin::getPath()))!==0)
+    if (strpos(realpath($file), realpath(Skin::getPath($this->_skin)))!==0)
       throw new \Exception('Unknown skin path: "'.$file.'".');
 
     ob_start();
@@ -62,7 +63,7 @@ class Phtml {
 
   private function getBlock($phtml) {
     if (!is_readable($file = realpath(
-      $path = Skin::getPath().'/blocks/'.$phtml.'.phtml'
+      $path = Skin::getPath($this->_skin).'/blocks/'.$phtml.'.phtml'
     )))
       throw new \Exception('Unknown block: "'.$path.'".');
 
@@ -77,7 +78,7 @@ class Phtml {
     }
 
     if (!is_readable($file = realpath(
-      $path = Skin::getPath().'/pages/'.ltrim($phtml, '/').'.phtml'
+      $path = Skin::getPath($this->_skin).'/pages/'.ltrim($phtml, '/').'.phtml'
     )))
       throw new \Exception('Unknown page: "'.$path.'".');
 

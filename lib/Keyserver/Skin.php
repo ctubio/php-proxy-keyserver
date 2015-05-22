@@ -8,30 +8,36 @@ use Symfony\Component\HttpFoundation\Response;
 class Skin {
 
   public static function _isPhtml() {
-    return file_exists(self::getPath().'/index.phtml');
+    return file_exists(self::getPath().'/skin_layout.phtml');
   }
 
-  public static function getPath() {
-    return '../skin/'.Keyserver::getConfig()->html_skin;
+  public static function getPath($skin = FALSE) {
+    return '../skin/'.($skin ?: Keyserver::getConfig()->html_skin);
   }
 
   public static function parsePhtml(Response $response, $phtml) {
-    return self::_isPhtml()
-      ? self::parseContent($response, (string)new Phtml($phtml))
+    return (self::_isPhtml() and file_exists(
+        self::getPath().'/pages/'.ltrim($phtml, '/').'.phtml'
+    )) ? self::parseContent($response, (string)new Phtml($phtml))
       : self::parseNonPhtml($response, $phtml);
   }
 
   public static function parseNonPhtml(Response $response, $file) {
     if (!file_exists(
       $file = realpath(file_exists($file=self::getPath().$file) ? $file : $file.'.html'
-    )))
-      throw new \Exception('Unknown file path: "'.$file.'".');
+    ))) {
+      if ($response->getStatusCode() == 200) $response->setStatusCode(404);
+      $response->setContent($file = (string)new Phtml(
+        '/errors/'.$response->getStatusCode(), FALSE, 'default'
+      ));
+    } else {
+      if (strpos($file=realpath($file), realpath(Skin::getPath()))!==0)
+        throw new \Exception('Unknown skin path: "'.$file.'".');
 
-    if (strpos($file=realpath($file), realpath(Skin::getPath()))!==0)
-      throw new \Exception('Unknown skin path: "'.$file.'".');
+      $response->headers->set('content-type', self::_getMimeType($file));
+      $response->setContent($file=file_get_contents($file));
+    }
 
-    $response->headers->set('content-type', self::_getMimeType($file));
-    $response->setContent($file=file_get_contents($file));
     $response->headers->set('content-length', strlen($file));
 
     return $response;
