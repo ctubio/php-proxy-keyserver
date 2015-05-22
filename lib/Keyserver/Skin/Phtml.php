@@ -1,8 +1,8 @@
-<?php namespace PhpProxySks\Keyserver\Skin;
+<?php namespace PhpProxy\Keyserver\Skin;
 
-use PhpProxySks\Keyserver;
-use PhpProxySks\Keyserver\Log;
-use PhpProxySks\Keyserver\Skin;
+use PhpProxy\Keyserver;
+use PhpProxy\Keyserver\Log;
+use PhpProxy\Keyserver\Skin;
 
 class Phtml {
 

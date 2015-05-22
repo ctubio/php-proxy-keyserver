@@ -1,6 +1,6 @@
-<?php namespace PhpProxySks\Keyserver;
+<?php namespace PhpProxy\Keyserver;
 
-use PhpProxySks\Keyserver;
+use PhpProxy\Keyserver;
 use Symfony\Component\HttpFoundation\Request;
 
 class Config {
@@ -27,7 +27,7 @@ class Config {
           'indent_strict_html' => 0,
           'display_exceptions' => 0
         ),
-        parse_ini_file(realpath('../etc/php-proxy-sks.ini'))
+        parse_ini_file(realpath('../etc/php-proxy-keyserver.ini'))
       ) as $k => $v
     ) $this->{$k} = $v;
 

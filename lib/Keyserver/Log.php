@@ -1,6 +1,6 @@
-<?php namespace PhpProxySks\Keyserver;
+<?php namespace PhpProxy\Keyserver;
 
-use PhpProxySks\Keyserver;
+use PhpProxy\Keyserver;
 
 class Log {
 
@@ -15,7 +15,7 @@ class Log {
 
     if (!$path=realpath('../log'))
       @mkdir($path=realpath('..').'/log',0777,TRUE);
-    $path .= '/php-proxy-sks.log';
+    $path .= '/php-proxy-keyserver.log';
     @file_put_contents($path, $e.PHP_EOL
       .(file_exists($path)?@file_get_contents($path):NULL)
     );

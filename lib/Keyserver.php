@@ -1,7 +1,7 @@
-<?php namespace PhpProxySks;
+<?php namespace PhpProxy;
 
-use PhpProxySks\Keyserver\Config;
-use PhpProxySks\Keyserver\Router;
+use PhpProxy\Keyserver\Config;
+use PhpProxy\Keyserver\Router;
 use Symfony\Component\HttpFoundation\Request;
 
 class Keyserver {

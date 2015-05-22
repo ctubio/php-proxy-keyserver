@@ -1,13 +1,13 @@
-[![Stable Release](https://img.shields.io/github/release/ctubio/php-proxy-sks.svg?label=stable%20release)](https://github.com/ctubio/php-proxy-sks/releases/latest)
+[![Stable Release](https://img.shields.io/github/release/ctubio/php-proxy-keyserver.svg?label=stable%20release)](https://github.com/ctubio/php-proxy-keyserver/releases/latest)
 [![Platform License](https://img.shields.io/badge/platform-unix--like-lightgray.svg)](https://www.gnu.org/)
 [![Software License](https://img.shields.io/badge/license-MIT-111111.svg)](LICENSE)
 
 These sources are happy serving public keys at http://pgp.key-server.io
 
-[![Latest Tag](https://img.shields.io/github/tag/ctubio/php-proxy-sks.svg?label=latest%20tag)](https://github.com/ctubio/php-proxy-sks/tags)
-[![Build Status](https://img.shields.io/travis/ctubio/php-proxy-sks/master.svg?label=test%20suite)](https://travis-ci.org/ctubio/php-proxy-sks)
-[![Coverage Status](https://img.shields.io/coveralls/ctubio/php-proxy-sks/master.svg?label=code%20coverage)](https://coveralls.io/r/ctubio/php-proxy-sks?branch=master)
-[![Open Issues](https://img.shields.io/github/issues/ctubio/php-proxy-sks.svg)](https://github.com/ctubio/php-proxy-sks/issues)
+[![Latest Tag](https://img.shields.io/github/tag/ctubio/php-proxy-keyserver.svg?label=latest%20tag)](https://github.com/ctubio/php-proxy-keyserver/tags)
+[![Build Status](https://img.shields.io/travis/ctubio/php-proxy-keyserver/master.svg?label=test%20suite)](https://travis-ci.org/ctubio/php-proxy-keyserver)
+[![Coverage Status](https://img.shields.io/coveralls/ctubio/php-proxy-keyserver/master.svg?label=code%20coverage)](https://coveralls.io/r/ctubio/php-proxy-keyserver?branch=master)
+[![Open Issues](https://img.shields.io/github/issues/ctubio/php-proxy-keyserver.svg)](https://github.com/ctubio/php-proxy-keyserver/issues)
 
 ### How to run your own Keyserver with PHP and friends:
 ```bash
@@ -29,10 +29,10 @@ These sources are happy serving public keys at http://pgp.key-server.io
   
   $ # Download and compose the php proxy with all web interface skins:
   $ cd /var/www 
-  $ git clone --recursive ssh://git@github.com/ctubio/php-proxy-sks your.domain.name
+  $ git clone --recursive ssh://git@github.com/ctubio/php-proxy-keyserver your.domain.name
   $ cd your.domain.name
   $ composer install
-  $ vim etc/php-proxy-sks.ini
+  $ vim etc/php-proxy-keyserver.ini
   
   $ echo "Set ${PWD}/pub as the DocumentRoot of your domain in your webserver configs." 
   $ # ProxyPass doesn't need to be configured because PHP supplies the proxy.

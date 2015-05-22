@@ -1,7 +1,7 @@
-<?php namespace PhpProxySks\Keyserver;
+<?php namespace PhpProxy\Keyserver;
 
-use PhpProxySks\Keyserver;
-use PhpProxySks\Keyserver\Skin;
+use PhpProxy\Keyserver;
+use PhpProxy\Keyserver\Skin;
 use Proxy\Factory;
 use Symfony\Component\HttpFoundation\Response;
 

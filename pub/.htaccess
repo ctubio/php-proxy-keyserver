@@ -6,4 +6,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-l
 RewriteCond %{REQUEST_FILENAME} !-d [OR]
 RewriteCond %{REQUEST_URI} ^\/$
-RewriteRule ^(.*)$ php-proxy-sks.php [L]
+RewriteRule ^(.*)$ php-proxy-keyserver.php [L]

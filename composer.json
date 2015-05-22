@@ -1,9 +1,9 @@
 {
-  "name": "ctubio/php-proxy-sks",
+  "name": "ctubio/php-proxy-keyserver",
   "description": "PHP proxy and interface forwarding any standard HKP request to a local SKS OpenPGP Keyserver.",
   "type": "project",
-  "keywords": ["php", "proxy", "sks", "keyserver"],
-  "homepage": "https://github.com/ctubio/php-proxy-sks",
+  "keywords": ["php", "proxy", "keyserver", "hkp", "sks"],
+  "homepage": "https://github.com/ctubio/php-proxy-keyserver",
   "license": "MIT",
   "authors": [{
     "name": "Carles Tubio",
@@ -11,20 +11,16 @@
   }],
   "support": {
     "email": "carles.tubio@key-server.io",
-    "source": "https://github.com/ctubio/php-proxy-sks",
-    "issues": "https://github.com/ctubio/php-proxy-sks/issues"
+    "source": "https://github.com/ctubio/php-proxy-keyserver",
+    "issues": "https://github.com/ctubio/php-proxy-keyserver/issues"
   },
-  "repositories": [{
-    "url": "https://github.com/ctubio/php-proxy",
-    "type": "git"
-  }],
   "require": {
     "php": "~5.3",
     "jenssegers/proxy": "2.*"
   },
   "autoload": {
     "psr-4": {
-      "PhpProxySks\\": "lib/"
+      "PhpProxy\\": "lib/"
     }
   }
 }

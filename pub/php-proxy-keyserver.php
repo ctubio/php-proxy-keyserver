@@ -1,5 +1,5 @@
 <?php
-use PhpProxySks\Keyserver;
+use PhpProxy\Keyserver;
 
 require '../vendor/autoload.php';
 

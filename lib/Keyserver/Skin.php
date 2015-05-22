@@ -1,8 +1,8 @@
-<?php namespace PhpProxySks\Keyserver;
+<?php namespace PhpProxy\Keyserver;
 
-use PhpProxySks\Keyserver;
-use PhpProxySks\Keyserver\Log;
-use PhpProxySks\Keyserver\Skin\Phtml;
+use PhpProxy\Keyserver;
+use PhpProxy\Keyserver\Log;
+use PhpProxy\Keyserver\Skin\Phtml;
 use Symfony\Component\HttpFoundation\Response;
 
 class Skin {
