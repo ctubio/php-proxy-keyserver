@@ -23,9 +23,9 @@ class Config {
           'contact_email' => 'bugs@'.$request->server->get('SERVER_NAME'),
           'html_title' => 'PGP Public Key Server',
           'html_skin' => 'default',
-          'plain_errors' => 1,
+          'layout_html_errors' => 0,
           'indent_strict_html' => 0,
-          'display_errors' => 0
+          'display_exceptions' => 0
         ),
         parse_ini_file(realpath('../etc/php-proxy-sks.ini'))
       ) as $k => $v

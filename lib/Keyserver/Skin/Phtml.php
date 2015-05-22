@@ -20,7 +20,7 @@ class Phtml {
     try {
       return $this->_parsePhtml(Skin::getPath($this->_skin).((
         strpos($this->_page, '/errors/')===0
-        and !Keyserver::getConfig()->plain_errors
+        and !Keyserver::getConfig()->layout_html_errors
       ) ? '/plain_'.ltrim($this->_page,'/') : '/skin_layout' ).'.phtml');
     } catch (\Exception $e) {
       Log::catchError($e);

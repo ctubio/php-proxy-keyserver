@@ -10,7 +10,7 @@ class Log {
 
     if ($hint) $e = 'Hint! '.$hint.PHP_EOL.$e;
 
-    if ((bool)(int)Keyserver::getConfig()->display_errors)
+    if ((bool)(int)Keyserver::getConfig()->display_exceptions)
       die('<pre>'.$e.'</pre>');
 
     if (!$path=realpath('../log'))
