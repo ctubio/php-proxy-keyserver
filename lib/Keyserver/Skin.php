@@ -24,7 +24,9 @@ class Skin {
 
   public static function parseNonPhtml(Response $response, $file) {
     if (!file_exists(
-      $file = realpath(file_exists($file=self::getPath().$file) ? $file : $file.'.html'
+      $file = realpath(file_exists($file=self::getPath().$file)
+        ? $file : (file_exists($file.'.html')
+          ? $file.'.html' : $file.'.xhtml')
     ))) {
       if ($response->getStatusCode() == 200) $response->setStatusCode(404);
       $response->setContent($file = (string)new Phtml(

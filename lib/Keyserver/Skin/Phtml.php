@@ -12,7 +12,7 @@ class Phtml {
   public function __construct($page, $content = FALSE, $skin = FALSE) {
     $this->_page = (string)$page;
     if ($content)
-      $this->_content = self::_importData($content);
+      $this->_content = self::_importContent($content);
     $this->_skin = (string)$skin;
   }
 
@@ -29,8 +29,16 @@ class Phtml {
   }
 
   public static function _importData($content) {
+    // var_dump($content);
+    // exit;
+  }
+
+  public static function _importContent($content) {
     if (substr(trim($content), 0, 1)!=='<')
       return '<pre>'.htmlentities($content).'</pre>';
+
+    self::_importData($content);
+
     $dom = new \DOMDocument('1.0');
     libxml_use_internal_errors(true);
     if (!$dom->loadHTML(utf8_encode($content), LIBXML_PARSEHUGE)) {
