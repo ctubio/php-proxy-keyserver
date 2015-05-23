@@ -15,7 +15,7 @@
     "issues": "https://github.com/ctubio/php-proxy-keyserver/issues"
   },
   "require": {
-    "php": "~5.3",
+    "php": "~5.4",
     "jenssegers/proxy": "2.*"
   },
   "require-dev": {
