@@ -57,6 +57,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
       $this->assertSame(0, strpos($response->getContent(), '<!DOCTYPE html>'));
       $this->assertGreaterThan(21, strpos($response->getContent(), 'GNU/Linux Inside!'));
       $this->assertGreaterThan(21, strpos($response->getContent(), 'Can you delete my key from the key server?'));
+      $this->assertGreaterThan(21, strpos($response->getContent(), 'No.'));
       $this->assertSame(FALSE, strpos($response->getContent(), 'Remove my key!'));
       $this->assertGreaterThan(21, strpos($response->getContent(), 'Please send bug reports'));
     }
