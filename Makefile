@@ -4,7 +4,7 @@ test: test/phpunit.xml
 	@vendor/bin/phpunit -c test
 
 coverage: test/clover.xml
-	@vendor/bin/coveralls -v
+	@vendor/bin/coveralls -v -c test
 
 skins: .gitmodules
 	@git submodule init

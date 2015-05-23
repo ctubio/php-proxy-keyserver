@@ -9,6 +9,7 @@
   processIsolation="false"
   stopOnFailure="true"
   syntaxCheck="true"
+  bootstrap="phpunit_autoload.php"
 >
   <testsuites>
     <testsuite name="Keyserver Test Suite">

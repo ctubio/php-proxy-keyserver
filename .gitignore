@@ -1,4 +1,5 @@
 /test/clover.xml
+/text/coveralls-upload.json
 /etc/php-proxy-keyserver.ini
 /log
 /vendor
