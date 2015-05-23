@@ -3,6 +3,9 @@ all: test
 test: test/phpunit.xml
 	@vendor/bin/phpunit -c test
 
+coverage: test/clover.xml
+	@vendor/bin/coveralls -c test
+
 skins: .gitmodules
 	@git submodule init
 	@git submodule update

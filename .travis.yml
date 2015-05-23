@@ -18,6 +18,9 @@ before_install:
 script:
   - make test
 
+after_succes:
+  - make coverage
+
 notifications:
   email:
     on_success: never
