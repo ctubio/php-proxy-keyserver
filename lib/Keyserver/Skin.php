@@ -79,7 +79,7 @@ class Skin {
     );
   }
 
-  function static _getMimeType($filename, $dontForce =  FALSE){
+  public static function _getMimeType($filename, $dontForce =  FALSE){
     # https://chrisjean.com/generating-mime-type-in-php-is-not-magic
     $fext	= strtolower(substr(strrchr($filename, "."), 1));
     $allowed_ext = array (
