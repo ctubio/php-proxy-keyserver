@@ -13,8 +13,7 @@ git:
   submodules: false
 
 before_install:
-  - composer self-update
-  - composer install
+  - make install
 
 script:
   - make test

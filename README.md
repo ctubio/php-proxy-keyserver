@@ -29,12 +29,11 @@ These sources are happy serving public keys at http://pgp.key-server.io
   
   $ # Download and compose the php proxy with all web interface skins:
   $ cd /var/www 
-  $ git clone --recursive ssh://git@github.com/ctubio/php-proxy-keyserver your.domain.name
+  $ git clone ssh://git@github.com/ctubio/php-proxy-keyserver your.domain.name
   $ cd your.domain.name
-  $ composer install
-  $ cp etc/php-proxy-keyserver.ini.example etc/php-proxy-keyserver.ini
+  $ make install
+  $ make skins
   
-  $ echo "Set ${PWD}/pub as the DocumentRoot of your domain in your webserver configs." 
   $ # ProxyPass doesn't need to be configured because PHP supplies the proxy.
   $ # Just validate if your website can search/retrieve/submit pgp public keys.
   $ # Please, feel free to extend or customize as you need the web interface!
