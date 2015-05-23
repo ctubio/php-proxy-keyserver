@@ -1,2 +1,3 @@
-src_dir: .
+src_dir: lib
+json_path: .
 coverage_clover: test/clover.xml
