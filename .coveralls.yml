@@ -1,2 +1,2 @@
-src_dir: lib
+src_dir: .
 coverage_clover: test/clover.xml
