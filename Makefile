@@ -3,7 +3,7 @@ all: test
 test: test/phpunit.xml
 	@vendor/bin/phpunit -c test
 
-skins:
+skins: .gitmodules
 	@git submodule init
 
 install:
