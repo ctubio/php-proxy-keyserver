@@ -18,6 +18,9 @@
     "php": "~5.3",
     "jenssegers/proxy": "2.*"
   },
+  "require-dev": {
+    "phpunit/phpunit": "~4.4"
+  },
   "autoload": {
     "psr-4": {
       "PhpProxy\\": "lib/"
