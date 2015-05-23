@@ -1,7 +1,7 @@
 all: install
 
 test: test/phpunit.xml
-	@vendor/bin/phpunit -c test/phpunit.xml
+	@vendor/bin/phpunit -c test
 
 coverage: test/clover.xml
 	@vendor/bin/coveralls -v -c test/.coveralls.yml
