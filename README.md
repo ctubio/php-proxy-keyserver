@@ -18,22 +18,22 @@ These sources are happy serving public keys at http://pgp.key-server.io
   $ # Check your current sks version:
   $ sks version
   $ # Decide if you wanna download and compile the latest sks version.
-  
+
   $ # Check if your keyserver is up and running:
   $ netstat -l | grep hkp
   $ # If you dont see any output, please start the keyserver daemons.
-  
+
   $ # Check if your webserver is up and running:
   $ netstat -l | grep http
   $ # If you dont see any output, please start the webserver daemon.
-  
+
   $ # Download and compose the php proxy with all web interface skins:
-  $ cd /var/www 
+  $ cd /var/www
   $ git clone ssh://git@github.com/ctubio/php-proxy-keyserver your.domain.name
   $ cd your.domain.name
-  $ make install
+  $ make
   $ make skins
-  
+
   $ # ProxyPass doesn't need to be configured because PHP supplies the proxy.
   $ # Just validate if your website can search/retrieve/submit pgp public keys.
   $ # Please, feel free to extend or customize as you need the web interface!

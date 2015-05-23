@@ -1,7 +1,7 @@
-all: test
+all: install
 
 test: test/phpunit.xml
-	@vendor/bin/phpunit -c test
+	@vendor/bin/phpunit -c test/phpunit.xml
 
 coverage: test/clover.xml
 	@vendor/bin/coveralls -v -c test/.coveralls.yml
@@ -24,6 +24,5 @@ install:
 
 clean:
 	@rm -rf log
-	@rm -rf vendor
 
 .PHONY: test
