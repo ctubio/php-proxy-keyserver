@@ -32,7 +32,7 @@ These sources are happy serving public keys at http://pgp.key-server.io
   $ git clone --recursive ssh://git@github.com/ctubio/php-proxy-keyserver your.domain.name
   $ cd your.domain.name
   $ composer install
-  $ vim etc/php-proxy-keyserver.ini
+  $ cp etc/php-proxy-keyserver.ini.example etc/php-proxy-keyserver.ini
   
   $ echo "Set ${PWD}/pub as the DocumentRoot of your domain in your webserver configs." 
   $ # ProxyPass doesn't need to be configured because PHP supplies the proxy.

@@ -3,7 +3,7 @@
 #hkp_addr = 127.0.0.1
 
 [whoami]
-#hostname      = localhost
+#hostname      = SERVER_NAME.environment.variable
 contact_email = carles.tubio@key-server.io
 #html_title    = PGP Public Key Server
 
@@ -11,7 +11,7 @@ contact_email = carles.tubio@key-server.io
 #html_skin          = default
 #layout_html_errors = 0
 indent_strict_html = 1
-#display_exceptions = 0
+display_exceptions = 1
 
 #### BODEFAULTS
 ### STAND BACK, REDUNDANT DOCUMENTATION BELOW
