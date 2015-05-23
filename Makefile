@@ -17,7 +17,7 @@ install:
 	@echo
 	@echo "----- PLEASE, EDIT YOUR CONFIGS -----"
 	@echo
-	@echo "1) Edit ${PWD}/etc/php-proxu-keyserver.ini"
+	@echo "1) Edit ${PWD}/etc/php-proxy-keyserver.ini"
 	@echo "2) Set ${PWD}/pub as the DocumentRoot of your domain in your webserver configs."
 	@echo
 	@echo "When done, please visit your website and validate that you can search/retrieve/submit pgp public keys."
