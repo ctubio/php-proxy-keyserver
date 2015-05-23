@@ -5,6 +5,7 @@ test: test/phpunit.xml
 
 skins: .gitmodules
 	@git submodule init
+	@git submodule update
 
 install:
 	@composer self-update
