@@ -26,5 +26,10 @@
     "psr-4": {
       "PhpProxy\\": "src/"
     }
+  },
+  "scripts": {
+    "post-create-project-cmd" : [
+        "make"
+    ]
   }
 }
