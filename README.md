@@ -41,13 +41,13 @@ These sources are happy serving public keys at http://pgp.key-server.io
 ### Troubleshooting
 
 ##### Common Installation Problems:
-```bash
+```
 -bash: composer: command not found
 ```
 to fix it, see https://getcomposer.org/doc/00-intro.md#globally
 
 ##### Silly Winny Problems:
-```batch
+```
 'make' is not recognized as an internal or external command
 ```
 to fix it, see http://gnuwin32.sourceforge.net/packages/make.htm
