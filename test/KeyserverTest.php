@@ -106,7 +106,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
 
       $this->assertTrue($response instanceof Response);
       $this->assertEquals(200, $response->getStatusCode());
-      $this->assertEquals('image/x-icon', $response->headers->get('content-type'));
+      $this->assertContains($response->headers->get('content-type'), array('image/x-icon', 'image/png'));
       $this->assertSame(1, strpos($response->getContent(), 'PNG'));
       $this->assertEquals(193, strlen($response->getContent()));
     }
