@@ -14,7 +14,9 @@ git:
 
 before_install:
   - make
-  - cat etc/php-proxy-keyserver.ini
+  # make skins
+
+before_script:
   - sed -i "s/^;\(hkp_addr\).*$/\1 = pgp.key-server.io/" etc/php-proxy-keyserver.ini
 
 script:
