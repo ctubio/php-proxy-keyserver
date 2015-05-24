@@ -29,7 +29,7 @@
   },
   "scripts": {
     "post-create-project-cmd" : [
-      "make config"
+      "make"
     ]
   }
 }
