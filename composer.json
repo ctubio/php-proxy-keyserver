@@ -30,7 +30,7 @@
   "scripts": {
     "post-create-project-cmd" : [
       "make",
-      "echo Please, run \"make skins\" if you wish to download the content of the skins/* folders."
+      "echo Please, run \"make skins\" if you wish to download extra skins."
     ]
   }
 }
