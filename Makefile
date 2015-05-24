@@ -1,5 +1,5 @@
 ERR=*** composer not found
-HINT=please, goto https://getcomposer.org and install it globally.
+HINT=Please, goto https://getcomposer.org and install it globally.
 
 all: install
 
@@ -14,7 +14,7 @@ skins: .gitmodules
 	@git submodule update
 
 install:
-	$(if $(shell sh -c 'composer -v >/dev/null 2>&1 && echo 1'),, $(warning $(ERR));$(error $(HINT)))
+	$(if $(shell sh -c 'composer -v >/dev/null 2>&1 && echo 1'),,$(warning $(ERR));$(error $(HINT)))
 	@composer self-update
 	@composer install
 	@cd etc && test -e php-proxy-keyserver.ini || cp php-proxy-keyserver.ini.example php-proxy-keyserver.ini
