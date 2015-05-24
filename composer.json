@@ -29,8 +29,7 @@
   },
   "scripts": {
     "post-create-project-cmd" : [
-      "make",
-      "echo Please, run \"make skins\" if you wish to download extra skins."
+      "make"
     ]
   }
 }
