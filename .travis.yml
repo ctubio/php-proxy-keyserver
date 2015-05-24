@@ -19,7 +19,7 @@ before_install:
   - echo -e "hkp_port\x3A 11371\nhkp_address\x3A 127.0.0.1\nhostname\x3A none" | sudo tee /etc/sks/sksconf
   - sudo /etc/init.d/sks start
   - sudo cat /etc/sks/sksconf
-  - sudo netstat -l | grep hkp
+  - curl http://127.0.0.1:11371/pks/lookup?op=stats
   - make
 
 script:
