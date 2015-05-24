@@ -1,5 +1,7 @@
 language: php
 
+services: sks
+
 branches:
   only:
     - master
