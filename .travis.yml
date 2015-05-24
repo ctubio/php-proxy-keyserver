@@ -14,7 +14,7 @@ git:
 
 before_install:
   - echo "initstart=yes" | sudo tee /etc/default/sks
-  - export DEBIAN_FRONTEND=noninterative
+  - export DEBIAN_FRONTEND=noninteractive
   - sudo apt-get --yes install sks
   - make install
 
