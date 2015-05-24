@@ -1,7 +1,7 @@
 ERR=*** composer not found
 HINT=Please, goto https://getcomposer.org and install it globally.
 
-all: install
+all: install-composer
 
 test: test/phpunit.xml
 	@vendor/bin/phpunit -c test
@@ -13,7 +13,7 @@ skins: .gitmodules
 	@git submodule init
 	@git submodule update
 
-install:
+config:
 	@cd etc && test -e php-proxy-keyserver.ini || cp php-proxy-keyserver.ini.example php-proxy-keyserver.ini
 	@echo
 	@echo "----- PLEASE, EDIT YOUR CONFIGS, NOW -----"
@@ -23,7 +23,7 @@ install:
 	@echo
 	@echo "When done, please visit your website and validate that you can search/retrieve/submit pgp public keys."
 
-config:
+install-composer:
 	$(if $(shell sh -c 'composer -v >/dev/null 2>&1 && echo 1'),,$(warning $(ERR));$(error $(HINT)))
 	@composer self-update
 	@composer install
