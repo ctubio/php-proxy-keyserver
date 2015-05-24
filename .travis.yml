@@ -15,7 +15,9 @@ git:
 before_install:
   - echo "initstart=yes" | sudo tee /etc/default/sks
   - sudo apt-get install sks -y -o Dpkg::Options::="--force-confdef"
-  - sudo cat /var/lib/sks/sksconf
+  - sudo ls /var/lib
+  - sudo ls /etc
+  - sudo find / -name sksconf -print
   - locate sksconf
   - make install
 
