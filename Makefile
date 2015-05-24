@@ -13,11 +13,12 @@ skins: .gitmodules
 	@git submodule init
 	@git submodule update
 
-help:
+initial-help:
 	@echo
 	@echo "Please, if you agree, run the following commands inside the main directory:"
 	@echo "   make config     - if you need help to configure php-proxy-keyserver"
 	@echo "   make skins      - if you wish to download extra skins"
+	@echo "   make help       - if you wish to read extended help"
 	
 config:
 	@cd etc && test -e php-proxy-keyserver.ini || cp php-proxy-keyserver.ini.example php-proxy-keyserver.ini
