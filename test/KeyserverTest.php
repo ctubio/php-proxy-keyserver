@@ -176,4 +176,21 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
       $this->assertStringEndsWith('</html>'.PHP_EOL, $response->getContent());
       $this->assertGreaterThan(21, strpos($response->getContent(), '<pre>Hint! Double-check'));
     }
+
+    public function testSilentUnreachable()
+    {
+      $request = Request::createFromGlobals();
+      $request->server->set('REQUEST_URI', '/pks/lookup?op=stats');
+      Keyserver::$request_instance = $request;
+      Keyserver::getConfig()->display_exceptions = FALSE;
+      $response = Keyserver::getResponse();
+
+      $this->assertTrue($response instanceof Response);
+      $this->assertEquals(200, $response->getStatusCode());
+      $this->assertEquals('text/html;charset=UTF-8', $response->headers->get('content-type'));
+      $this->assertStringStartsWith('<!DOCTYPE html>', $response->getContent());
+      $this->assertStringEndsWith('</html>'.PHP_EOL, $response->getContent());
+      $this->assertSame(FALSE, strpos($response->getContent(), '<pre>Hint! Double-check'));
+      $this->assertGreaterThan(21, strpos($response->getContent(), 'An error ocurred. Please'));
+    }
 }

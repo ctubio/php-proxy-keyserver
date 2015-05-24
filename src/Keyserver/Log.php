@@ -17,7 +17,7 @@ class Log {
       @file_put_contents($path, $e.PHP_EOL
         .(file_exists($path)?@file_get_contents($path):NULL)
       );
-      return "";
+      return "An error ocurred. Please, read the logs or contact the keyserver administrator.";
     }
 
     return '<pre>' . $e . '</pre>';
