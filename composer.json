@@ -36,7 +36,7 @@
       "echo 1) Edit $COMPOSER_HOME/etc/php-proxy-keyserver.ini",
       "echo 2) Set $COMPOSER_HOME/pub as the DocumentRoot of your domain in your webserver configs.",
       "echo ",
-      "echo When done, please visit your website and validate that you can search/retrieve/submit pgp public keys.
+      "echo When done, please visit your website and validate that you can search/retrieve/submit pgp public keys."
     ]
   }
 }
