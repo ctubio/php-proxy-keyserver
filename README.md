@@ -29,15 +29,26 @@ These sources are happy serving public keys at http://pgp.key-server.io
 
   $ # Download and compose the php proxy with all web interface skins:
   $ cd /var/www
-  $ git clone ssh://git@github.com/ctubio/php-proxy-keyserver your.domain.name
+  $ mkdir your.domain.name
   $ cd your.domain.name
-  $ make
-  $ make skins
+  $ composer create-project ctubio/php-proxy-keyserver . dev-master
 
   $ # ProxyPass doesn't need to be configured because PHP supplies the proxy.
   $ # Just validate if your website can search/retrieve/submit pgp public keys.
   $ # Please, feel free to extend or customize as you need the web interface!
 ```
+##### Common Installation Problems:
+```bash
+-bash: composer: command not found
+```
+to fix it, see https://getcomposer.org/doc/00-intro.md#globally
+
+##### Silly Winny Problems:
+```batch
+'make' is not recognized as an internal or external command
+```
+to fix it, see http://gnuwin32.sourceforge.net/packages/make.htm
+
 ### Very special thanks to:
 - https://keyserver.mattrude.com
 - https://pgp.mit.edu
