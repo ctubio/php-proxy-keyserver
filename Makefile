@@ -13,10 +13,16 @@ skins: .gitmodules
 	@git submodule init
 	@git submodule update
 
+help:
+	@echo
+	@echo "Please, if you agree, run the following commands inside the main directory:"
+	@echo "   make config     - if you need help to configure php-proxy-keyserver"
+	@echo "   make skins      - if you wish to download extra skins"
+	
 config:
 	@cd etc && test -e php-proxy-keyserver.ini || cp php-proxy-keyserver.ini.example php-proxy-keyserver.ini
 	@echo
-	@echo "----- PLEASE, EDIT YOUR CONFIGS, NOW -----"
+	@echo "----- PLEASE, EDIT YOUR CONFIG FILES -----"
 	@echo
 	@echo "1) Edit ${PWD}/etc/php-proxy-keyserver.ini"
 	@echo "2) Set ${PWD}/pub as the DocumentRoot of your domain in your webserver configs."
