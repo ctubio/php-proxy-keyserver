@@ -17,7 +17,7 @@ before_install:
   - sudo apt-get install sks -y -o Dpkg::Options::="--force-confdef"
   - sudo ls /var/lib/sks
   - sudo ls /etc/sks
-  - sudo find / -name sksconf -print
+  - sudo cat /etc/sks/sksconf
   - locate sksconf
   - make install
 
