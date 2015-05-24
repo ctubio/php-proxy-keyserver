@@ -1,7 +1,7 @@
 ERR=*** composer not found
 HINT=Please, goto https://getcomposer.org and install it globally.
 
-all: install-composer
+all: composer-install
 
 test: test/phpunit.xml
 	@vendor/bin/phpunit -c test
@@ -23,7 +23,7 @@ config:
 	@echo
 	@echo "When done, please visit your website and validate that you can search/retrieve/submit pgp public keys."
 
-install-composer:
+composer-install:
 	$(if $(shell sh -c 'composer -v >/dev/null 2>&1 && echo 1'),,$(warning $(ERR));$(error $(HINT)))
 	@composer self-update
 	@composer install
