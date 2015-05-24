@@ -29,8 +29,7 @@ install:
 debug: log/php-proxy-keyserver.log
 	@tail -f log/php-proxy-keyserver.log
 
-
 clean: log
 	@rm -rf log
 
-.PHONY: test
+.PHONY: test skins
