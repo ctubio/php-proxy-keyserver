@@ -16,7 +16,7 @@ before_install:
   - sudo apt-get install sks
   - echo "initstart=yes" | sudo tee /etc/default/sks
   - sudo ls -la /etc/sks/*
-  - echo -e "hkp_port\x3A 11371\nhkp_address\x3A 127.0.0.1\nhostname\x3A none" | sudo tee /etc/sks/sksconf
+  - echo -e "hkp_port\x3A 11371\nhkp_address\x3A 127.0.0.1\nhostname\x3A127.0.0.1" | sudo tee /etc/sks/sksconf
   - sudo service sks start
   - sudo cat /etc/sks/sksconf
   - sks --help
