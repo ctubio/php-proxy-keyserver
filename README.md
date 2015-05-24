@@ -37,6 +37,9 @@ These sources are happy serving public keys at http://pgp.key-server.io
   $ # Just validate if your website can search/retrieve/submit pgp public keys.
   $ # Please, feel free to extend or customize as you need the web interface!
 ```
+
+### Troubleshooting
+
 ##### Common Installation Problems:
 ```bash
 -bash: composer: command not found
