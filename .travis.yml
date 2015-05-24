@@ -15,11 +15,11 @@ git:
 before_install:
   - sudo apt-get install sks -y -o Dpkg::Options::="--force-confdef"
   - echo "initstart=yes" | sudo tee /etc/default/sks
-  - echo "hkp_address: 127.0.0.1" | sudo tee -a /etc/sks/sksconf
-  - echo "hostname: localhost" | seed tee -a /etc/sks/sksconf
+  - sudo ls -la /etc/sks
+  - echo -e "hkp_address: 127.0.0.1\nhostname: none" | sudo tee /etc/sks/sksconf
   - sudo /etc/init.d/sks start
   - sudo cat /etc/sks/sksconf
-  - make install
+  - make
 
 script:
   - make test
