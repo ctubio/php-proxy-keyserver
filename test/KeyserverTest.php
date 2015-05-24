@@ -14,6 +14,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
 
       $this->assertTrue($response instanceof Response);
       $this->assertEquals(404, $response->getStatusCode());
+      $this->assertEquals('text/html;charset=UTF-8', $response->headers->get('content-type'));
       $this->assertSame(0, strpos($response->getContent(), '<!DOCTYPE html>'));
     }
 
@@ -26,6 +27,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
 
       $this->assertTrue($response instanceof Response);
       $this->assertEquals(500, $response->getStatusCode());
+      $this->assertEquals('text/html;charset=UTF-8', $response->headers->get('content-type'));
       $this->assertSame(0, strpos($response->getContent(), '<!DOCTYPE html>'));
     }
 
@@ -38,6 +40,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
 
       $this->assertTrue($response instanceof Response);
       $this->assertEquals(200, $response->getStatusCode());
+      $this->assertEquals('text/html;charset=UTF-8', $response->headers->get('content-type'));
       $this->assertSame(0, strpos($response->getContent(), '<!DOCTYPE html>'));
       $this->assertGreaterThan(21, strpos($response->getContent(), 'GNU/Linux Inside!'));
       $this->assertGreaterThan(21, strpos($response->getContent(), 'Submit this key'));
@@ -54,6 +57,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
 
       $this->assertTrue($response instanceof Response);
       $this->assertEquals(200, $response->getStatusCode());
+      $this->assertEquals('text/html;charset=UTF-8', $response->headers->get('content-type'));
       $this->assertSame(0, strpos($response->getContent(), '<!DOCTYPE html>'));
       $this->assertGreaterThan(21, strpos($response->getContent(), 'GNU/Linux Inside!'));
       $this->assertGreaterThan(21, strpos($response->getContent(), 'Can you delete my key from the key server?'));
@@ -71,6 +75,39 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
 
       $this->assertTrue($response instanceof Response);
       $this->assertEquals(404, $response->getStatusCode());
+      $this->assertEquals('text/html;charset=UTF-8', $response->headers->get('content-type'));
       $this->assertSame(0, strpos($response->getContent(), '<!DOCTYPE html>'));
+    }
+
+    public function testRobots()
+    {
+      $request = Request::createFromGlobals();
+      $request->server->set('REQUEST_URI', '/robots.txt');
+      Keyserver::$request_instance = $request;
+      file_put_contents('../skin/default/robots.txt', file_get_contents('../pub/robots.txt'));
+      $response = Keyserver::getResponse();
+      unlink('../skin/default/robots.txt');
+
+      $this->assertTrue($response instanceof Response);
+      $this->assertEquals(200, $response->getStatusCode());
+      $this->assertEquals('text/plain', $response->headers->get('content-type'));
+      $this->assertSame(0, strpos($response->getContent(), 'User-agent: *'));
+      $this->assertGreaterThan(10, strpos($response->getContent(), 'Disallow: /pks/'));
+    }
+
+    public function testFavicon()
+    {
+      $request = Request::createFromGlobals();
+      $request->server->set('REQUEST_URI', '/favicon.ico');
+      Keyserver::$request_instance = $request;
+      file_put_contents('../skin/default/favicon.ico', file_get_contents('../pub/favicon.ico'));
+      $response = Keyserver::getResponse();
+      unlink('../skin/default/favicon.ico');
+
+      $this->assertTrue($response instanceof Response);
+      $this->assertEquals(200, $response->getStatusCode());
+      $this->assertEquals('image/x-icon', $response->headers->get('content-type'));
+      $this->assertSame(1, strpos($response->getContent(), 'PNG'));
+      $this->assertEquals(193, strlen($response->getContent()));
     }
 }
