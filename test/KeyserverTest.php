@@ -1,5 +1,6 @@
 <?php
 use PhpProxy\Keyserver;
+use PhpProxy\Keyserver\Config;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -83,5 +84,14 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
       $this->assertContains($response->headers->get('content-type'), array('image/x-icon', 'image/png'));
       $this->assertSame(1, strpos($response->getContent(), 'PNG'));
       $this->assertEquals(193, strlen($response->getContent()));
+    }
+
+    public function testConfig()
+    {
+      $config = Keyserver::getConfig();
+
+      $this->assertTrue($config instanceof Config);
+      $this->assertEquals($config->hkp_port, 11371);
+      $this->assertEquals($config->html_skin, 'default');
     }
 }
