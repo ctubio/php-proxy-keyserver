@@ -8,14 +8,13 @@ use Symfony\Component\HttpFoundation\Response;
 class Router {
 
   public static function getResponse() {
-    $response = ($errno = Keyserver::getErrno())
-      ? new Response(NULL, $errno)
-      : (strpos($uri = Keyserver::getUri(), '/pks/') === 0
-          ? Skin::parseContent(self::_getHKPResponse($uri))
-          : Skin::parsePhtml(new Response(), $uri)
-        );
+    $response = strpos($uri = preg_replace('/^\/$/', '/index',
+      Keyserver::getRequest()->server->get('REQUEST_URI')
+    ), '/pks/') === 0
+      ? Skin::parseContent(self::_getHKPResponse($uri))
+      : Skin::parsePhtml(new Response(), $uri);
 
-    if (($errno = ($errno ?: (int)$response->getStatusCode())) !== 200)
+    if (($errno = (int)$response->getStatusCode()) !== 200)
       $response = Skin::parsePhtml($response, '/errors/'.$errno);
 
     return $response;

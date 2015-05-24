@@ -21,14 +21,4 @@ class Keyserver {
   public static function getConfig() {
     return Config::getInstance();
   }
-
-  public static function getUri() {
-    return preg_replace('/^\/$/', '/index',
-      self::getRequest()->server->get('REQUEST_URI')
-    );
-  }
-
-  public static function getErrno() {
-    return (int)self::getRequest()->query->get('ERRNO');
-  }
 }

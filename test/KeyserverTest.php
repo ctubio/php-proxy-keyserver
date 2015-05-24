@@ -5,32 +5,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class KeyserverTest extends PHPUnit_Framework_TestCase
 {
-    public function testErrno404()
-    {
-      $request = Request::createFromGlobals();
-      $request->query->set('ERRNO', '404');
-      Keyserver::$request_instance = $request;
-      $response = Keyserver::getResponse();
-
-      $this->assertTrue($response instanceof Response);
-      $this->assertEquals(404, $response->getStatusCode());
-      $this->assertEquals('text/html;charset=UTF-8', $response->headers->get('content-type'));
-      $this->assertSame(0, strpos($response->getContent(), '<!DOCTYPE html>'));
-    }
-
-    public function testErrno505()
-    {
-      $request = Request::createFromGlobals();
-      $request->query->set('ERRNO', '500');
-      Keyserver::$request_instance = $request;
-      $response = Keyserver::getResponse();
-
-      $this->assertTrue($response instanceof Response);
-      $this->assertEquals(500, $response->getStatusCode());
-      $this->assertEquals('text/html;charset=UTF-8', $response->headers->get('content-type'));
-      $this->assertSame(0, strpos($response->getContent(), '<!DOCTYPE html>'));
-    }
-
     public function testIndex()
     {
       $request = Request::createFromGlobals();
@@ -66,7 +40,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
       $this->assertGreaterThan(21, strpos($response->getContent(), 'Please send bug reports'));
     }
 
-    public function testMissing()
+    public function test404()
     {
       $request = Request::createFromGlobals();
       $request->server->set('REQUEST_URI', '/doc/missing');
