@@ -11,7 +11,7 @@ class Log {
     if ($hint) $e = 'Hint! '.$hint.PHP_EOL.$e;
 
     if ((bool)(int)Keyserver::getConfig()->display_exceptions)
-      die('<pre>'.$e.'</pre>');
+      echo '<pre>', $e, '</pre>';
 
     if (!$path=realpath('../log'))
       @mkdir($path=realpath('..').'/log',0777,TRUE);
