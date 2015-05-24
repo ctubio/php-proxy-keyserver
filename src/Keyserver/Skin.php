@@ -71,8 +71,7 @@ class Skin {
       $_error = "Validation of Strict HTML failed:";
       foreach(libxml_get_errors() as $error)
         $_error .= "\n\t".$error->message;
-      Log::catchError($_error);
-      return $content;
+      return Log::catchError($_error) ?: $content;
     }
     return preg_replace('~></(?:area|base(?:font)?|br|col|command|embed|frame|hr|img|input|keygen|link|meta|param|source|track|wbr)>~', '/>',
       utf8_decode(substr($dom = $dom->saveXML($dom, LIBXML_NOEMPTYTAG), strpos($dom, '?'.'>') + 3))

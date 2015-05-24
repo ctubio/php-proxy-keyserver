@@ -28,7 +28,9 @@ class Router {
         'http://'.$config->hkp_addr.':'.$config->hkp_port.$uri
       );
     } catch (\Exception $e) {
-      Log::catchError($e, 'Double-check if the keyserver is up and running at the expected address:port ('.$config->hkp_addr.':'.$config->hkp_port.').');
+      return new Response(
+        Log::catchError($e, 'Double-check if the keyserver is up and running at the expected address:port ('.$config->hkp_addr.':'.$config->hkp_port.').')
+      );
     }
   }
 }

@@ -23,8 +23,7 @@ class Phtml {
         and !Keyserver::getConfig()->layout_html_errors
       ) ? '/plain_'.ltrim($this->_page,'/') : '/skin_layout' ).'.phtml');
     } catch (\Exception $e) {
-      Log::catchError($e);
-      return "";
+      return Log::catchError($e);
     }
   }
 
@@ -45,8 +44,8 @@ class Phtml {
       $_error = "Validation of Strict HTML in Keyserver's output failed:";
       foreach(libxml_get_errors() as $error)
         $_error .= "\n\t".$error->message;
-      Log::catchError($_error);
-      return preg_replace('/.*<body>(.*)<\/body>.*$/s', '$1', $content);
+      return Log::catchError($_error)
+        ?: preg_replace('/.*<body>(.*)<\/body>.*$/s', '$1', $content);
     }
     $xpath = new \DOMXPath($dom);
     $body = $xpath->query('/html/body');

@@ -17,6 +17,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
       $this->assertEquals(200, $response->getStatusCode());
       $this->assertEquals('text/html;charset=UTF-8', $response->headers->get('content-type'));
       $this->assertStringStartsWith('<!DOCTYPE html>', $response->getContent());
+      $this->assertStringEndsWith('</html>'.PHP_EOL, $response->getContent());
       $this->assertGreaterThan(21, strpos($response->getContent(), 'GNU/Linux Inside!'));
       $this->assertGreaterThan(21, strpos($response->getContent(), 'Submit this key'));
       $this->assertGreaterThan(21, strpos($response->getContent(), 'Remove my key!'));
@@ -34,6 +35,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
       $this->assertEquals(200, $response->getStatusCode());
       $this->assertEquals('text/html;charset=UTF-8', $response->headers->get('content-type'));
       $this->assertStringStartsWith('<!DOCTYPE html>', $response->getContent());
+      $this->assertStringEndsWith('</html>'.PHP_EOL, $response->getContent());
       $this->assertGreaterThan(21, strpos($response->getContent(), 'GNU/Linux Inside!'));
       $this->assertGreaterThan(21, strpos($response->getContent(), 'Can you delete my key from the key server?'));
       $this->assertGreaterThan(21, strpos($response->getContent(), 'No.'));
@@ -52,6 +54,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
       $this->assertEquals(404, $response->getStatusCode());
       $this->assertEquals('text/html;charset=UTF-8', $response->headers->get('content-type'));
       $this->assertStringStartsWith('<!DOCTYPE html>', $response->getContent());
+      $this->assertStringEndsWith('</html>'.PHP_EOL, $response->getContent());
     }
 
     public function testRobots()
@@ -91,8 +94,8 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
       $config = Keyserver::getConfig();
 
       $this->assertTrue($config instanceof Config);
-      $this->assertEquals($config->hkp_port, 11371);
-      $this->assertEquals($config->html_skin, 'default');
+      $this->assertGreaterThan(1, $config->hkp_port);
+      $this->assertGreaterThan(1, strlen($config->html_skin));
     }
 
     public function testStats()
@@ -100,14 +103,77 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
       $request = Request::createFromGlobals();
       $request->server->set('REQUEST_URI', '/pks/lookup?op=stats');
       Keyserver::$request_instance = $request;
-      file_put_contents('../skin/default/favicon.ico', file_get_contents('../pub/favicon.ico'));
       $response = Keyserver::getResponse();
-      unlink('../skin/default/favicon.ico');
 
       $this->assertTrue($response instanceof Response);
       $this->assertEquals(200, $response->getStatusCode());
       $this->assertEquals('text/html;charset=UTF-8', $response->headers->get('content-type'));
+      $this->assertStringStartsWith('<!DOCTYPE html>', $response->getContent());
+      $this->assertStringEndsWith('</html>'.PHP_EOL, $response->getContent());
       $this->assertGreaterThan(21, strpos($response->getContent(), 'OpenPGP Keyserver statistics'));
       $this->assertGreaterThan(21, strpos($response->getContent(), 'Total number of keys:'));
+    }
+
+    public function testShort()
+    {
+      $request = Request::createFromGlobals();
+      $request->server->set('REQUEST_URI', '/pks/lookup?search=x&fingerprint=on&op=vindex');
+      Keyserver::$request_instance = $request;
+      $response = Keyserver::getResponse();
+
+      $this->assertTrue($response instanceof Response);
+      $this->assertEquals(500, $response->getStatusCode());
+      $this->assertEquals('text/html;charset=UTF-8', $response->headers->get('content-type'));
+      $this->assertStringStartsWith('<!DOCTYPE html>', $response->getContent());
+      $this->assertStringEndsWith('</html>'.PHP_EOL, $response->getContent());
+      $this->assertGreaterThan(21, strpos($response->getContent(), 'keyword too short..'));
+    }
+
+    public function testNotfound()
+    {
+      $request = Request::createFromGlobals();
+      $request->server->set('REQUEST_URI', '/pks/lookup?search=IMPOSSIBLEKEYTS&fingerprint=on&op=vindex');
+      Keyserver::$request_instance = $request;
+      $response = Keyserver::getResponse();
+
+      $this->assertTrue($response instanceof Response);
+      $this->assertEquals(404, $response->getStatusCode());
+      $this->assertEquals('text/html;charset=UTF-8', $response->headers->get('content-type'));
+      $this->assertStringStartsWith('<!DOCTYPE html>', $response->getContent());
+      $this->assertStringEndsWith('</html>'.PHP_EOL, $response->getContent());
+      $this->assertGreaterThan(21, strpos($response->getContent(), '0 keys found..'));
+    }
+
+    public function test0xC3B39DE0()
+    {
+      $request = Request::createFromGlobals();
+      $request->server->set('REQUEST_URI', '/pks/lookup?search=0xC3B39DE0&fingerprint=on&op=vindex');
+      Keyserver::$request_instance = $request;
+      $response = Keyserver::getResponse();
+
+      $this->assertTrue($response instanceof Response);
+      $this->assertEquals(200, $response->getStatusCode());
+      $this->assertEquals('text/html;charset=UTF-8', $response->headers->get('content-type'));
+      $this->assertStringStartsWith('<!DOCTYPE html>', $response->getContent());
+      $this->assertStringEndsWith('</html>'.PHP_EOL, $response->getContent());
+      $this->assertGreaterThan(21, strpos($response->getContent(), 'Search results for \'0xc3b39de0\''));
+      $this->assertGreaterThan(21, strpos($response->getContent(), 'Carles Tubio (pgp.key-server.io)'));
+      $this->assertGreaterThan(21, strpos($response->getContent(), '0xFA101D1FC3B39DE0'));
+    }
+
+    public function testUnreachable()
+    {
+      $request = Request::createFromGlobals();
+      $request->server->set('REQUEST_URI', '/pks/lookup?op=stats');
+      Keyserver::$request_instance = $request;
+      Keyserver::getConfig()->hkp_addr = 'bad.domain.tld';
+      $response = Keyserver::getResponse();
+
+      $this->assertTrue($response instanceof Response);
+      $this->assertEquals(200, $response->getStatusCode());
+      $this->assertEquals('text/html;charset=UTF-8', $response->headers->get('content-type'));
+      $this->assertStringStartsWith('<!DOCTYPE html>', $response->getContent());
+      $this->assertStringEndsWith('</html>'.PHP_EOL, $response->getContent());
+      $this->assertGreaterThan(21, strpos($response->getContent(), '<pre>Hint! Double-check'));
     }
 }
