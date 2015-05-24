@@ -13,9 +13,9 @@ git:
   submodules: false
 
 before_install:
+  - echo "initstart=yes" | sudo tee /etc/default/sks
   - sudo apt-get install sks
   - make install
-  - sudo cat /etc/default/sks
 
 script:
   - make test
