@@ -29,10 +29,7 @@
   },
   "scripts": {
     "post-create-project-cmd" : [
-      "echo To finish the installation, please run:",
-      "echo \" $ make config\"",
-      "echo  Also, if you wish to download extra skins, you may want to run:",
-      "echo \" $ make skins\""
+      "make help"
     ]
   }
 }
