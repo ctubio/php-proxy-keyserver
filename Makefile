@@ -22,7 +22,11 @@ install:
 	@echo
 	@echo "When done, please visit your website and validate that you can search/retrieve/submit pgp public keys."
 
-clean:
+debug: log/php-proxy-keyserver.log
+	@tail -f log/php-proxy-keyserver.log
+
+
+clean: log
 	@rm -rf log
 
 .PHONY: test
