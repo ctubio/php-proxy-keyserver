@@ -13,15 +13,8 @@ git:
   submodules: false
 
 before_install:
-  - sudo apt-get install sks
-  - echo "initstart=yes" | sudo tee /etc/default/sks
-  - sudo ls -la /etc/sks/*
-  - echo -e "hkp_port\x3A 11371\nhkp_address\x3A 127.0.0.1\nhostname\x3A127.0.0.1" | sudo tee /etc/sks/sksconf
-  - sudo service sks start
-  - sudo cat /etc/sks/sksconf
-  - sks --help
-  - curl http://127.0.0.1:11371/pks/lookup?op=stats
   - make
+  - sed -e "s/^;\(hkp_addr\).*$/\1 = pgp.key-server.io/" <<< "$(cat etc/php-proxy-keyserver.ini)"
 
 script:
   - make test
@@ -32,3 +25,4 @@ after_success:
 notifications:
   email:
     on_success: never
+
