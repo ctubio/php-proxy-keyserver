@@ -11,7 +11,7 @@
   }],
   "support": {
     "email": "carles.tubio@key-server.io",
-    "source": "https://github.com/ctubio/php-proxy-keyserver",
+    "source": "https://github.com/ctubio/php-proxy-keyserver/tree/master",
     "issues": "https://github.com/ctubio/php-proxy-keyserver/issues"
   },
   "require": {
