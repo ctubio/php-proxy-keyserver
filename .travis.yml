@@ -16,7 +16,7 @@ before_install:
   - echo "initstart=yes" | sudo tee /etc/default/sks
   - echo "export DEBIAN_FRONTEND=noninteractive"
   - sudo apt-get install sks -y -o Dpkg::Options::="--force-confdef"
-  - sudo apt-get install updatedb && sudo udatedb && locate sksconf
+  - sudo updatedb && locate sksconf
   - make install
 
 script:
