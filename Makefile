@@ -5,14 +5,14 @@ all: composer-install
 
 quickstart:
 	@echo
-	@echo "Please, if you agree, run the following commands inside the main directory:"
+	@echo "If you want, run the following commands inside the main directory:"
 	@echo "   make config     - if you need help to configure php-proxy-keyserver"
 	@echo "   make skins      - if you wish to download extra skins"
 	@echo "   make help       - if you wish to read extended help"
 	
 help:
 	@echo
-	@echo "Please, run the following commands inside the main directory:"
+	@echo "Available commands inside the main directory:"
 	@echo "   make quickstart - show minimal help"
 	@echo "   make help       - show extended help"
 	@echo "   make config     - create etc/php-proxy-keyserver.ini if not exists"
