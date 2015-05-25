@@ -95,7 +95,7 @@ echo $this->getPage('doc/faq'); # parse and print page/doc/faq.phtml
 ```
 
 ##### ..my skin only uses static files?
-the ```skin/default``` uses a php layout to build the given page with blocks. But if you would like to use only html files or any other static format, please see the source of [skin/pgpkeyserver-like](https://github.com/mattrude/pgpkeyserver-lite) for example, or [skin/XHTML+ES](https://github.com/ctubio/sks-keyserver-sampleWeb-XHTML-ES).
+the ```skin/default``` uses a php layout to build the given page with blocks. But if you would like to use only html files or any other static format, please see the source of [skin/pgpkeyserver-lite](https://github.com/mattrude/pgpkeyserver-lite) for example, or [skin/XHTML+ES](https://github.com/ctubio/sks-keyserver-sampleWeb-XHTML-ES).
 
 ##### ..i want to make a skin for the community but without run my own keyserver?
 feel free to use my keyserver for your development, the address is ```pgp.key-server.io``` (see the answer below).
