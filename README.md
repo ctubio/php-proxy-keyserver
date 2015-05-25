@@ -61,3 +61,5 @@ to fix it, see http://gnuwin32.sourceforge.net/packages/make.htm
 - https://bitbucket.org/skskeyserver/sks-keyserver
 - https://github.com/jenssegers/php-proxy
 - https://getcomposer.org/
+- https://www.gnu.org/software/make/manual/make.html
+- https://git-scm.com/book
