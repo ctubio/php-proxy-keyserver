@@ -32,6 +32,7 @@ These sources are happy serving public keys at http://pgp.key-server.io
   $ cd /var/www
   $ mkdir your.domain.name
   $ cd your.domain.name
+  $ composer self-update
   $ composer create-project ctubio/php-proxy-keyserver . --keep-vcs
   $ make config
   $ make help
