@@ -47,7 +47,7 @@ These sources are happy serving public keys at http://pgp.key-server.io
 ```
 -bash: composer: command not found
 ```
-to fix it, see https://getcomposer.org/doc/00-intro.md#globally
+to fix it, see https://getcomposer.org/doc/00-intro.md#installation-linux-unix-osx
 
 ##### Silly Winny Problems:
 ```
