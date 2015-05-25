@@ -1,6 +1,6 @@
 {
   "name": "ctubio/php-proxy-keyserver",
-  "description": "PHP proxy and extensible web interface forwarding standard HKP requests to a local SKS OpenPGP Keyserver.",
+  "description": "PHP proxy and extensible web interface forwarding standard HKP requests to a local or remote SKS OpenPGP Keyserver.",
   "type": "project",
   "keywords": ["php", "proxy", "keyserver", "hkp", "sks"],
   "homepage": "https://github.com/ctubio/php-proxy-keyserver",
