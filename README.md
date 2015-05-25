@@ -67,6 +67,42 @@ run the following command to create a new skin (using ```default``` as a base, o
 ```
 $ cp -r skin/default skin/new-skin
 ```
+
+##### ..what function are available in ```*.phtml``` files?
+you can make use of:
+```php
+# get any value from php-proxy-keyserver.ini
+string $this->getConfig(string $option);
+# (you can add new options to the config file as you need)
+# for example:
+echo $this->getConfig('hkp_addr');
+# prints: 127.0.0.1
+```
+
+```php
+# get any block form skin/blocks/*
+string $this->getBlock(string $block);
+# (you can get blocks from any depth in he path)
+# for example:
+echo $this->getBlock('gnu_inside');
+echo $this->getBlock('happy/gnu_inside');
+# parses and prints: skin/block/gnu_inside.phtml and skin/block/happy/gnu_inside.phtml
+```
+
+```php
+# get any block form skin/blocks/*
+string $this->getPage([string $block]);
+# (you can get blocks from any depth in he path)
+# for example:
+echo $this->getPage();
+echo $this->getPage('index');
+echo $this->getPage('doc/faq');
+# parses and prints: the current page based on the http request, page/index.phtml and page/doc/faq.phtml
+```
+
+##### ..my skin only uses static files?
+the ```default``` skin uses a php layout to build the given page with blocks. But if you would like to use only html files or any other static format, please see the source of [skin/pgpkeyserver-like](https://github.com/mattrude/pgpkeyserver-lite) for example, or [skin/XHTML+ES](https://github.com/ctubio/sks-keyserver-sampleWeb-XHTML-ES).
+
 ##### ..i want to make a skin for the community but without run my own keyserver?
 feel free to use my keyserver for your development, the address is ```pgp.key-server.io``` (see the answer below).
 
