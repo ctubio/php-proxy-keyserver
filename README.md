@@ -4,7 +4,7 @@
 
 These sources are happy serving public keys at http://pgp.key-server.io
 
-[![Latest Tag](https://img.shields.io/github/tag/ctubio/php-proxy-keyserver.svg?label=latest%20tag)](https://packagist.org/packages/ctubio/php-proxy-keyserver)
+[![Latest Tag](https://img.shields.io/packagist/vpre/ctubio/php-proxy-keyserver.svg)](https://packagist.org/packages/ctubio/php-proxy-keyserver)
 [![Build Status](https://img.shields.io/travis/ctubio/php-proxy-keyserver/master.svg?label=test%20suite)](https://travis-ci.org/ctubio/php-proxy-keyserver)
 [![Coverage Status](https://img.shields.io/coveralls/ctubio/php-proxy-keyserver/master.svg?label=code%20coverage)](https://coveralls.io/r/ctubio/php-proxy-keyserver?branch=master)
 [![Open Issues](https://img.shields.io/github/issues/ctubio/php-proxy-keyserver.svg)](https://github.com/ctubio/php-proxy-keyserver/issues)
