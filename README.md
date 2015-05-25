@@ -56,6 +56,25 @@ to fix it, see https://getcomposer.org/doc/00-intro.md#installation-linux-unix-o
 ```
 to fix it, see http://gnuwin32.sourceforge.net/packages/make.htm
 
+### What if..
+###### ..my webserver is just a webserver?
+the keyserver may be provided by another different server, if that is your case, please edit ```etc/php-proxy-keyserver.ini``` and customize the value of ```hkp_addr``` to match the address of the keyserver.
+
+###### ..i want to make a skin for the community but without run my own keyserver?
+see the answer above, and feel free to make use of my keyserver for your development, the address is ```pgp.key-server.io```.
+
+###### ..my keyserver refuses to work, can i ask you for help?
+i will do my best, please open a [new issue](https://github.com/ctubio/php-proxy-keyserver/issues/new), only after reading the [official sks wiki](https://bitbucket.org/skskeyserver/sks-keyserver/wiki/Home).
+
+###### ..my kerserver is not an instance of ```sks```?
+the php proxy will work with any other keyserver as long as it is based on the [OpenPGP HTTP Keyserver Protocol (HKP)](http://ietfreport.isoc.org/all-ids/draft-shaw-openpgp-hkp-00.txt).
+
+###### ..i really don't want a kerserver, but a webserver that uses ```gpg``` locally to answer the request?
+hey, the other day i found https://github.com/remko/phkp, hope it helps!
+
+###### ..i belive that is redundant to requiere ```git submodule```, ```composer``` and ```make```?
+i like them all. You may probably be able to provide the same functionality with just one of them, but that's a boring world.
+
 ### Very special thanks to:
 - https://keyserver.mattrude.com
 - https://pgp.mit.edu
