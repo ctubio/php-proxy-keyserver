@@ -13,14 +13,15 @@ quickstart:
 help:
 	@echo
 	@echo "Available commands inside the main directory:"
-	@echo "   make quickstart - show minimal help"
-	@echo "   make help       - show extended help"
+	@echo "   make            - install dependencies (if downloaded directly form github)"
 	@echo "   make config     - create etc/php-proxy-keyserver.ini if not exists"
 	@echo "   make skins      - download extra skins at skins/*"
 	@echo "   make test       - run test suite"
 	@echo "   make coverage   - send coverage report"
 	@echo "   make debug      - follow output of logs"
 	@echo "   make clean      - remove logs"
+	@echo "   make quickstart - show minimal help"
+	@echo "   make help       - show extended help"
 	
 config:
 	@cd etc && test -e php-proxy-keyserver.ini || cp php-proxy-keyserver.ini.example php-proxy-keyserver.ini
