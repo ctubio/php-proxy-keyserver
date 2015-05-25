@@ -71,8 +71,8 @@ please make use of ```$this``` methods:
 string $this->getConfig(string $option);
 # (you can add new options to the config file as you need)
 # for example:
-echo $this->getConfig('hkp_addr');
-# prints: 127.0.0.1
+echo $this->getConfig('hkp_addr');   # may print 127.0.0.1
+echo $this->getConfig('custom_var'); # may print custom_value
 ```
 
 ```php
@@ -80,9 +80,8 @@ echo $this->getConfig('hkp_addr');
 string $this->getBlock(string $block);
 # (you can get blocks from any depth in he path)
 # for example:
-echo $this->getBlock('gnu_inside');
-echo $this->getBlock('happy/gnu_inside');
-# parses and prints: skin/block/gnu_inside.phtml and skin/block/happy/gnu_inside.phtml
+echo $this->getBlock('gnu_inside');       # parse and print skin/block/gnu_inside.phtml
+echo $this->getBlock('happy/gnu_inside'); # parse and print skin/block/happy/gnu_inside.phtml
 ```
 
 ```php
@@ -90,10 +89,9 @@ echo $this->getBlock('happy/gnu_inside');
 string $this->getPage([string $page]);
 # (useful in the layout, or to show the faq page in the footer of all pages?)
 # for example:
-echo $this->getPage();
-echo $this->getPage('index');
-echo $this->getPage('doc/faq');
-# parses and prints: the current page based on the http request, page/index.phtml and page/doc/faq.phtml
+echo $this->getPage();          # parse and print the current page based on the http request
+echo $this->getPage('index');   # parse and print page/index.phtml
+echo $this->getPage('doc/faq'); # parse and print page/doc/faq.phtml
 ```
 
 ##### ..my skin only uses static files?
