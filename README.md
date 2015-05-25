@@ -30,6 +30,8 @@ These sources are happy serving public keys at http://pgp.key-server.io
   $ # Download and compose the php proxy with all web interface skins:
   $ cd /var/www
   $ composer create-project ctubio/php-proxy-keyserver your.domain.name
+  $ cd your.domain.name
+  $ make help
 
   $ # ProxyPass doesn't need to be configured because PHP supplies the proxy.
   $ # Just validate if your website can search/retrieve/submit pgp public keys.
