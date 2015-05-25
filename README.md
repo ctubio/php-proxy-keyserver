@@ -10,10 +10,6 @@ These sources are happy serving public keys at http://pgp.key-server.io.
 [![Dependency Status](https://www.versioneye.com/user/projects/5562f9753664660019240200/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5562f9753664660019240200)
 [![Open Issues](https://img.shields.io/github/issues/ctubio/php-proxy-keyserver.svg)](https://github.com/ctubio/php-proxy-keyserver/issues)
 
-## php-proxy-keyserver
- 
- PHP proxy and extensible web interface forwarding standard HKP requests to a local or remote SKS OpenPGP Keyserver.
-
 ### How to run your own SKS Keyserver with PHP and friends:
 ```ini
   $ # Check the latest sks version:
