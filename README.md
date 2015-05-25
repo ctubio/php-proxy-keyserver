@@ -28,7 +28,7 @@ These sources are happy serving public keys at http://pgp.key-server.io
   $ netstat -l | grep http
   $ # If you dont see any output, please start the webserver daemon.
 
-  $ # Download and compose the php proxy with all web interface skins:
+  $ # Download and compose the php proxy with the extensible web interface:
   $ cd /var/www
   $ mkdir your.domain.name
   $ cd your.domain.name
