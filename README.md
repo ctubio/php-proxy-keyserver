@@ -103,6 +103,17 @@ feel free to use my keyserver for your development, the address is ```pgp.key-se
 ##### ..my webserver is just a webserver?
 the keyserver may be provided by another different server, if that is your case, please edit ```etc/php-proxy-keyserver.ini``` and customize the value of ```hkp_addr``` to match the address of the keyserver.
 
+##### ..i want to upgrade to a new version of php-proxy-keyserver?
+please run the following commands (using v1.2.3 as an example):
+```bash
+ $ git fetch;           # see the available new versions in the output
+ $ git checkout v1.2.3; # upgrade to v1.2.3
+```
+or you can revert back to a previous version with:
+```bash
+ $ git checkout v1.2.2; # downgrade back to v1.2.2
+```
+
 ##### ..my keyserver is not an instance of ```sks```?
 the php proxy will work with any keyserver as long as it is based on the [OpenPGP HTTP Keyserver Protocol (HKP)](http://ietfreport.isoc.org/all-ids/draft-shaw-openpgp-hkp-00.txt).
 
