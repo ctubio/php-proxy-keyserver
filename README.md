@@ -59,7 +59,7 @@ to fix it, see http://gnuwin32.sourceforge.net/packages/make.htm
 ### What if..
 
 ##### ..i want to make a skin?
-run the following command to create a new skin (using ```skin/default``` as a base, or any other), and if you would like to share it, please read the [ANNOUNCEMENT](ANNOUNCEMENT) file.
+run the following command to create a new skin (using ```skin/default``` as a base, or any other), and if you would like to share it, please read the [ANNOUNCEMENT](ANNOUNCEMENT) file:
 ```
 $ cp -r skin/default skin/new-skin
 ```
