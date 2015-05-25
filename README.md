@@ -31,6 +31,7 @@ These sources are happy serving public keys at http://pgp.key-server.io
   $ cd /var/www
   $ composer create-project ctubio/php-proxy-keyserver your.domain.name
   $ cd your.domain.name
+  $ make config
   $ make help
 
   $ # ProxyPass doesn't need to be configured because PHP supplies the proxy.
