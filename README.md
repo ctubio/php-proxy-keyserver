@@ -2,7 +2,7 @@
 [![Platform License](https://img.shields.io/badge/platform-unix--like-lightgray.svg)](https://www.gnu.org/)
 [![Software License](https://img.shields.io/badge/license-MIT-111111.svg)](LICENSE)
 
-These sources are happy serving public keys at http://pgp.key-server.io
+These sources are happy serving public keys at http://pgp.key-server.io.
 
 [![Latest Tag](https://img.shields.io/packagist/vpre/ctubio/php-proxy-keyserver.svg)](https://packagist.org/packages/ctubio/php-proxy-keyserver)
 [![Build Status](https://img.shields.io/travis/ctubio/php-proxy-keyserver/master.svg?label=test%20suite)](https://travis-ci.org/ctubio/php-proxy-keyserver)
