@@ -29,8 +29,9 @@ These sources are happy serving public keys at http://pgp.key-server.io
 
   $ # Download and compose the php proxy with all web interface skins:
   $ cd /var/www
-  $ composer create-project ctubio/php-proxy-keyserver your.domain.name --keep-vcs
+  $ mkdir your.domain.name
   $ cd your.domain.name
+  $ composer create-project ctubio/php-proxy-keyserver . -s dev --keep-vcs
   $ make config
   $ make help
 
