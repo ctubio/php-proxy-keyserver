@@ -63,13 +63,13 @@ to fix it, see http://gnuwin32.sourceforge.net/packages/make.htm
 ### What if..
 
 ##### ..i want to make a skin?
-run the following command to create a new skin (using ```default``` as a base, or any other), and if you would like to share it, please read the [ANNOUNCEMENT](ANNOUNCEMENT) file.
+run the following command to create a new skin (using ```skin/default``` as a base, or any other), and if you would like to share it, please read the [ANNOUNCEMENT](ANNOUNCEMENT) file.
 ```
 $ cp -r skin/default skin/new-skin
 ```
 
-##### ..what function are available in ```*.phtml``` files?
-you can make use of:
+##### ..what methods are available in ```*.phtml``` files?
+please make use of ```$this``` methods:
 ```php
 # get any value from php-proxy-keyserver.ini
 string $this->getConfig(string $option);
@@ -91,7 +91,7 @@ echo $this->getBlock('happy/gnu_inside');
 
 ```php
 # get any page form skin/page/*
-string $this->getPage([string $block]);
+string $this->getPage([string $page]);
 # (useful in the layout, or to show the faq page in the footer of all pages?)
 # for example:
 echo $this->getPage();
