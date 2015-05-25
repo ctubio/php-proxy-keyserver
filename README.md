@@ -90,9 +90,9 @@ echo $this->getBlock('happy/gnu_inside');
 ```
 
 ```php
-# get any block form skin/blocks/*
+# get any page form skin/page/*
 string $this->getPage([string $block]);
-# (you can get blocks from any depth in he path)
+# (useful in the layout, or to show the faq page in the footer of all pages?)
 # for example:
 echo $this->getPage();
 echo $this->getPage('index');
