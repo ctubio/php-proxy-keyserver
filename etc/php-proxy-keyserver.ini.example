@@ -13,6 +13,8 @@ contact_email = carles.tubio@key-server.io
 indent_strict_html = 1
 display_exceptions = 1
 
+[custom_options]
+
 ;;;; BODEFAULTS
 ;;; STAND BACK, REDUNDANT DOCUMENTATION BELOW
 ;; default hkp_port value is 11371, any value is valid but 11371 is recommended
@@ -24,5 +26,6 @@ display_exceptions = 1
 ;; default layout_html_errors value is 0, valid values are 0 or 1 (use /plain_errors or skin_layout.phtml?)
 ;; default indent_strict_html value is 0, valid values are 0 or 1 (raw or auto indent with strict validation?)
 ;; default display_exceptions value is 0, valid values are 0 or 1 (write in /log or display all exceptions?)
+;; default custom_option is NULL, feel free to add your own option=value under [custom_options] section
 ;;; STAND BACK, REDUNDANT DOCUMENTATION ABOVE
 ;;;; EODEFAULTS
