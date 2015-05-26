@@ -3,10 +3,10 @@
 	url = https://github.com/mattrude/pgpkeyserver-lite
 [submodule "skin/HTML5"]
 	path = skin/HTML5
-	url = https://github.com/ctubio/sks-keyserver-sampleWeb-HTML5
+	url = https://github.com/pgpkeys/sks-keyserver-sampleWeb-HTML5
 [submodule "skin/XHTML+ES"]
 	path = skin/XHTML+ES
-	url = https://github.com/ctubio/sks-keyserver-sampleWeb-XHTML-ES
+	url = https://github.com/pgpkeys/sks-keyserver-sampleWeb-XHTML-ES
 [submodule "skin/OpenPKG"]
 	path = skin/OpenPKG
-	url = https://github.com/ctubio/sks-keyserver-sampleWeb-OpenPKG
+	url = https://github.com/pgpkeys/sks-keyserver-sampleWeb-OpenPKG
