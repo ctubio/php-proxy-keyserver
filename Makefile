@@ -24,7 +24,7 @@ help:
 	@echo "   make help       - show extended help"
 	
 config:
-	@cd etc && test -e php-proxy-keyserver.ini || cp php-proxy-keyserver.ini.example php-proxy-keyserver.ini
+	@cd etc && test -e php-proxy-keyserver.ini || cp php-proxy-keyserver.ini.dist php-proxy-keyserver.ini
 	@echo
 	@echo "----- PLEASE, EDIT YOUR CONFIG FILES -----"
 	@echo
