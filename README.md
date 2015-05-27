@@ -78,7 +78,7 @@ echo $this->getConfig('custom_var'); # may print custom_value
 ```php
 # get any block form skin/blocks/*
 string $this->getBlock(string $block);
-# (you can get blocks from any depth in he path)
+# (you can get blocks from any depth in the path)
 # for example:
 echo $this->getBlock('gnu_inside');       # parse and print skin/block/gnu_inside.phtml
 echo $this->getBlock('happy/gnu_inside'); # parse and print skin/block/happy/gnu_inside.phtml
