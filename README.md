@@ -10,6 +10,13 @@ These sources are happy serving public keys at http://pgp.key-server.io.
 [![Dependency Status](https://www.versioneye.com/user/projects/5562f9753664660019240200/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5562f9753664660019240200)
 [![Open Issues](https://img.shields.io/github/issues/ctubio/php-proxy-keyserver.svg)](https://github.com/ctubio/php-proxy-keyserver/issues)
 
+### Main Features
+ * Minimalistic php framework to extend the default web interface of a keyserver.
+ * 5 skins ready to use, but you can make your own (with dynamic php blocks or static html files).
+ * Optionally auto indent and validation of html pages before output.
+ * Meaningful error messages while developing skins (logging or display). 
+ * Webserver configs ready for apache2 (you may need to mimic pub/.htaccess for your webserver).
+
 ### How to run your own SKS Keyserver with PHP and friends:
 ```ini
   $ # Check the latest sks version:
