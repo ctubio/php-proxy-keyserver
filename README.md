@@ -74,7 +74,7 @@ $ cp -r skin/default skin/new-skin
 ##### ..what methods are available in ```skin/*.phtml``` files?
 please make use of ```$this``` methods:
 ```php
-# get any value from php-proxy-keyserver.ini
+# get any value from etc/php-proxy-keyserver.ini
 string $this->getConfig(string $option);
 # (you can add new options to the config file as you need)
 # for example:
