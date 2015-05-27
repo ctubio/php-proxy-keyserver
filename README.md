@@ -1,4 +1,4 @@
-[![Stable Release](https://img.shields.io/packagist/vpre/ctubio/php-proxy-keyserver.svg?label=release)](https://packagist.org/packages/ctubio/php-proxy-keyserver)
+[![Release](https://img.shields.io/packagist/vpre/ctubio/php-proxy-keyserver.svg?label=release)](https://packagist.org/packages/ctubio/php-proxy-keyserver)
 [![Platform License](https://img.shields.io/badge/platform-unix--like-lightgray.svg)](https://www.gnu.org/)
 [![Software License](https://img.shields.io/badge/license-MIT-111111.svg)](LICENSE)
 
