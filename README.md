@@ -10,7 +10,7 @@ These sources are happy serving public keys at http://pgp.key-server.io.
 [![Open Issues](https://img.shields.io/github/issues/ctubio/php-proxy-keyserver.svg)](https://github.com/ctubio/php-proxy-keyserver/issues)
 
 ### Main Features
- * Minimalistic php framework to extend the default web interface of a keyserver.
+ * Minimalistic php framework focused to extend the default web interface of a keyserver.
  * 5 skins ready to use, but you can make your own (with dynamic php blocks or static html files).
  * Optionally auto indent and validation of html pages before output.
  * Meaningful error messages while developing skins (logging or display). 
