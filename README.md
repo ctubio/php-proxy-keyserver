@@ -1,10 +1,9 @@
-[![Stable Release](https://img.shields.io/github/release/ctubio/php-proxy-keyserver.svg?label=stable%20release)](https://github.com/ctubio/php-proxy-keyserver/releases/latest)
+[![Stable Release](https://img.shields.io/packagist/vpre/ctubio/php-proxy-keyserver.svg?label=release)](https://packagist.org/packages/ctubio/php-proxy-keyserver)
 [![Platform License](https://img.shields.io/badge/platform-unix--like-lightgray.svg)](https://www.gnu.org/)
 [![Software License](https://img.shields.io/badge/license-MIT-111111.svg)](LICENSE)
 
 These sources are happy serving public keys at http://pgp.key-server.io.
 
-[![Latest Tag](https://img.shields.io/packagist/vpre/ctubio/php-proxy-keyserver.svg)](https://packagist.org/packages/ctubio/php-proxy-keyserver)
 [![Build Status](https://img.shields.io/travis/ctubio/php-proxy-keyserver/master.svg?label=test%20suite)](https://travis-ci.org/ctubio/php-proxy-keyserver)
 [![Coverage Status](https://img.shields.io/coveralls/ctubio/php-proxy-keyserver/master.svg?label=code%20coverage)](https://coveralls.io/r/ctubio/php-proxy-keyserver?branch=master)
 [![Dependency Status](https://www.versioneye.com/user/projects/5562f9753664660019240200/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5562f9753664660019240200)
