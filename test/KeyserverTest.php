@@ -10,6 +10,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
     {
       $request = Request::createFromGlobals();
       $request->server->set('REQUEST_URI', '/');
+      $request->server->set('HTTP_USER_AGENT', __METHOD__);
       Keyserver::$request_instance = $request;
       $response = Keyserver::getResponse();
 
@@ -28,6 +29,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
     {
       $request = Request::createFromGlobals();
       $request->server->set('REQUEST_URI', '/doc/faq');
+      $request->server->set('HTTP_USER_AGENT', __METHOD__);
       Keyserver::$request_instance = $request;
       $response = Keyserver::getResponse();
 
@@ -47,6 +49,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
     {
       $request = Request::createFromGlobals();
       $request->server->set('REQUEST_URI', '/doc/missing');
+      $request->server->set('HTTP_USER_AGENT', __METHOD__);
       Keyserver::$request_instance = $request;
       $response = Keyserver::getResponse();
 
@@ -61,6 +64,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
     {
       $request = Request::createFromGlobals();
       $request->server->set('REQUEST_URI', '/robots.txt');
+      $request->server->set('HTTP_USER_AGENT', __METHOD__);
       Keyserver::$request_instance = $request;
       file_put_contents('../skin/default/robots.txt', file_get_contents('../pub/robots.txt'));
       $response = Keyserver::getResponse();
@@ -77,6 +81,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
     {
       $request = Request::createFromGlobals();
       $request->server->set('REQUEST_URI', '/favicon.ico');
+      $request->server->set('HTTP_USER_AGENT', __METHOD__);
       Keyserver::$request_instance = $request;
       file_put_contents('../skin/default/favicon.ico', file_get_contents('../pub/favicon.ico'));
       $response = Keyserver::getResponse();
@@ -102,6 +107,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
     {
       $request = Request::createFromGlobals();
       $request->server->set('REQUEST_URI', '/pks/lookup?op=stats');
+      $request->server->set('HTTP_USER_AGENT', __METHOD__);
       Keyserver::$request_instance = $request;
       $response = Keyserver::getResponse();
 
@@ -118,6 +124,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
     {
       $request = Request::createFromGlobals();
       $request->server->set('REQUEST_URI', '/pks/lookup?search=x&fingerprint=on&op=vindex');
+      $request->server->set('HTTP_USER_AGENT', __METHOD__);
       Keyserver::$request_instance = $request;
       $response = Keyserver::getResponse();
 
@@ -133,6 +140,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
     {
       $request = Request::createFromGlobals();
       $request->server->set('REQUEST_URI', '/pks/lookup?search=IMPOSSIBLEKEYTS&fingerprint=on&op=vindex');
+      $request->server->set('HTTP_USER_AGENT', __METHOD__);
       Keyserver::$request_instance = $request;
       $response = Keyserver::getResponse();
 
@@ -148,6 +156,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
     {
       $request = Request::createFromGlobals();
       $request->server->set('REQUEST_URI', '/pks/lookup?search=0xC3B39DE0&fingerprint=on&op=vindex');
+      $request->server->set('HTTP_USER_AGENT', __METHOD__);
       Keyserver::$request_instance = $request;
       $response = Keyserver::getResponse();
 
@@ -165,6 +174,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
     {
       $request = Request::createFromGlobals();
       $request->server->set('REQUEST_URI', '/pks/lookup?op=stats');
+      $request->server->set('HTTP_USER_AGENT', __METHOD__);
       Keyserver::$request_instance = $request;
       Keyserver::getConfig()->hkp_addr = 'bad.domain.tld';
       $response = Keyserver::getResponse();
@@ -181,6 +191,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
     {
       $request = Request::createFromGlobals();
       $request->server->set('REQUEST_URI', '/pks/lookup?op=stats');
+      $request->server->set('HTTP_USER_AGENT', __METHOD__);
       Keyserver::$request_instance = $request;
       Keyserver::getConfig()->display_exceptions = FALSE;
       $response = Keyserver::getResponse();
