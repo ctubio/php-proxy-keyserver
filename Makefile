@@ -30,8 +30,12 @@ config:
 	@echo
 	@echo "1) Edit ${PWD}/etc/php-proxy-keyserver.ini"
 	@echo "2) Set ${PWD}/pub as the DocumentRoot of your domain in your webserver configs."
+	@echo "3) The recommended setup is as follows:"
+	@echo "    - webserver listen to public ip ports 80, 443 and 11371."
+	@echo "    - keyserver listen to public ip ports 11370 and local ip port 11371."
 	@echo
 	@echo "When done, please visit your website and validate that you can search/retrieve/submit pgp public keys."
+	@echo "Also, validate if your keyserver is behind the webserver (the keyserver must not be visible in the HTTP response headers)."
 
 skins: .gitmodules
 	@git submodule init
