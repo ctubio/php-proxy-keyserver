@@ -135,6 +135,7 @@ hey, the other day i found https://github.com/remko/phkp, hope it helps!
 ### Very special thanks to:
 - https://keyserver.mattrude.com
 - https://pgp.mit.edu
+- https://sks-keyservers.net
 - https://bitbucket.org/skskeyserver/sks-keyserver
 - https://github.com/jenssegers/php-proxy
 - https://getcomposer.org/
