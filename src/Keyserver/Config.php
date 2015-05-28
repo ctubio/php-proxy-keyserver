@@ -25,6 +25,7 @@ class Config {
           'html_skin' => 'default',
           'layout_html_errors' => 0,
           'indent_strict_html' => 0,
+          'expose_keyserver' => 0,
           'display_exceptions' => 0
         ),
         parse_ini_file(realpath('../etc/php-proxy-keyserver.ini'))

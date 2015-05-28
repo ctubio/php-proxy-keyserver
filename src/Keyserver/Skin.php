@@ -36,18 +36,25 @@ class Skin {
       if (strpos($file=realpath($file), realpath(Skin::getPath()))!==0)
         throw new \Exception('Unknown skin path: "'.$file.'".');
 
-      $response->headers->set('content-type', self::_getMimeType($file));
+      $response->headers->set('Content-Type', self::_getMimeType($file));
       $response->setContent($file=file_get_contents($file));
     }
 
-    $response->headers->set('content-length', strlen($file));
+    $response->headers->set('Content-Length', strlen($file));
 
     return $response;
   }
 
   public static function parseContent(Response $response, $content = FALSE) {
-    
-    if (strpos($response->headers->get('content-disposition'), 'attachment')===0
+    $response->headers->set('Via',
+      '1.1 '.Keyserver::getConfig()->hostname
+      .':'.Keyserver::getConfig()->hkp_port
+      .' ('.(Keyserver::getConfig()->expose_keyserver
+        ? $response->headers->get('Server') : 'php-proxy-keyserver'
+      ).')'
+    );
+
+    if (strpos($response->headers->get('Content-Disposition'), 'attachment')===0
      or !Keyserver::getRequest()->server->get('HTTP_USER_AGENT'))
       return $response;
 
@@ -57,9 +64,9 @@ class Skin {
 
     if (self::_isPhtml() and Keyserver::getConfig()->indent_strict_html)
       $content = self::_indentStrictHtml($content);
-    
-    $response->headers->set('content-type', 'text/html;charset=UTF-8');
-    $response->headers->set('content-length', strlen($content));
+
+    $response->headers->set('Content-Type', 'text/html;charset=UTF-8');
+    $response->headers->set('Content-Length', strlen($content));
 
     return $response->setContent($content);
   }

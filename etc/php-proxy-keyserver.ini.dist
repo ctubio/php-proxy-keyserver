@@ -3,9 +3,10 @@
 ;hkp_addr = 127.0.0.1
 
 [whoami]
-;hostname      = SERVER_NAME.environment.variable
-contact_email = carles.tubio@key-server.io
-;html_title    = PGP Public Key Server
+;hostname           = SERVER_NAME.environment.variable
+contact_email      = carles.tubio@key-server.io
+;expose_keyserver   = 0
+;html_title         = PGP Public Key Server
 
 [options]
 ;html_skin          = default
@@ -21,6 +22,7 @@ display_exceptions = 1
 ;; default hkp_addr value is 127.0.0.1, any value is valid but 127.0.0.1 is recommended
 ;; default hostname value is $_SERVER['SERVER_NAME'], any value is valid
 ;; default contact_email value is bugs@hostname, any value is valid
+;; default expose_keyserver value is 0, valid values are 0 or 1 (hide keyserver in Via header or display?).
 ;; default html_title value is PGP Public Key Server, any value is valid
 ;; default html_skin value is default, valid values are folder names inside /skin
 ;; default layout_html_errors value is 0, valid values are 0 or 1 (use /plain_errors or skin_layout.phtml?)
