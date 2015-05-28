@@ -46,7 +46,8 @@ class Skin {
   }
 
   public static function parseContent(Response $response, $content = FALSE) {
-    if (strpos($response->headers->get('content-disposition'), 'attachment')===0)
+    if (strpos($response->headers->get('content-disposition'), 'attachment')===0
+      or Keyserver::getRequest()->query->get('options')=='mr')
       return $response;
 
     if (!$content) $content = self::_isPhtml()
