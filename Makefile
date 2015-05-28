@@ -35,7 +35,7 @@ config:
 	@echo "    - keyserver listen to public ip ports 11370 and local ip port 11371."
 	@echo
 	@echo "When done, please visit your website and validate that you can search/retrieve/submit pgp public keys."
-	@echo "Also, validate if your keyserver is behind the webserver (the keyserver must not be visible in the HTTP response headers)."
+	@echo "Also, validate if your keyserver is behind the webserver (the keyserver must not be visible in the HTTP/S response headers)."
 
 skins: .gitmodules
 	@git submodule init
