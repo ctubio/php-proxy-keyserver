@@ -2,7 +2,7 @@
 [![Platform License](https://img.shields.io/badge/platform-unix--like-lightgray.svg)](https://www.gnu.org/)
 [![Software License](https://img.shields.io/badge/license-MIT-111111.svg)](LICENSE)
 
-These sources are happy serving public keys at http://pgp.key-server.io.
+These sources are happy serving public keys at https://pgp.key-server.io (check the [pool status](https://sks-keyservers.net/status/)!).
 
 [![Build Status](https://img.shields.io/travis/ctubio/php-proxy-keyserver/master.svg?label=test%20suite)](https://travis-ci.org/ctubio/php-proxy-keyserver)
 [![Coverage Status](https://img.shields.io/coveralls/ctubio/php-proxy-keyserver/master.svg?label=code%20coverage)](https://coveralls.io/r/ctubio/php-proxy-keyserver?branch=master)
@@ -99,7 +99,7 @@ echo $this->getBlock('happy/gnu_inside'); # parse and print skin/block/happy/gnu
 string $this->getPage([string $page]);
 # (useful in the layout, or to show the faq page in the footer of all pages?)
 # for example:
-echo $this->getPage();          # parse and print the current page based on the http request
+echo $this->getPage();          # parse and print the current page based on the http/s request
 echo $this->getPage('index');   # parse and print page/index.phtml
 echo $this->getPage('doc/faq'); # parse and print page/doc/faq.phtml
 ```
