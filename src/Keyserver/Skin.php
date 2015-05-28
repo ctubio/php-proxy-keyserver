@@ -46,8 +46,9 @@ class Skin {
   }
 
   public static function parseContent(Response $response, $content = FALSE) {
+    
     if (strpos($response->headers->get('content-disposition'), 'attachment')===0
-      or Keyserver::getRequest()->query->get('options')=='mr')
+     or !Keyserver::getRequest()->server->get('HTTP_USER_AGENT'))
       return $response;
 
     if (!$content) $content = self::_isPhtml()
@@ -56,7 +57,7 @@ class Skin {
 
     if (self::_isPhtml() and Keyserver::getConfig()->indent_strict_html)
       $content = self::_indentStrictHtml($content);
-
+    
     $response->headers->set('content-type', 'text/html;charset=UTF-8');
     $response->headers->set('content-length', strlen($content));
 
