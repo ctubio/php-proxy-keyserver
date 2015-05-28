@@ -45,8 +45,8 @@ These sources are happy serving public keys at http://pgp.key-server.io.
 
   $ # ProxyPass doesn't need to be configured because PHP supplies the proxy.
   $ # PHP forwards all external request from the webserver to a local (or remote) keyserver.
-  $ # Make your webserver listen to ports 80, 443 and 11371 of external ip.
-  $ # Make your keyserver listen to port 11370 of external ip and 11371 of local ip.
+  $ # Make your webserver listen to public ip ports 80, 443 and 11371.
+  $ # Make your keyserver listen to public ip port 11370 and local ip port 11371.
   $ # Validate if your website can search/retrieve/submit pgp public keys.
   $ # Validate if your keyserver works using the command line tool gpg.
   $ # Please, feel free to extend or customize as you need the web interface!
