@@ -10,3 +10,6 @@
 [submodule "skin/OpenPKG"]
 	path = skin/OpenPKG
 	url = https://github.com/pgpkeys/sks-keyserver-sampleWeb-OpenPKG
+[submodule "skin/sks-bootstrap-index"]
+	path = skin/sks-bootstrap-index
+	url = https://github.com/bbs4us/sks-bootstrap-index
