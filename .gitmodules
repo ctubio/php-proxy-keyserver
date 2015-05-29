@@ -13,3 +13,6 @@
 [submodule "skin/sks-bootstrap-index"]
 	path = skin/sks-bootstrap-index
 	url = https://github.com/bbs4us/sks-bootstrap-index
+[submodule "skin/OpenSKS"]
+	path = skin/OpenSKS
+	url = https://github.com/pgpkeys/OpenSKS
