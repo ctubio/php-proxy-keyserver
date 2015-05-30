@@ -4,7 +4,10 @@
   <body>
     <?php echo $this->getBlock('gnu_inside'); ?>
     <div id="content" style="width:640px;margin:0px auto;">
-      <h1><?php echo $this->getConfig('html_title') ?></h1>
+      <h1 style="margin-bottom:0px;"><?php echo $this->getConfig('html_title') ?></h1>
+      <div style="text-align:right;">
+        <a title="home" href="/">home</a> | <a title="faq" href="/doc/faq">faq</a> | <a title="stats" href="/pks/lookup?op=stats">stats</a> | <a title="dump" href="/dump">dump</a>
+      </div>
       <hr />
       <?php echo $this->getPage(); ?>
       <?php echo $this->getBlock('footer'); ?>
