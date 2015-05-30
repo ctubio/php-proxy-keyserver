@@ -11,7 +11,7 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
 
 ### Main Features
  * Minimalistic php framework focused to extend the default static web interface of a keyserver.
- * 7 skins (thank you folks!), but you can make your own (with dynamic php blocks or static html files).
+ * 7 skins (thank you folks!), but you can make your own (with dynamic php blocks or static html).
  * Optionally auto indent and validation of html pages before output.
  * Preservation of machine readable output compatible with gpg clients.
  * Meaningful error messages while developing skins (logging or display). 
