@@ -9,7 +9,7 @@ After a fresh install of ```sks```, or at anytime that you need to download and 
 ```
  $ ./sks-install-database.sh
 ```
-then you may see the following example output:
+then, you may see the following example output:
 ```
  $ ./sks-install-database.sh
 Before install a new database,
@@ -31,11 +31,11 @@ After the database is installed, you may be able to start the sks daemons, and c
 ### sks-dump.sh
 To create your own daily dumps of your working database, customize [sks-dump.sh](sks-dump.sh), and add a crontab line similar to:
 ```
-0 1 * * * /var/www/pgp.key-server.io/bin/sks-dump.sh &
+0 1 * * * /var/www/your.domain.name/bin/sks-dump.sh &
 ```
 ### sks-dump-alert.sh
 To send you an alert when the disk is almost full, customize [sks-dump-alert.sh](sks-dump-alert.sh), and add a crontab line similar to:
 ```
-1 0 * * * /var/www/pgp.key-server.io/bin/sks-dump-alert.sh
+1 0 * * * /var/www/your.domain.name/bin/sks-dump-alert.sh
 ```
 to prevent this from happening again, you must define a lower number of backups in [sks-dump.sh](sks-dump.sh).
