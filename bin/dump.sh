@@ -4,6 +4,8 @@
 # This script will stop the sks server, dump its contents to
 # the $OUTDIR, then restart the sks server.
 
+HOSTNAME='pgp.key-server.io'
+CONTACT='carles.tubio@key-server.io'
 BACKUPS=1
 USER="debian-sks"
 GROUP="pg1904948"
@@ -45,19 +47,27 @@ fi;
 SIZE=`du -shc $OUTDIR |grep 'total' |awk '{ print $1 }'`;
 DCOUNT=`grep "#Key-Count" $OUTDIR/metadata-sks-dump.txt |awk '{ print $2 }'`;
 FILES=`grep "#Files-Count" $OUTDIR/metadata-sks-dump.txt |awk '{ print $2 }'`;
-echo "This is the PGP key server dump from pgp.key-server.io created: `date -u`
+echo "This is the PGP key server dump from ${HOSTNAME} created at: `date -u`
 
-On a linux/unix system, you may download this directory via the following command:
-
-wget -c -r -p -e robots=off --timestamping --level=1 --cut-dirs=3 --no-host-directories https://pgp.key-server.io/dump/current/
-
-These files were created with the following command: sks dump $COUNT $SKSDATE/ sks-dump
+These files were created basically with the following command: $ sks dump $COUNT $SKSDATE/ sks-dump
 
 The current archive size is approximately $SIZE, holding $DCOUNT keys in $FILES files.
 
-If you would like to peer with this server, please send an email to <carles.tubio@key-server.io>.
+On a linux/unix system, you may download this directory via the following command:
 
-For more information on importing keys from dump files, please see http://keyserver.mattrude.com/guides/building-server/" > $OUTDIR/README.txt;
+  $ cd /var/lib/sks/dump 
+  $ wget -c -r -p -e robots=off --timestamping --level=1 --cut-dirs=3 --no-host-directories https://${HOSTNAME}/dump/current/
+
+If you would like to peer with this server, please send an email to <${CONTACT}> with your membership line.
+
+After downloading the dump, import the dabatase witht he following command:
+
+  $ cd /var/lib/sks
+  $ /usr/local/bin/sks_build.sh
+  
+and choose the option 2.
+
+If all goes smoothly you'll end up with KDB and PTree directories in /var/lib/sks, and you are ready to start the daemons." > $OUTDIR/README.txt;
 
 cd $INDIR;
 chown -R $USER:$GROUP $PREDIR;
