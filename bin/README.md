@@ -4,7 +4,7 @@ To create your own daily dumps, customize [sks-dump.sh](sks-dump.sh), and add a 
 0 1 * * * /var/www/pgp.key-server.io/bin/sks-dump.sh &
 ```
 ### sks-dump-alert.sh
-To send you an alert when the disk is almost full, customize [disksize.sh](disksize.sh), and add a crontab line similar to:
+To send you an alert when the disk is almost full, customize [sks-dump-alert.sh](sks-dump-alert.sh), and add a crontab line similar to:
 ```crontab
 1 0 * * * /var/www/pgp.key-server.io/bin/sks-dump-alert.sh
 ```
