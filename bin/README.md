@@ -6,5 +6,5 @@ To create your own daily dumps, please customize [sks-dump.sh](sks-dump.sh), and
 ### sks-init.sh
 To run your keyserver automatically at startup, please run the following command:
 ```bash
-cp sks-init.sh /etc/init.d/sks
+ $ cp sks-init.sh /etc/init.d/sks
 ```
