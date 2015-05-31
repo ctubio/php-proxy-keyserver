@@ -24,6 +24,7 @@ class Config {
           'html_title' => 'PGP Public Key Server',
           'html_skin' => 'default',
           'layout_html_errors' => 0,
+          'layout_hkp_request' => 0,
           'indent_strict_html' => 0,
           'expose_keyserver' => 0,
           'display_exceptions' => 0

@@ -55,7 +55,10 @@ class Skin {
     );
 
     if (strpos($response->headers->get('Content-Disposition'), 'attachment')===0
-     or !Keyserver::getRequest()->server->get('HTTP_USER_AGENT'))
+     or !Keyserver::getRequest()->server->get('HTTP_USER_AGENT')
+     or (Keyserver::getRequest()->server->get('SERVER_PORT') === Keyserver::getConfig()->hkp_port
+      and !Keyserver::getConfig()->layout_hkp_request
+      and strpos(Keyserver::getRequest()->server->get('REQUEST_URI'), '/pks/') === 0))
       return $response;
 
     if (!$content) $content = self::_isPhtml()
