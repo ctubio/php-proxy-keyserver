@@ -1,4 +1,3 @@
-add bin/sks-dump-download.sh
 add bin/sks-log.sh
 get elements out of head/body from keyserver
 allow pages with diff html titles
