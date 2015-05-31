@@ -30,11 +30,11 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
 
   $ # Check if your keyserver is up and running:
   $ netstat -l | grep hkp
-  $ # If you dont see any output, please start the keyserver daemons.
+  $ # If you don't see any output, please start the keyserver daemons.
 
   $ # Check if your webserver is up and running:
   $ netstat -l | grep http
-  $ # If you dont see any output, please start the webserver daemon.
+  $ # If you don't see any output, please start the webserver daemon.
 
   $ # Download and compose the php proxy with the extensible web interface:
   $ cd /var/www
@@ -107,7 +107,7 @@ echo $this->getPage('index');   # parse and print page/index.phtml
 echo $this->getPage('doc/faq'); # parse and print page/doc/faq.phtml
 ```
 
-##### ..i dont want to use php?
+##### ..i don't want to use php?
 the ```skin/default``` uses a php layout to build the given page with blocks. But if you would like to use only html files or any other static format, please see the source of [skin/pgpkeyserver-lite](https://github.com/mattrude/pgpkeyserver-lite) or [skin/XHTML+ES](https://github.com/ctubio/sks-keyserver-sampleWeb-XHTML-ES) as examples.
 
 ##### ..i want to make a skin for the community but without run my own keyserver?
