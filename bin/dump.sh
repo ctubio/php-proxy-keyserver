@@ -6,7 +6,7 @@
 
 HOSTNAME='pgp.key-server.io'
 CONTACT='carles.tubio@key-server.io'
-BACKUPS=1
+BACKUPS=2
 USER="debian-sks"
 GROUP="pg1904948"
 INDIR="/var/lib/sks"
