@@ -6,19 +6,14 @@
     <div id="content" style="width:640px;margin:0px auto;">
       <h1 style="margin-bottom:0px;"><?php echo $this->getConfig('html_title') ?></h1>
       <div style="text-align:right;">
-        <a title="https" href="https://pgp.key-server.io">https</a>
-        <span> | </span>
-        <a title="hkp" href="http://pgp.key-server.io:11371">hkp</a>
-        <span> | </span>
-        <a title="faq" href="/doc/faq">faq</a>
-        <span> | </span>
-        <a title="pool" href="https://sks-keyservers.net/status"><i>pool</i></a>
-        <span> | </span>
-        <a title="stats" href="/pks/lookup?op=stats">stats</a>
-        <span> | </span>
-        <a title="dump" href="/dump">dump</a>
-        <span> | </span>
-        <a title="source" href="https://github.com/ctubio/php-proxy-keyserver">source</a>
+        <a title="home" href="/">home</a><span> | </span>
+        <a title="faq" href="/doc/faq">faq</a><span> | </span>
+        <?php if($_SERVER['SERVER_PORT'] !== '443'): ?><a title="https" href="https://pgp.key-server.io" style="font-style:italic;">https</a><span> | </span><?php endif; ?>
+        <?php if($_SERVER['SERVER_PORT'] !== '11371'): ?><a title="hkp" href="http://pgp.key-server.io:11371" style="font-style:italic;">hkp</a><span> | </span><?php endif; ?>
+        <a title="stats" href="/pks/lookup?op=stats">stats</a><span> | </span>
+        <a title="dump" href="/dump">dump</a><span> | </span>
+        <a title="source" href="https://github.com/ctubio/php-proxy-keyserver" style="font-style:italic;">source</a><span> | </span>
+        <a title="pool" href="https://sks-keyservers.net/status" style="font-style:italic;">pool</a>
       </div>
       <hr />
       <?php echo $this->getPage(); ?>
