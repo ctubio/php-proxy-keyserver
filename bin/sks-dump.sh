@@ -1,14 +1,13 @@
 #!/bin/bash
 
-# http://devel-keyserver.mattrude.com/guides/dump-process/
-# This script will stop the sks server, dump its contents to
-# the $OUTDIR, then restart the sks server.
+# This script will delete outdated backups, stop the sks server,
+# dump its contents to the $OUTDIR, then restart the sks server.
 
 HOSTNAME='pgp.key-server.io'
 CONTACT='carles.tubio@key-server.io'
-BACKUPS=2
+BACKUPS=7
 USER="debian-sks"
-GROUP="pg1904948"
+GROUP="www-data"
 INDIR="/var/lib/sks"
 PREDIR="dump"
 SKSDATE=`date +%Y-%m-%d`
@@ -55,14 +54,14 @@ The current archive size is approximately $SIZE, holding $DCOUNT keys in $FILES 
 
 On a linux/unix system, you may download this directory via the following command:
 
-  $ cd /var/lib/sks/dump 
+  $ cd /var/lib/sks/dump
   $ wget -c -r -p -e robots=off --timestamping --level=1 --cut-dirs=3 --no-host-directories https://${HOSTNAME}/dump/current/
 
 After downloading the dump files, you can import them into a new empty dabatase with the following command:
 
   $ cd /var/lib/sks
   $ /usr/local/bin/sks_build.sh
-  
+
 and choose the option 2.
 
 If all goes smoothly you'll end up with KDB and PTree directories in /var/lib/sks, and you are ready to start the daemons.
