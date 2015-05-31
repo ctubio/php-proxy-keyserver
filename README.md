@@ -51,6 +51,7 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
   $ # Make your keyserver listen to public ip port 11370 and local ip port 11371.
   $ # Validate if your website can search/retrieve/submit pgp public keys.
   $ # Validate if your keyserver works using the command line tool gpg.
+  $ # Import the most recent database dump, and use the mailing list to find peers.
   $ # Please, feel free to extend or customize as you need the web interface!
 ```
 
@@ -106,8 +107,8 @@ echo $this->getPage('index');   # parse and print page/index.phtml
 echo $this->getPage('doc/faq'); # parse and print page/doc/faq.phtml
 ```
 
-##### ..my skin only uses static files?
-the ```skin/default``` uses a php layout to build the given page with blocks. But if you would like to use only html files or any other static format, please see the source of [skin/pgpkeyserver-lite](https://github.com/mattrude/pgpkeyserver-lite) for example, or [skin/XHTML+ES](https://github.com/ctubio/sks-keyserver-sampleWeb-XHTML-ES).
+##### ..i dont want to use php?
+the ```skin/default``` uses a php layout to build the given page with blocks. But if you would like to use only html files or any other static format, please see the source of [skin/pgpkeyserver-lite](https://github.com/mattrude/pgpkeyserver-lite) or [skin/XHTML+ES](https://github.com/ctubio/sks-keyserver-sampleWeb-XHTML-ES) as examples.
 
 ##### ..i want to make a skin for the community but without run my own keyserver?
 feel free to use my keyserver for your development, the address is ```pgp.key-server.io``` (see the answer below).
@@ -133,10 +134,10 @@ the php proxy will work with any keyserver as long as it is based on the [OpenPG
 hey, the other day i found https://github.com/remko/phkp, hope it helps!
 
 ### Very special thanks to:
+- https://bitbucket.org/skskeyserver/sks-keyserver
 - https://keyserver.mattrude.com
 - https://pgp.mit.edu
 - https://sks-keyservers.net
-- https://bitbucket.org/skskeyserver/sks-keyserver
 - https://github.com/jenssegers/php-proxy
 - https://getcomposer.org/
 - https://www.gnu.org/software/make/manual/make.html
