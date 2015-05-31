@@ -77,8 +77,8 @@ run the following command to create a new skin (using ```skin/default``` as a ba
 $ cp -r skin/default skin/new-skin
 ```
 
-##### ..what methods are available in ```skin/*.phtml``` files?
-please make use of ```$this``` methods:
+##### ..i want documentation about the available methods in ```skin/*.phtml``` files?
+Yes Sir/Milady, please make use of ```$this``` 3 built-in methods from any phtml file:
 ```php
 # get any value from etc/php-proxy-keyserver.ini
 string $this->getConfig(string $option);
