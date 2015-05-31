@@ -9,8 +9,8 @@ USER="debian-sks"
 GROUP="pg1904948"
 INDIR="/var/lib/sks"
 PREDIR="dump"
-OUTDIR="$INDIR/$PREDIR/$SKSDATE"
 SKSDATE=`date +%Y-%m-%d`
+OUTDIR="$INDIR/$PREDIR/$SKSDATE"
 COUNT="10000"
 TZ='UTC'
 
@@ -23,7 +23,7 @@ done;
 /usr/sbin/service sks stop;
 sleep 2
 if [ `ps -eaf | grep "sks " | grep -v 'grep sks' | wc -l` == "0" ]; then
-   rm -rf $OUTDIR && mkdir -p $OUTDIR && \
+  rm -rf $OUTDIR && mkdir -p $OUTDIR && \
   chown -R $USER:$GROUP $PREDIR && \
   /usr/local/bin/sks dump $COUNT $OUTDIR/ sks-dump;
 
