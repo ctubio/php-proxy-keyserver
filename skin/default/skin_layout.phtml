@@ -6,7 +6,19 @@
     <div id="content" style="width:640px;margin:0px auto;">
       <h1 style="margin-bottom:0px;"><?php echo $this->getConfig('html_title') ?></h1>
       <div style="text-align:right;">
-        <a title="home" href="/">home</a> | <a title="faq" href="/doc/faq">faq</a> | <a title="stats" href="/pks/lookup?op=stats">stats</a> | <a title="dump" href="/dump">dump</a>
+        <a title="https" href="https://pgp.key-server.io">https</a>
+        <span> | </span>
+        <a title="hkp" href="http://pgp.key-server.io:11371">hkp</a>
+        <span> | </span>
+        <a title="faq" href="/doc/faq">faq</a>
+        <span> | </span>
+        <a title="pool" href="https://sks-keyservers.net/status"><i>pool</i></a>
+        <span> | </span>
+        <a title="stats" href="/pks/lookup?op=stats">stats</a>
+        <span> | </span>
+        <a title="dump" href="/dump">dump</a>
+        <span> | </span>
+        <a title="source" href="https://github.com/ctubio/php-proxy-keyserver">source</a>
       </div>
       <hr />
       <?php echo $this->getPage(); ?>
