@@ -1,3 +1,4 @@
+IndexOptions -FancyIndexing
 RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_METHOD} ^TRAC[EK]
