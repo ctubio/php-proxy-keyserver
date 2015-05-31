@@ -58,16 +58,16 @@ On a linux/unix system, you may download this directory via the following comman
   $ cd /var/lib/sks/dump 
   $ wget -c -r -p -e robots=off --timestamping --level=1 --cut-dirs=3 --no-host-directories https://${HOSTNAME}/dump/current/
 
-If you would like to peer with this server, please send an email to <${CONTACT}> with your membership line.
-
-After downloading the dump, import the dabatase witht he following command:
+After downloading the dump files, you can import them into a new empty dabatase with the following command:
 
   $ cd /var/lib/sks
   $ /usr/local/bin/sks_build.sh
   
 and choose the option 2.
 
-If all goes smoothly you'll end up with KDB and PTree directories in /var/lib/sks, and you are ready to start the daemons." > $OUTDIR/README.txt;
+If all goes smoothly you'll end up with KDB and PTree directories in /var/lib/sks, and you are ready to start the daemons.
+
+Also, if you would like to peer with this server, please send an email to <${CONTACT}> with your membership line." > $OUTDIR/README.txt;
 
 cd $INDIR;
 chown -R $USER:$GROUP $PREDIR;
