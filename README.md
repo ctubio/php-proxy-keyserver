@@ -102,7 +102,7 @@ echo $this->getBlock('happy/gnu_inside'); # parse and print skin/block/happy/gnu
 string $this->getPage([string $page]);
 # (useful in the layout, or to show the faq page in the footer of all pages?)
 # for example:
-echo $this->getPage();          # parse and print the current page based on the http/s request
+echo $this->getPage();          # parse and print the current page based on http request
 echo $this->getPage('index');   # parse and print page/index.phtml
 echo $this->getPage('doc/faq'); # parse and print page/doc/faq.phtml
 ```
