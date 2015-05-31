@@ -28,6 +28,8 @@ all done.. Thank you!
 If you choose to deleted/download/install a database, you will see all the files downloading first, and when they finish, you will be prompted for what type of installation do you preffer (fastbuild or normalbuild), you may want to choose the recommended second option, normalbuild.
 
 After the database is installed, you may be able to start the sks daemons, and check the number of keys in your stats page.
+Also, the content of /var/lib/sks/dump directory can be removed, and additionally, can be replaced by daily dumps of your own database using [sks-dump.sh](sks-dump.sh).
+
 ### sks-dump.sh
 To create your own daily dumps of your working database, customize [sks-dump.sh](sks-dump.sh), and add a crontab line similar to:
 ```
