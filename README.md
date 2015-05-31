@@ -11,10 +11,10 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
 
 ### Main Features
  * Minimalistic php framework focused to extend the default static web interface of a keyserver.
- * 7 skins (thank you folks!), but you can make your own (with dynamic php blocks or static html).
- * Optionally auto indent and validation of html pages before output.
- * Preservation of machine readable output compatible with gpg/pool clients.
- * Meaningful error messages while developing skins (logging or display).
+ * PHPize any request at any port for humans, but keep the original output for machines (gpg/pool clients).
+ * 8 skins (thank you folks!), but you can make your own (with dynamic php blocks or static html).
+ * Optionally auto indent and validation of html pages before output html responses.
+ * Meaningful (hope you like stack traces) error messages while developing skins (logging or display).
  * Webserver configs ready for apache2 (you may need to mimic pub/.htaccess for your webserver).
  * HKP meets PHP! (fast and lightweight as possible, supporting static skins for historical purposes).
 
