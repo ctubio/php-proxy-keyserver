@@ -16,3 +16,6 @@
 [submodule "skin/OpenSKS"]
 	path = skin/OpenSKS
 	url = https://github.com/pgpkeys/OpenSKS
+[submodule "skin/sks-web"]
+	path = skin/sks-web
+	url = https://github.com/abr4xas/sks-web
