@@ -8,8 +8,8 @@
       <div style="text-align:right;">
         <a title="home" href="/">home</a><span> | </span>
         <a title="faq" href="/doc/faq">faq</a><span> | </span>
-        <?php if(isset($_SERVER['SERVER_PORT']) and $_SERVER['SERVER_PORT'] !== '443'): ?><a title="https" href="https://pgp.key-server.io" style="font-style:italic;">https</a><span> | </span><?php endif; ?>
-        <?php if(isset($_SERVER['SERVER_PORT']) and $_SERVER['SERVER_PORT'] !== '11371'): ?><a title="hkp" href="http://pgp.key-server.io:11371" style="font-style:italic;">hkp</a><span> | </span><?php endif; ?>
+        <?php if(isset($_SERVER['SERVER_PORT']) and $_SERVER['SERVER_PORT'] !== '443'): ?><a title="https" href="https://<?php echo $this->getConfig('hostname'); ?><?php echo $_SERVER['REQUEST_URI']; ?>" style="font-style:italic;">https</a><span> | </span><?php endif; ?>
+        <?php if(isset($_SERVER['SERVER_PORT']) and $_SERVER['SERVER_PORT'] !== '11371'): ?><a title="hkp" href="http://<?php echo $this->getConfig('hostname'); ?>:<?php echo $this->getConfig('hkp_port'); ?><?php echo $_SERVER['REQUEST_URI']; ?>" style="font-style:italic;">hkp</a><span> | </span><?php endif; ?>
         <a title="stats" href="/pks/lookup?op=stats">stats</a><span> | </span>
         <a title="dump" href="/dump">dump</a><span> | </span>
         <a title="source" href="https://github.com/ctubio/php-proxy-keyserver" style="font-style:italic;">source</a><span> | </span>
