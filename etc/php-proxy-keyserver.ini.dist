@@ -9,7 +9,7 @@ contact_email      = carles.tubio@key-server.io
 ;html_title         = PGP Public Key Server
 
 [options]
-;html_skin          = default
+;skin_path          = default
 ;layout_html_errors = 0
 layout_hkp_request = 1
 indent_strict_html = 1
@@ -25,7 +25,7 @@ display_exceptions = 1
 ;; default contact_email value is bugs@hostname, any value is valid
 ;; default expose_keyserver value is 0, valid values are 0 or 1 (hide keyserver in Via header or display?).
 ;; default html_title value is PGP Public Key Server, any value is valid
-;; default html_skin value is default, valid values are folder names inside /skin
+;; default skin_path value is default, valid values are folder names inside /skin
 ;; default layout_html_errors value is 0, valid values are 0 or 1 (use /plain_errors or skin_layout.phtml?)
 ;; default layout_hkp_request value is 0, valid values are 0 or 1 (always plain responses on hkp_port or use skin_layout.phtml if web browser?)
 ;; default indent_strict_html value is 0, valid values are 0 or 1 (raw or auto indent with strict validation?)

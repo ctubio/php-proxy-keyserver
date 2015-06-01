@@ -1,5 +1,4 @@
 add bin/sks-log.sh
-get elements out of head/body from keyserver
 allow pages with diff html titles
 show error message only when its true
 beautify body from keyserver

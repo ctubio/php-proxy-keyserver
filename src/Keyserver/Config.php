@@ -22,7 +22,7 @@ class Config {
           'hostname' => $request->server->get('SERVER_NAME'),
           'contact_email' => 'bugs@'.$request->server->get('SERVER_NAME'),
           'html_title' => 'PGP Public Key Server',
-          'html_skin' => 'default',
+          'skin_path' => 'default',
           'layout_html_errors' => 0,
           'layout_hkp_request' => 0,
           'indent_strict_html' => 0,

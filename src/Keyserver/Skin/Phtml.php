@@ -8,35 +8,29 @@ class Phtml {
 
   private $_page;
   private $_content;
+  private $_hkp_style;
 
   public function __construct($page, $content = FALSE, $skin = FALSE) {
     $this->_page = (string)$page;
     if ($content)
-      $this->_content = self::_importContent($content);
+      $this->_content = $this->_importContent($content);
     $this->_skin = (string)$skin;
   }
 
   public function __toString() {
     try {
-      return $this->_parsePhtml(Skin::getPath($this->_skin).((
+      return $this->_importData($this->_parsePhtml(Skin::getPath($this->_skin).((
         strpos($this->_page, '/errors/')===0
         and !Keyserver::getConfig()->layout_html_errors
-      ) ? '/plain_'.ltrim($this->_page,'/') : '/skin_layout' ).'.phtml');
+      ) ? '/plain_'.ltrim($this->_page,'/') : '/skin_layout' ).'.phtml'));
     } catch (\Exception $e) {
       return Log::catchError($e);
     }
   }
 
-  public static function _importData($content) {
-    // var_dump($content);
-    // exit;
-  }
-
-  public static function _importContent($content) {
+  public function _importContent($content) {
     if (substr(trim($content), 0, 1)!=='<')
       return '<pre>'.htmlentities($content).'</pre>';
-
-    self::_importData($content);
 
     $dom = new \DOMDocument('1.0');
     libxml_use_internal_errors(true);
@@ -48,6 +42,7 @@ class Phtml {
         ?: preg_replace('/.*<body>(.*)<\/body>.*$/s', '$1', $content);
     }
     $xpath = new \DOMXPath($dom);
+    $this->_exportData($dom, $xpath);
     $body = $xpath->query('/html/body');
     return preg_replace('/^<body>(.*)<\/body>$/s', '$1',
       utf8_decode($dom->saveXml($body->item(0)))
@@ -61,6 +56,19 @@ class Phtml {
     ob_start();
     include($file);
     return ob_get_clean();
+  }
+
+  public function _exportData($dom, $xpath) {
+    $this->_hkp_style = utf8_decode($dom->saveXml($xpath->query('/html/head/style')->item(0)));
+  }
+
+  private function _importData($content) {
+    if ($this->_hkp_style) {
+      $content = str_replace('<![CDATA[', '', str_replace(']]>', '',str_replace('/*<![CDATA[*/', '', str_replace('/*]]]]><![CDATA[>*/', '',
+        preg_replace('/(<\/head>)/s', $this->_hkp_style.'$1', $content)
+      ))));
+    }
+    return $content;
   }
 
   private function getConfig($key) {

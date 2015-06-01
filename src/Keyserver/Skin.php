@@ -12,7 +12,7 @@ class Skin {
   }
 
   public static function getPath($skin = FALSE) {
-    return '../skin/'.($skin ?: Keyserver::getConfig()->html_skin);
+    return '../skin/'.($skin ?: Keyserver::getConfig()->skin_path);
   }
 
   public static function parsePhtml(Response $response, $phtml) {
