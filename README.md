@@ -10,11 +10,11 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
 [![Open Issues](https://img.shields.io/github/issues/ctubio/php-proxy-keyserver.svg)](https://github.com/ctubio/php-proxy-keyserver/issues)
 
 ### Main Features
- * Minimalistic php framework focused to extend the default static web interface of a keyserver.
- * PHPize any request at any port for humans, but keep the original output for machines (gpg/pool clients).
+ * Minimalistic php framework focused to extend and prettify the default web interface of a keyserver.
+ * PHPize any request at any port for humans, but keep the original output for gpg/pool clients.
  * 8 skins (thank you folks!), but you can make your own (with dynamic php blocks or static html).
  * Optionally auto indent and validation of html pages before output html responses.
- * Meaningful (hope you like stack traces) error messages while developing skins (logging or display).
+ * Meaningful (hope you like stack traces) error messages while developing skins (log or display).
  * Webserver configs ready for apache2 (you may need to mimic pub/.htaccess for your webserver).
  * HKP meets PHP! (fast and lightweight as possible, supporting static skins for historical purposes).
 
