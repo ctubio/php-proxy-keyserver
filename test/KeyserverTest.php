@@ -100,7 +100,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
 
       $this->assertTrue($config instanceof Config);
       $this->assertGreaterThan(1, $config->hkp_port);
-      $this->assertGreaterThan(1, strlen($config->html_skin));
+      $this->assertGreaterThan(1, strlen($config->skin_path));
     }
 
     public function testStats()
