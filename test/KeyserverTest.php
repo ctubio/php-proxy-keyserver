@@ -165,7 +165,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
       $this->assertEquals('text/html;charset=UTF-8', $response->headers->get('content-type'));
       $this->assertStringStartsWith('<!DOCTYPE html>', $response->getContent());
       $this->assertStringEndsWith('</html>'.PHP_EOL, $response->getContent());
-      $this->assertGreaterThan(21, strpos($response->getContent(), 'Search results for \'0xc3b39de0\''));
+      $this->assertGreaterThan(21, strpos($response->getContent(), 'Search results for: <i>0xc3b39de0'));
       $this->assertGreaterThan(21, strpos($response->getContent(), 'Carles Tubio (pgp.key-server.io)'));
       $this->assertGreaterThan(21, strpos($response->getContent(), '0xFA101D1FC3B39DE0'));
     }
