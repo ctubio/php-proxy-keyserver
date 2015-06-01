@@ -42,7 +42,12 @@ class Phtml {
         ?: preg_replace('/.*<body>(.*)<\/body>.*$/s', '$1', $content);
     }
     $xpath = new \DOMXPath($dom);
-    $this->_exportData($dom, $xpath);
+    $this->_hkp_style = <<<CSS
+<style type="text/css">
+      .uid { color: green; text-decoration: underline; }
+      .warn { color: red; font-weight: bold; }
+    </style>
+CSS;
     $body = $xpath->query('/html/body');
     $content = preg_replace('/^<body>(.*)<\/body>$/s', '$1',
       utf8_decode($dom->saveXml($body->item(0)))
@@ -64,10 +69,6 @@ class Phtml {
     ob_start();
     include($file);
     return ob_get_clean();
-  }
-
-  public function _exportData($dom, $xpath) {
-    $this->_hkp_style = utf8_decode($dom->saveXml($xpath->query('/html/head/style')->item(0)));
   }
 
   private function _importData($content) {

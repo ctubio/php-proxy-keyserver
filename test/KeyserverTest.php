@@ -155,8 +155,9 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
     public function test0xC3B39DE0()
     {
       $request = Request::createFromGlobals();
-      $request->server->set('REQUEST_URI', '/pks/lookup?search=0xC3B39DE0&fingerprint=on&op=vindex');
+      $request->server->set('REQUEST_URI', '/pks/lookup?search=0xFA101D1FC3B39DE0&fingerprint=on&op=vindex');
       $request->server->set('HTTP_USER_AGENT', __METHOD__);
+      $request->query->set('search', '0xFA101D1FC3B39DE0');
       Keyserver::$request_instance = $request;
       $response = Keyserver::getResponse();
 
@@ -165,7 +166,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
       $this->assertEquals('text/html;charset=UTF-8', $response->headers->get('content-type'));
       $this->assertStringStartsWith('<!DOCTYPE html>', $response->getContent());
       $this->assertStringEndsWith('</html>'.PHP_EOL, $response->getContent());
-      $this->assertGreaterThan(21, strpos($response->getContent(), 'Search results for: <i>0xc3b39de0'));
+      $this->assertGreaterThan(21, strpos($response->getContent(), 'Search results for: <i>0xFA101D1FC3B39DE0'));
       $this->assertGreaterThan(21, strpos($response->getContent(), 'Carles Tubio (pgp.key-server.io)'));
       $this->assertGreaterThan(21, strpos($response->getContent(), '0xFA101D1FC3B39DE0'));
     }
