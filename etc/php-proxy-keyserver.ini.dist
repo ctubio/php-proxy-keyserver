@@ -4,7 +4,7 @@
 
 [whoami]
 ;hostname           = SERVER_NAME.environment.variable
-contact_email      = carles.tubio@key-server.io
+;contact_email      = bugs@hostname
 ;expose_keyserver   = 0
 ;html_title         = PGP Public Key Server
 
@@ -17,6 +17,7 @@ indent_strict_html = 1
 display_exceptions = 1
 
 [custom_options]
+
 
 ;;;; BODEFAULTS
 ;;; STAND BACK, REDUNDANT DOCUMENTATION BELOW
