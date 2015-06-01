@@ -1,3 +1,4 @@
+makeuse of $ md5sum -c metadata-sks-dump.txt
 add bin/sks-aliases.sh (follow log)
 add bin/sks-clean-logs.sh
 allow pages with diff html titles
