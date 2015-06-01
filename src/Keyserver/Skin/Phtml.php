@@ -19,7 +19,7 @@ class Phtml {
 
   public function __toString() {
     try {
-      return $this->_importData($this->_parsePhtml(Skin::getPath($this->_skin).((
+      return $this->_addStyles($this->_parsePhtml(Skin::getPath($this->_skin).((
         strpos($this->_page, '/errors/')===0
         and !Keyserver::getConfig()->layout_html_errors
       ) ? '/plain_'.ltrim($this->_page,'/') : '/skin_layout' ).'.phtml'));
@@ -42,12 +42,6 @@ class Phtml {
         ?: preg_replace('/.*<body>(.*)<\/body>.*$/s', '$1', $content);
     }
     $xpath = new \DOMXPath($dom);
-    $this->_hkp_style = <<<CSS
-<style type="text/css">
-      .uid { color: green; text-decoration: underline; }
-      .warn { color: red; font-weight: bold; }
-    </style>
-CSS;
     $body = $xpath->query('/html/body');
     $content = preg_replace('/^<body>(.*)<\/body>$/s', '$1',
       utf8_decode($dom->saveXml($body->item(0)))
@@ -71,14 +65,15 @@ CSS;
     return ob_get_clean();
   }
 
-  private function _importData($content) {
-    if ($this->_hkp_style) {
-      $content = str_replace('<![CDATA[', NULL, str_replace(']]>', NULL,str_replace('/*<![CDATA[*/', NULL, str_replace('/*]]]]><![CDATA[>*/', NULL,
-        preg_replace('/(<\/head>)/s', $this->_hkp_style.'$1', $content)
-      ))));
-    }
+  private function _addStyles($content) {
+    $hkp_styles = <<<CSS
+<style type="text/css">
+      .uid { color: green; text-decoration: underline; }
+      .warn { color: red; font-weight: bold; }
+    </style>
+CSS;
 
-    return $content;
+    return preg_replace('/(<\/head>)/s', $hkp_styles.'$1', $content);
   }
 
   private function getConfig($key) {
