@@ -1,7 +1,6 @@
 add bin/sks-log.sh
 allow pages with diff html titles
 show error message only when its true
-beautify body from keyserver
 show count of results in searches
 show render time as comment
 add more guide pages
