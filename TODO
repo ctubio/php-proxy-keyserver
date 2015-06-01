@@ -1,6 +1,7 @@
-add bin/sks-log.sh
+add bin/sks-aliases.sh (follow log)
+add bin/sks-clean-logs.sh
 allow pages with diff html titles
-show error message only when its true
+show error message in html pages only when its true
 show count of results in searches
 show render time as comment
 add more guide pages
