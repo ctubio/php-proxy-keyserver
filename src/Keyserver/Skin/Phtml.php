@@ -44,9 +44,17 @@ class Phtml {
     $xpath = new \DOMXPath($dom);
     $this->_exportData($dom, $xpath);
     $body = $xpath->query('/html/body');
-    return preg_replace('/^<body>(.*)<\/body>$/s', '$1',
+    $content = preg_replace('/^<body>(.*)<\/body>$/s', '$1',
       utf8_decode($dom->saveXml($body->item(0)))
     );
+
+    if (Keyserver::getConfig()->repair_hpk_h1_tags)
+      $content = preg_replace('/<h1>(Public Key Server -- )?(.*?)(( "| \')(.*?)( "|\')?)?<\/h1>/s', '<h2>$2:'.(Keyserver::getRequest()->query->get('search')?' <i>'.Keyserver::getRequest()->query->get('search').'</i>':NULL).'</h2>',
+        preg_replace('/<h2>(.*)<\/h2>/', '<h3>$1</h3>', preg_replace('/<h3>(.*)<\/h3>/', '<h4>$1</h4>',
+          $content
+      )));
+
+    return $content;
   }
 
   private function _parsePhtml($file) {
@@ -64,10 +72,11 @@ class Phtml {
 
   private function _importData($content) {
     if ($this->_hkp_style) {
-      $content = str_replace('<![CDATA[', '', str_replace(']]>', '',str_replace('/*<![CDATA[*/', '', str_replace('/*]]]]><![CDATA[>*/', '',
+      $content = str_replace('<![CDATA[', NULL, str_replace(']]>', NULL,str_replace('/*<![CDATA[*/', NULL, str_replace('/*]]]]><![CDATA[>*/', NULL,
         preg_replace('/(<\/head>)/s', $this->_hkp_style.'$1', $content)
       ))));
     }
+
     return $content;
   }
 

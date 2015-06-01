@@ -12,6 +12,7 @@ contact_email      = carles.tubio@key-server.io
 ;skin_path          = default
 ;layout_html_errors = 0
 layout_hkp_request = 1
+repair_hpk_h1_tags = 1
 indent_strict_html = 1
 display_exceptions = 1
 
@@ -28,6 +29,7 @@ display_exceptions = 1
 ;; default skin_path value is default, valid values are folder names inside /skin
 ;; default layout_html_errors value is 0, valid values are 0 or 1 (use /plain_errors or skin_layout.phtml?)
 ;; default layout_hkp_request value is 0, valid values are 0 or 1 (always plain responses on hkp_port or use skin_layout.phtml if web browser?)
+;; default repair_hpk_h1_tags value is 0, valid values are 0 or 1 (replace h1 tags of hkp responses by refactored h2 tags with utf8 support?)
 ;; default indent_strict_html value is 0, valid values are 0 or 1 (raw or auto indent with strict validation?)
 ;; default display_exceptions value is 0, valid values are 0 or 1 (write in /log or display all exceptions?)
 ;; default custom_option is throw Exception, feel free to add your own option=value under [custom_options] section
