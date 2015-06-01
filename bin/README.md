@@ -1,5 +1,5 @@
 ### sks-init.sh
-To run your keyserver automatically at startup, run the following command:
+If your keyserver doesn't run automatically at startup, you may want to run the following command:
 ```
  $ cp sks-init.sh /etc/init.d/sks
 ```
