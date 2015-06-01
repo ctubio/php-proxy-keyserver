@@ -1,0 +1,8 @@
+<h2>Index of /dump</h2>
+<ul>
+<li><a href="/dump"> <i>Parent Directory</i></a></li>
+<?php foreach(glob(($prefix=realpath('dump')).'/*') as $dump):
+  $dump = substr($dump, strlen($prefix)+1); ?>
+<li><a href="/dump/<?php echo $dump; ?>/"> <i><?php echo $dump; ?></i></a></li>
+<?php endforeach; ?>
+</ul>
