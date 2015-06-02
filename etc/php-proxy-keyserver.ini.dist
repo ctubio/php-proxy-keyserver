@@ -4,7 +4,7 @@
 
 [whoami]
 ;hostname           = SERVER_NAME.environment.variable
-site_contact_link  = http://ca.rles-tub.io
+;site_contact_link  = http://example.com
 bugs_contact_mail  = carles.tubio@key-server.io
 ;expose_keyserver   = 0
 ;html_title         = PGP Public Key Server
