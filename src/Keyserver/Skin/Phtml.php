@@ -47,7 +47,7 @@ class Phtml {
       utf8_decode($dom->saveXml($body->item(0)))
     );
 
-    if (Keyserver::getConfig()->repair_hpk_h1_tags)
+    if (Keyserver::getConfig()->repair_hkp_h1_tags)
       $content = preg_replace('/<h1>(Public Key Server -- )?(.*?)(( "| \')(.*?)( "|\')?)?<\/h1>/s', '<h2>$2:'.(Keyserver::getRequest()->query->get('search')?' <i>'.Keyserver::getRequest()->query->get('search').'</i>':NULL).'</h2>',
         preg_replace('/<h2>(.*)<\/h2>/', '<h3>$1</h3>', preg_replace('/<h3>(.*)<\/h3>/', '<h4>$1</h4>',
           $content
