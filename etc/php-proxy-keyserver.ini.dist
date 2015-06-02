@@ -4,7 +4,8 @@
 
 [whoami]
 ;hostname           = SERVER_NAME.environment.variable
-;contact_email      = bugs@hostname
+site_contact_link  = http://ca.rles-tub.io
+bugs_contact_mail  = carles.tubio@key-server.io
 ;expose_keyserver   = 0
 ;html_title         = PGP Public Key Server
 
@@ -18,13 +19,13 @@ display_exceptions = 1
 
 [custom_options]
 
-
 ;;;; BODEFAULTS
 ;;; STAND BACK, REDUNDANT DOCUMENTATION BELOW
 ;; default hkp_port value is 11371, any value is valid but 11371 is recommended
 ;; default hkp_addr value is 127.0.0.1, any value is valid but 127.0.0.1 is recommended
 ;; default hostname value is $_SERVER['SERVER_NAME'], any value is valid
-;; default contact_email value is bugs@hostname, any value is valid
+;; default site_contact_link value is NULL, valid values are url or email
+;; default bugs_contact_mail value is bugs@hostname, any value is valid
 ;; default expose_keyserver value is 0, valid values are 0 or 1 (hide keyserver in Via header or display?).
 ;; default html_title value is PGP Public Key Server, any value is valid
 ;; default skin_path value is default, valid values are folder names inside /skin
