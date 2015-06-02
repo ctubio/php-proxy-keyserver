@@ -10,10 +10,10 @@ USER="debian-sks"
 GROUP="www-data"
 INDIR="/var/lib/sks"
 PREDIR="dump"
+TZ='UTC'
 SKSDATE=`date +%Y-%m-%d`
 OUTDIR="$INDIR/$PREDIR/$SKSDATE"
 COUNT="10000"
-TZ='UTC'
 
 cd $INDIR;
 for DEL in `ls -1t dump | grep -v current | tail -n +$((BACKUPS+1))`; do
