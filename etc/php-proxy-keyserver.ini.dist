@@ -3,19 +3,20 @@
 ;hkp_addr = 127.0.0.1
 
 [whoami]
-;hostname           = SERVER_NAME.environment.variable
-;site_contact_link  = http://example.com
-bugs_contact_mail  = carles.tubio@key-server.io
-;expose_keyserver   = 0
-;html_title         = PGP Public Key Server
+;hostname            = SERVER_NAME.environment.variable
+;site_contact_link   = http://example.com
+bugs_contact_mail   = carles.tubio@key-server.io
+;expose_keyserver    = 0
+;html_title          = PGP Public Key Server
+;google_verification = token
 
 [options]
-;skin_path          = default
-;layout_html_errors = 0
-layout_hkp_request = 1
-repair_hkp_h1_tags = 1
-indent_strict_html = 1
-display_exceptions = 1
+;skin_path           = default
+;layout_html_errors  = 0
+layout_hkp_request  = 1
+repair_hkp_h1_tags  = 1
+indent_strict_html  = 1
+display_exceptions  = 1
 
 [custom_options]
 
@@ -28,6 +29,7 @@ display_exceptions = 1
 ;; default bugs_contact_mail value is bugs@hostname, any value is valid
 ;; default expose_keyserver value is 0, valid values are 0 or 1 (hide keyserver in Via header or display?).
 ;; default html_title value is PGP Public Key Server, any value is valid
+;; default google_verification value is NULL, any google token is valid
 ;; default skin_path value is default, valid values are folder names inside /skin
 ;; default layout_html_errors value is 0, valid values are 0 or 1 (use /plain_errors or skin_layout.phtml?)
 ;; default layout_hkp_request value is 0, valid values are 0 or 1 (always plain responses on hkp_port or use skin_layout.phtml if web browser?)
