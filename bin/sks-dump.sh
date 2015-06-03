@@ -3,23 +3,32 @@
 # This script will delete outdated backups, stop the sks server,
 # dump its contents to the $OUTDIR, then restart the sks server.
 
+TZ='UTC'
 HOSTNAME='pgp.key-server.io'
-CONTACT='carles.tubio@key-server.io'
+MAIL='carles.tubio@key-server.io'
 BACKUPS=7
 USER="debian-sks"
 GROUP="www-data"
 INDIR="/var/lib/sks"
 PREDIR="dump"
-TZ='UTC'
 SKSDATE=`date +%Y-%m-%d`
 OUTDIR="$INDIR/$PREDIR/$SKSDATE"
 COUNT="10000"
+MINFREEG=$((1+$(du -sh ${INDIR}/${PREDIR}/`ls -1t ${INDIR}/${PREDIR} | head -n 1` | sed 's/\..*//g' | sed 's/G.*//g')))
+MINFREEG=${MINFREEG:=8}
+PARTITION=`df ${INDIR} | awk '/^\/dev/ {print $1}'`
 
 cd $INDIR;
 for DEL in `ls -1t dump | grep -v current | tail -n +$((BACKUPS+1))`; do
   echo "Deleting old directory $PREDIR/$DEL";
   rm -rf $PREDIR/$DEL;
 done;
+
+if (($(df -h / | grep "${PARTITION}" | awk '{ print $4 }' | sed 's/\..*//g' | sed 's/G.*//g') < ${MINFREEG})); then
+  ALERT="Can't save a new dump for ${SKSDATE}. ${PARTITION} at ${HOSTNAME} reached $(df -h / | grep "${PARTITION}" | awk '{ print $4 }') of free disk.";
+  echo "${ALERT}" && echo "${ALERT}" | mail -s "${ALERT}" "${MAIL}";
+  exit;
+fi;
 
 /usr/sbin/service sks stop;
 sleep 2;
@@ -72,7 +81,7 @@ If all goes smoothly you'll end up with KDB and PTree directories in /var/lib/sk
 
 The content of /var/lib/sks/dump directory can be removed, and additionally, can be replaced by daily dumps of your own database.
 
-Also, if you would like to peer with this server, please send an email to <${CONTACT}> with your membership line." > $OUTDIR/README.txt;
+Also, if you would like to peer with this server, please send an email to <${MAIL}> with your membership line." > $OUTDIR/README.txt;
 
 cd $INDIR;
 chown -R $USER:$GROUP $PREDIR;

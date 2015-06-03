@@ -35,9 +35,3 @@ To create your own daily dumps of your working database, customize [sks-dump.sh]
 ```
 1 0 * * * /var/www/your.domain.name/bin/sks-dump.sh &
 ```
-### sks-dump-alert.sh
-To send you an alert when the disk is almost full, customize [sks-dump-alert.sh](sks-dump-alert.sh), and add a crontab line similar to:
-```
-50 23 * * * /var/www/your.domain.name/bin/sks-dump-alert.sh
-```
-to prevent this from happening again, you must define a lower number of backups in [sks-dump.sh](sks-dump.sh).
