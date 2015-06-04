@@ -52,6 +52,7 @@ if [ `ps -eaf | grep "sks " | grep -v 'grep sks' | wc -l` == "0" ]; then
     ln -s $OUTDIR current;
     echo "md5sum OK, current dump is $OUTDIR.";
   else
+    cd $INDIR/$PREDIR;
     rm -rf $OUTDIR;
     echo "md5sum failed, $OUTDIR was removed.";
     exit 1;
