@@ -3,7 +3,7 @@
 use PhpProxy\Keyserver;
 use PhpProxy\Keyserver\Log;
 use PhpProxy\Keyserver\Skin\MimeType;
-use PhpProxy\Keyserver\Skin\Phtml;
+use PhpProxy\Keyserver\Skin\Content\Phtml;
 use Symfony\Component\HttpFoundation\Response;
 
 class Skin {
