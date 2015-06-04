@@ -120,6 +120,23 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
       $this->assertGreaterThan(21, strpos($response->getContent(), 'Total number of keys:'));
     }
 
+    public function testDeletekey()
+    {
+      $request = Request::createFromGlobals();
+      $request->server->set('REQUEST_URI', '/doc/faq?search=0xFA101D1FC3B39DE0');
+      $request->server->set('HTTP_USER_AGENT', __METHOD__);
+      Keyserver::$request_instance = $request;
+      $response = Keyserver::getResponse();
+
+      $this->assertTrue($response instanceof Response);
+      $this->assertEquals(200, $response->getStatusCode());
+      $this->assertEquals('text/html;charset=UTF-8', $response->headers->get('content-type'));
+      $this->assertStringStartsWith('<!DOCTYPE html>', $response->getContent());
+      $this->assertStringEndsWith('</html>'.PHP_EOL, $response->getContent());
+      $this->assertGreaterThan(21, strpos($response->getContent(), 'Frequently Asked Questions'));
+      $this->assertGreaterThan(21, strpos($response->getContent(), 'Can you delete my key'));
+    }
+
     public function testShort()
     {
       $request = Request::createFromGlobals();
@@ -139,7 +156,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
     public function testNotfound()
     {
       $request = Request::createFromGlobals();
-      $request->server->set('REQUEST_URI', '/pks/lookup?search=IMPOSSIBLEKEYTS&fingerprint=on&op=vindex');
+      $request->server->set('REQUEST_URI', '/pks/lookup?search=IMPOSSIBLEKEYS&fingerprint=on&op=vindex');
       $request->server->set('HTTP_USER_AGENT', __METHOD__);
       Keyserver::$request_instance = $request;
       $response = Keyserver::getResponse();
