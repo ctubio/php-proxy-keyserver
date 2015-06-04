@@ -14,7 +14,7 @@
         <a title="dump" href="/sks-dump">dump</a><span> | </span>
         <?php if($site_contact_link=$this->getConfig('site_contact_link')): ?><a title="contact" href="<?php echo (strpos($site_contact_link,'@')?'mailto:':NULL).$site_contact_link ?>" style="font-style:italic;">contact</a><span> | </span><?php endif; ?>
         <?php if($this->getConfig('expose_source')): ?><a title="source" href="https://github.com/ctubio/php-proxy-keyserver" style="font-style:italic;">source</a><span> | </span><?php endif; ?>
-        <a title="pool" href="https://sks-keyservers.net/status" style="font-style:italic;">pool</a><span> | </span>
+        <a title="pool" href="https://sks-keyservers.net/status" style="font-style:italic;">pool</a>
       </div>
       <hr />
       <?php echo $this->getPage(); ?>
