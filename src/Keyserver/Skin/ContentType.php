@@ -1,6 +1,6 @@
 <?php namespace PhpProxy\Keyserver\Skin;
 
-class MimeType {
+class ContentType {
 
   public static function get($filename, $dontForce =  FALSE){
     # https://chrisjean.com/generating-mime-type-in-php-is-not-magic

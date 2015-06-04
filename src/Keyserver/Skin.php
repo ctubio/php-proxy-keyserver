@@ -2,7 +2,7 @@
 
 use PhpProxy\Keyserver;
 use PhpProxy\Keyserver\Log;
-use PhpProxy\Keyserver\Skin\MimeType;
+use PhpProxy\Keyserver\Skin\ContentType;
 use PhpProxy\Keyserver\Skin\Content\Phtml;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -37,7 +37,7 @@ class Skin {
       if (strpos($file=realpath($file), realpath(Skin::getPath()))!==0)
         throw new \Exception('Unknown skin path: "'.$file.'".');
 
-      $response->headers->set('Content-Type', MimeType::get($file));
+      $response->headers->set('Content-Type', ContentType::get($file));
       $response->setContent($file=file_get_contents($file));
     }
 
