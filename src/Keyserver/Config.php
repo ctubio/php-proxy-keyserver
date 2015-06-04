@@ -30,6 +30,7 @@ class Config {
           'repair_hkp_h1_tags' => 0,
           'indent_strict_html' => 0,
           'expose_keyserver' => 0,
+          'expose_source' => 0,
           'display_exceptions' => 0
         ),
         parse_ini_file(realpath('../etc/php-proxy-keyserver.ini'))
