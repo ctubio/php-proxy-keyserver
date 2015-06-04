@@ -1,4 +1,3 @@
-fix broken remove key form
 makeuse of $ md5sum -c metadata-sks-dump.txt
 source if config
 clean phtml
