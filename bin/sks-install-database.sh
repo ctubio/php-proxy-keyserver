@@ -22,6 +22,8 @@ case $REPLY in
     cd ${SKS_PATH} && rm -rf ${DUMP_PATH} KDB PTree && \
     mkdir ${SKS_PATH}/${DUMP_PATH} && cd ${SKS_PATH}/${DUMP_PATH} && \
     wget -c -r -p -e robots=off --timestamping --level=1 --cut-dirs=3 --no-host-directories ${CURRENT_DUMP_URL} && \
+    sed -i 's/\(\w\)\ \(sks-dump.*\)/\1  \2/' metadata-sks-dump.txt && \
+    md5sum --strict --check metadata-sks-dump.txt && \
     cd ${SKS_PATH} && \
     /usr/local/bin/sks_build.sh;
     ;;

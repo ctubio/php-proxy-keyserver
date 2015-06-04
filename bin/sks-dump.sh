@@ -25,7 +25,7 @@ for DEL in `ls -1t dump | grep -v current | tail -n +$((BACKUPS+1))`; do
 done;
 
 if (($(df -h / | grep "${PARTITION}" | awk '{ print $4 }' | sed 's/\..*//g' | sed 's/G.*//g') < ${MINFREEG})); then
-  ALERT="Can't save a new dump for ${SKSDATE}. ${PARTITION} at ${HOSTNAME} reached $(df -h / | grep "${PARTITION}" | awk '{ print $4 }') of free disk.";
+  ALERT="Dump ${SKSDATE} failed. ${PARTITION} at ${HOSTNAME} reached $(df -h / | grep "${PARTITION}" | awk '{ print $4 }') of free disk.";
   echo "${ALERT}" && echo "${ALERT}" | mail -s "${ALERT}" "${MAIL}";
   exit;
 fi;
@@ -44,9 +44,18 @@ if [ `ps -eaf | grep "sks " | grep -v 'grep sks' | wc -l` == "0" ]; then
     exit 1;
   fi;
 
-  cd $PREDIR/;
-  rm -f current;
-  ln -s $OUTDIR current;
+  cd $OUTDIR;
+  sed -i 's/\(\w\)\ \(sks-dump.*\)/\1  \2/' metadata-sks-dump.txt;
+  if md5sum --status --check metadata-sks-dump.txt; then
+    cd $INDIR/$PREDIR;
+    rm -f current;
+    ln -s $OUTDIR current;
+    echo "md5sum OK, current dump is $OUTDIR.";
+  else
+    rm -rf $OUTDIR;
+    echo "md5sum failed, $OUTDIR was removed.";
+    exit 1;
+  fi;
 else
   echo "Unable run backup, SKS is still running.";
   exit 1;
