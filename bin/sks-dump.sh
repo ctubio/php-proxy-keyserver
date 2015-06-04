@@ -65,7 +65,7 @@ fi;
 SIZE=`du -shc $OUTDIR |grep 'total' |awk '{ print $1 }'`;
 DCOUNT=`grep "#Key-Count" $OUTDIR/metadata-sks-dump.txt |awk '{ print $2 }'`;
 FILES=`grep "#Files-Count" $OUTDIR/metadata-sks-dump.txt |awk '{ print $2 }'`;
-echo "This is the PGP key server dump from ${HOSTNAME} created at: `date -u`
+echo "This is the keyserver dump from ${HOSTNAME} created at: `date -u`
 
 The current archive size is approximately $SIZE, holding $DCOUNT keys in $FILES files.
 
