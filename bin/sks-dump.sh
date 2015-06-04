@@ -69,8 +69,9 @@ echo "This is the keyserver dump from ${HOSTNAME} created at: `date -u`
 
 The current archive size is approximately $SIZE, holding $DCOUNT keys in $FILES files.
 
-These files were created basically with the following command: $ sks dump $COUNT $SKSDATE/ sks-dump
-See the full script at https://github.com/ctubio/php-proxy-keyserver/blob/master/bin/sks-dump.sh
+These files were created basically running: $ sks dump $COUNT $SKSDATE/ sks-dump
+At your convenience, the full script is available at github:
+https://github.com/ctubio/php-proxy-keyserver/blob/master/bin/sks-dump.sh
 
 You can install this dump into your own database using the following automated script:
 https://github.com/ctubio/php-proxy-keyserver/blob/master/bin/sks-install-database.sh
@@ -83,14 +84,15 @@ Alternatively, on a linux/unix system, you may manualy follow these 3 steps:
   $ rm -rf dump
   $ mkdir dump
   $ cd dump
-  $ wget -c -r -p -e robots=off --timestamping --level=1 --cut-dirs=3 --no-host-directories https://${HOSTNAME}/dump/current/
+  $ wget -c -r -p -e robots=off --timestamping --level=1 --cut-dirs=3 \
+  $> --no-host-directories https://${HOSTNAME}/dump/current/
 
  2) After downloading the dump files, you should validate them all executing:
 
   $ cd /var/lib/sks/dump
   $ md5sum -c metadata-sks-dump.txt
 
- 3) If zero warnings are reported, you can import them into a new database with the following command:
+ 3) If zero warnings are reported, you can import all keys into a new database:
 
   $ cd /var/lib/sks
   $ rm -rf KDB PTree
@@ -98,11 +100,14 @@ Alternatively, on a linux/unix system, you may manualy follow these 3 steps:
 
  and choose the option 2 (normalbuild).
 
-If all goes smoothly during the installation, you'll end up with KDB and PTree directories in /var/lib/sks, and you are ready to start the daemons.
+If all goes smoothly during the installation, you'll end up with KDB and
+PTree directories in /var/lib/sks, and you are ready to start the daemons.
 
-The content of /var/lib/sks/dump directory can be removed, and additionally, can be replaced by backups of daily dumps of your own database.
+The content of /var/lib/sks/dump directory can be removed, and additionally,
+can be replaced by backups of daily dumps of your own database.
 
-Also, if you would like to peer with this server, please send an email to <${MAIL}> with your membership line." > $OUTDIR/README.txt;
+Also, if you would like to peer with this server, please send an email
+to <${MAIL}> with your membership line." > $OUTDIR/README.txt;
 
 cd $INDIR;
 chown -R $USER:$GROUP $PREDIR;
