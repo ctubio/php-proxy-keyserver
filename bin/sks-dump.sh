@@ -71,10 +71,12 @@ The current archive size is approximately $SIZE, holding $DCOUNT keys in $FILES 
 
 These files were created basically running: $ sks dump $COUNT $SKSDATE/ sks-dump
 At your convenience, the full script is available at github:
-https://github.com/ctubio/php-proxy-keyserver/blob/master/bin/sks-dump.sh
+
+ https://github.com/ctubio/php-proxy-keyserver/blob/master/bin/sks-dump.sh
 
 You can install this dump into your own database using the following automated script:
-https://github.com/ctubio/php-proxy-keyserver/blob/master/bin/sks-install-database.sh
+
+ https://github.com/ctubio/php-proxy-keyserver/blob/master/bin/sks-install-database.sh
 
 Alternatively, on unix-like systems, you may manually follow the 3 steps below:
 
