@@ -1,4 +1,3 @@
-add bin/sks-aliases.sh (follow log)
 add bin/sks-clean-logs.sh
 allow pages with diff html titles
 show error message in html pages only when its true
