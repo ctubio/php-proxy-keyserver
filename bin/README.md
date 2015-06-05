@@ -1,9 +1,16 @@
 ### sks-init.sh
 If your keyserver doesn't run automatically at startup, you may want to run the following command:
 ```
- $ cp sks-init.sh /etc/init.d/sks
+ $ sudo cp sks-init.sh /etc/init.d/sks
+ $ sudo chmod +x /etc/init.d/sks
+ $ sudo update-rc.d sks defaults
+ $ sudo update-rc.d sks enable
 ```
-
+In case you like to follow the output of the keyserver often, here is how to create for example the alias ```SKS```:
+```
+ $ echo "alias SKS='tail -f /var/lib/sks/db.log /var/lib/sks/recon.log';" >> ~/.bash_aliases
+ $ source ~/.bash_aliases
+```
 ### sks-install-database.sh
 After a fresh install of ```sks```, or at anytime that you need to download and install a new database from a recent online dump, run the following command:
 ```
