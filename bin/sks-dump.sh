@@ -30,8 +30,10 @@ if (($(df -h / | grep "${PARTITION}" | awk '{ print $4 }' | sed 's/\..*//g' | se
   exit;
 fi;
 
+DUMPDATE="`date -u`"
 /usr/sbin/service sks stop;
 sleep 2;
+
 if [ `ps -eaf | grep "sks " | grep -v 'grep sks' | wc -l` == "0" ]; then
   rm -rf $OUTDIR && mkdir -p $OUTDIR && \
   chown -R $USER:$GROUP $PREDIR && \
@@ -50,7 +52,7 @@ if [ `ps -eaf | grep "sks " | grep -v 'grep sks' | wc -l` == "0" ]; then
     cd $INDIR/$PREDIR;
     rm -f current;
     ln -s $OUTDIR current;
-    echo "md5sum OK, current dump is $OUTDIR.";
+    echo "md5sum OK.";
   else
     cd $INDIR/$PREDIR;
     rm -rf $OUTDIR;
@@ -65,11 +67,11 @@ fi;
 SIZE=`du -shc $OUTDIR |grep 'total' |awk '{ print $1 }'`;
 DCOUNT=`grep "#Key-Count" $OUTDIR/metadata-sks-dump.txt |awk '{ print $2 }'`;
 FILES=`grep "#Files-Count" $OUTDIR/metadata-sks-dump.txt |awk '{ print $2 }'`;
-echo "This is the keyserver dump from ${HOSTNAME} created at: `date -u`
+echo "This is the keyserver dump from ${HOSTNAME} created at: ${DUMPDATE}
 
-The current archive size is approximately $SIZE, holding $DCOUNT keys in $FILES files.
+The current archive size is approximately ${SIZE}, holding ${DCOUNT} keys in ${FILES} files.
 
-These files were created basically running: $ sks dump $COUNT $SKSDATE/ sks-dump
+These files were created basically running: $ sks dump ${COUNT} ${SKSDATE}/ sks-dump
 At your convenience, the full script is available at github:
 
  https://github.com/ctubio/php-proxy-keyserver/blob/master/bin/sks-dump.sh
