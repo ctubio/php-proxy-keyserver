@@ -76,7 +76,7 @@ https://github.com/ctubio/php-proxy-keyserver/blob/master/bin/sks-dump.sh
 You can install this dump into your own database using the following automated script:
 https://github.com/ctubio/php-proxy-keyserver/blob/master/bin/sks-install-database.sh
 
-Alternatively, on a linux/unix system, you may manually follow the 3 steps below:
+Alternatively, on unix-like systems, you may manually follow the 3 steps below:
 
  1) Download a recently created online dump directory via the following command:
 
