@@ -9,7 +9,7 @@ After a fresh install of ```sks```, or at anytime that you need to download and 
 ```
  $ ./sks-install-database.sh
 ```
-then, you may see the following example output:
+then, you should step into an output similar to:
 ```
  $ ./sks-install-database.sh
 Before install a new database,
