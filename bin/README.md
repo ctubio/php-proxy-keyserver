@@ -33,5 +33,5 @@ Also, the content of /var/lib/sks/dump directory can be removed, and additionall
 ### sks-dump.sh
 To create your own daily dumps of your working database, customize [sks-dump.sh](sks-dump.sh), and add a crontab line similar to:
 ```
-1 0 * * * /var/www/your.domain.name/bin/sks-dump.sh &
+59 23 * * * /var/www/your.domain.name/bin/sks-dump.sh &
 ```
