@@ -31,8 +31,8 @@ After the database is installed, you may be able to start the sks daemons, and c
 Also, the content of /var/lib/sks/dump directory can be removed, and additionally, can be replaced by daily dumps of your own database using [sks-dump.sh](sks-dump.sh).
 
 ### sks-dump.sh
-To create your own daily dumps of your working database, customize [sks-dump.sh](sks-dump.sh), and add a crontab line similar to:
+If you would like to create your own daily dumps of your working database, customize [sks-dump.sh](sks-dump.sh), and add a crontab line similar to:
 ```
 59 23 * * * /var/www/your.domain.name/bin/sks-dump.sh &
 ```
-To avoid downtimes, you must have your keyserver behind a load balancer running additional keyserver instances.
+Please understand, in order to avoid downtimes, you must have your keyserver behind a load balancer running additional keyserver instances.
