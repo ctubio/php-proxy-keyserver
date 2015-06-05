@@ -35,3 +35,4 @@ To create your own daily dumps of your working database, customize [sks-dump.sh]
 ```
 59 23 * * * /var/www/your.domain.name/bin/sks-dump.sh &
 ```
+To avoid downtimes, you must have your keyserver behind a load balancer running additional keyserver instances.
