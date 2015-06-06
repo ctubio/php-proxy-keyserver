@@ -142,6 +142,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
       $request = Request::createFromGlobals();
       $request->server->set('REQUEST_URI', '/pks/lookup?search=x&fingerprint=on&op=vindex');
       $request->server->set('HTTP_USER_AGENT', __METHOD__);
+      $request->query->set('search', 'x');
       Keyserver::$request_instance = $request;
       $response = Keyserver::getResponse();
 
@@ -158,6 +159,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
       $request = Request::createFromGlobals();
       $request->server->set('REQUEST_URI', '/pks/lookup?search=IMPOSSIBLEKEYS&fingerprint=on&op=vindex');
       $request->server->set('HTTP_USER_AGENT', __METHOD__);
+      $request->query->set('search', 'IMPOSSIBLEKEYS');
       Keyserver::$request_instance = $request;
       $response = Keyserver::getResponse();
 
