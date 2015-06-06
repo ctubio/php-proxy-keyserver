@@ -12,6 +12,7 @@ bugs_contact_mail   = carles.tubio@key-server.io
 ;expose_pool         = 0
 ;html_title          = PGP Public Key Server
 ;google_verification = token
+;google_analytics = id
 
 [options]
 ;skin_path           = default
@@ -36,6 +37,7 @@ display_exceptions  = 1
 ;; default expose_pool value is 0, valid values are 0 or 1 (show https://sks-keyservers.net/status/ link in topmenu?).
 ;; default html_title value is PGP Public Key Server, any value is valid
 ;; default google_verification value is NULL, any google token is valid
+;; default google_analytics value is NULL, any google tracking id is valid
 ;; default skin_path value is default, valid values are folder names inside /skin
 ;; default layout_html_errors value is 0, valid values are 0 or 1 (use /plain_errors or skin_layout.phtml?)
 ;; default layout_hkp_request value is 0, valid values are 0 or 1 (always plain responses on hkp_port or use skin_layout.phtml if web browser?)

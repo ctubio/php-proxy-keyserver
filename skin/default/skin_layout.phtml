@@ -8,6 +8,7 @@
     <?php if($google_verification=$this->getConfig('google_verification')): ?><meta name="google-site-verification" content="<?php echo $google_verification; ?>" /><?php endif; ?>
   </head>
   <body>
+    <?php echo $this->getBlock('analytics'); ?>
     <?php echo $this->getBlock('gnu_inside'); ?>
     <div id="content" style="width:640px;margin:0px auto;">
       <h1 style="margin-bottom:0px;"><?php echo $this->getConfig('html_title') ?></h1>

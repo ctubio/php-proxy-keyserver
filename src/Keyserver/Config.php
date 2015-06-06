@@ -25,6 +25,7 @@ class Config {
           'html_title' => 'PGP Public Key Server',
           'head_title' => NULL,
           'google_verification' => NULL,
+          'google_analytics' => NULL,
           'skin_path' => 'default',
           'layout_html_errors' => 0,
           'layout_hkp_request' => 0,
