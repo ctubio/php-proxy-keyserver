@@ -27,7 +27,8 @@ class Skin {
     if (!file_exists(
       $file = realpath(file_exists($file=self::getPath().$file)
         ? $file : (file_exists($file.'.html')
-          ? $file.'.html' : $file.'.xhtml')
+          ? $file.'.html' : (file_exists($file.'.xhtml')
+          ? $file.'.xhtml' : $file.'.php'))
     ))) {
       if ($response->getStatusCode() == 200) $response->setStatusCode(404);
       $response->setContent($file = (string)new Phtml(
@@ -36,9 +37,18 @@ class Skin {
     } else {
       if (strpos($file=realpath($file), realpath(Skin::getPath()))!==0)
         throw new \Exception('Unknown skin path: "'.$file.'".');
+      $file = str_replace('sitemap.xml.php', 'sitemap.xml', $file);
 
       $response->headers->set('Content-Type', ContentType::get($file));
-      $response->setContent($file=file_get_contents($file));
+
+      if (basename($file)=='sitemap.xml') {
+        ob_start();
+        include($file.'.php');
+        $file = ob_get_clean();
+      } else
+        $file = file_get_contents($file);
+
+      $response->setContent($file);
     }
 
     $response->headers->set('Content-Length', strlen($file));
