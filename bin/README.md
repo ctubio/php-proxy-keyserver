@@ -13,7 +13,7 @@ In case you like to follow the output of the keyserver often, here is how to cre
 ```
 or if you preffer to get rid of the logs, you can setup a crontab line like:
 ```
-0 0 1 1 * ls /var/lib/sks/*.log -t1 | xargs truncate --size 0
+0 0 1 1 * ls /var/lib/sks/*.log -t1 | xargs truncate -s 0
 ```
 ### sks-install-database.sh
 After a fresh install of ```sks```, or at anytime that you need to download and install a new database from a recent online dump, run the following command:
