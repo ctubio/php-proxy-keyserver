@@ -23,6 +23,7 @@ class Config {
           'bugs_contact_mail' => 'bugs@'.$request->server->get('SERVER_NAME'),
           'site_contact_link' => NULL,
           'html_title' => 'PGP Public Key Server',
+          'head_title' => NULL,
           'google_verification' => NULL,
           'skin_path' => 'default',
           'layout_html_errors' => 0,

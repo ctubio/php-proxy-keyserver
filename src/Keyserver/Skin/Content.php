@@ -19,7 +19,7 @@ abstract class Content {
 
   public function __toString() {
     try {
-      return $this->_addStyles($this->_parsePhtml(Skin::getPath($this->_skin).((
+      return $this->_importHead($this->_parsePhtml(Skin::getPath($this->_skin).((
         strpos($this->_page, '/errors/')===0
         and !Keyserver::getConfig()->layout_html_errors
       ) ? '/plain_'.ltrim($this->_page,'/') : '/skin_layout' ).'.phtml'));
@@ -53,6 +53,9 @@ abstract class Content {
           $content
       )));
 
+    Keyserver::getConfig()->head_title = (preg_match('/<h2>(.*)<\/h2>/', $content, $matches) and isset($matches[1]))
+      ? strtok($matches[1], '<') : Keyserver::getConfig()->html_title;
+
     return $content;
   }
 
@@ -65,7 +68,16 @@ abstract class Content {
     return ob_get_clean();
   }
 
-  private function _addStyles($content) {
+  private function _importHead($content) {
+    $content = preg_replace('/<title>(.*)<\/title>/s',
+      '<title>'
+      .((preg_match('/<title>(.*)<\/title>/', $content, $matches) and isset($matches[1]) and strip_tags($matches[1]))
+        ? Keyserver::getConfig()->html_title.' | '.strip_tags($matches[1]) : (
+          (preg_match('/<h2>(.*)<\/h2>/', $content, $matches) and isset($matches[1]))
+            ? Keyserver::getConfig()->html_title.' | '.strip_tags($matches[1]) : Keyserver::getConfig()->html_title))
+      .'</title>',
+      $content);
+
     $hkp_styles = <<<CSS
 <style type="text/css">
       .uid { color: green; text-decoration: underline; }

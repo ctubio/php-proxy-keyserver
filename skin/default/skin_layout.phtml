@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<?php echo $this->getBlock('head'); ?>
+  <head>
+    <title><?php echo $this->getConfig('head_title'); ?></title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <?php if($google_verification=$this->getConfig('google_verification')): ?><meta name="google-site-verification" content="<?php echo $google_verification; ?>" /><?php endif; ?>
+  </head>
   <body>
     <?php echo $this->getBlock('gnu_inside'); ?>
     <div id="content" style="width:640px;margin:0px auto;">
       <h1 style="margin-bottom:0px;"><?php echo $this->getConfig('html_title') ?></h1>
-      <div style="text-align:right;font-size:14px;">
-        <?php if($SERVER_PORT_443=(isset($_SERVER['SERVER_PORT']) and $_SERVER['SERVER_PORT'] !== '443')): ?><a title="https" href="https://<?php echo $this->getConfig('hostname'); ?><?php echo htmlentities($_SERVER['REQUEST_URI']); ?>" style="font-style:italic;">https</a><?php endif; ?>
-        <?php if(isset($_SERVER['SERVER_PORT']) and $_SERVER['SERVER_PORT'] !== '11371'): ?><?php if ($SERVER_PORT_443): ?><span> | </span><?php endif; ?><a title="hkp" href="http://<?php echo $this->getConfig('hostname'); ?>:<?php echo $this->getConfig('hkp_port'); ?><?php echo htmlentities($_SERVER['REQUEST_URI']); ?>" style="font-style:italic;">hkp</a><?php endif; ?>
-        <b> :// </b><a title="home" href="/">home</a>
-        <b> | </b><a title="faq" href="/doc/faq">faq</a>
-        <b> | </b><a title="stats" href="/pks/lookup?op=stats">stats</a>
-        <?php if($this->getConfig('expose_dump')): ?><b> | </b><a title="dump" href="/sks-dump">dump</a><?php endif; ?>
-        <?php if($site_contact_link=$this->getConfig('site_contact_link')): ?><b> | </b><a title="contact" href="<?php echo (strpos($site_contact_link,'@')?'mailto:':NULL).$site_contact_link ?>" style="font-style:italic;">contact</a><?php endif; ?>
-        <?php if($this->getConfig('expose_source')): ?><b> | </b><a title="source" href="https://github.com/ctubio/php-proxy-keyserver" style="font-style:italic;">source</a><?php endif; ?>
-        <?php if($this->getConfig('expose_pool')): ?><b> | </b><a title="pool" href="https://sks-keyservers.net/status" style="font-style:italic;">pool</a><?php endif; ?>
-      </div>
+      <?php echo $this->getBlock('navigation'); ?>
       <hr />
       <?php echo $this->getPage(); ?>
       <?php echo $this->getBlock('footer'); ?>

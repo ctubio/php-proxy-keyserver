@@ -1,5 +1,3 @@
-add bin/sks-clean-logs.sh
-allow pages with diff html titles
 show error message in html pages only when its true
 show count of results in searches
 show render time as comment
