@@ -1,3 +1,4 @@
+add sitemap.xml
 allow pages with diff html titles
 show error message in html pages only when its true
 show count of results in searches
