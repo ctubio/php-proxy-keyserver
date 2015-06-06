@@ -42,4 +42,4 @@ If you would like to create your own daily dumps of your working database, custo
 ```
 59 23 * * * /var/www/your.domain.name/bin/sks-dump.sh &
 ```
-Please understand, in order to avoid downtimes, you must have your keyserver behind a load balancer running additional keyserver instances.
+Please understand, in order to avoid downtimes, you must have your keyserver behind a load balancer running additional keyserver instances. That is because the dump process stops the keyserver daemons for about 1 or 2 minutes, locking all the database files to be able to export all keys, and when all files are finally generated, it starts the keyserver daemons again.
