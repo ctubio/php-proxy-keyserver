@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+add sitemap.xml
+allow pages with diff html titles
+>>>>>>> origin/master
 show error message in html pages only when its true
 show count of results in searches
 show render time as comment
