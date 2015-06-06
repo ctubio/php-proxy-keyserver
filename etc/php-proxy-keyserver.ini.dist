@@ -8,6 +8,8 @@
 bugs_contact_mail   = carles.tubio@key-server.io
 ;expose_keyserver    = 0
 ;expose_source       = 0
+;expose_dump         = 0
+;expose_pool         = 0
 ;html_title          = PGP Public Key Server
 ;google_verification = token
 
@@ -28,8 +30,10 @@ display_exceptions  = 1
 ;; default hostname value is $_SERVER['SERVER_NAME'], any value is valid
 ;; default site_contact_link value is NULL, valid values are url or email
 ;; default bugs_contact_mail value is bugs@hostname, any value is valid
-;; default expose_keyserver value is 0, valid values are 0 or 1 (hide keyserver in Via header or display?).
+;; default expose_keyserver value is 0, valid values are 0 or 1 (hide keyserver version in Via header or display?).
 ;; default expose_source value is 0, valid values are 0 or 1 (show php-proxy-keyserver link to github in topmenu?).
+;; default expose_dump value is 0, valid values are 0 or 1 (show /dump link in topmenu?).
+;; default expose_pool value is 0, valid values are 0 or 1 (show https://sks-keyservers.net/status/ link in topmenu?).
 ;; default html_title value is PGP Public Key Server, any value is valid
 ;; default google_verification value is NULL, any google token is valid
 ;; default skin_path value is default, valid values are folder names inside /skin

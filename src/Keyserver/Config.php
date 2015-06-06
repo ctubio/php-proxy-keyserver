@@ -31,6 +31,8 @@ class Config {
           'indent_strict_html' => 0,
           'expose_keyserver' => 0,
           'expose_source' => 0,
+          'expose_dump' => 0,
+          'expose_pool' => 0,
           'display_exceptions' => 0
         ),
         parse_ini_file(realpath('../etc/php-proxy-keyserver.ini'))
