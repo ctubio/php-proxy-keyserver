@@ -36,8 +36,14 @@
     </style>
     <link href='//fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css' />
       <div id="table-container">
-        <div id="table-cell">
+        <div id="table-cell"><?php
+            use PhpProxy\Keyserver;
+            if (Keyserver::getRequest()->query->get('search')):
+          ?>
           0 keys found..
+          <?php else: ?>
+          page not found..
+          <?php endif; ?>
           <br />
           <svg xmlns="https://www.w3.org/2000/svg"
             width="500" height="257" text-anchor="middle">

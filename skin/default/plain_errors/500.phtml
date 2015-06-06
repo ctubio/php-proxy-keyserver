@@ -52,8 +52,14 @@
   <body>
     <div id="outer">
       <div id="table-container">
-        <div id="table-cell">
+        <div id="table-cell"><?php
+            use PhpProxy\Keyserver;
+            if (Keyserver::getRequest()->query->get('search')):
+          ?>
           keyword too short..
+          <?php else: ?>
+          internal server error..
+          <?php endif; ?>
           <br />
           <svg xmlns="https://www.w3.org/2000/svg"
             width="500" height="257" text-anchor="middle">
