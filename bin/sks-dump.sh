@@ -26,7 +26,7 @@ done;
 
 if (($(df -h / | grep "${PARTITION}" | awk '{ print $4 }' | sed 's/\..*//g' | sed 's/G.*//g') < ${MINFREEG})); then
   echo "Dump ${SKSDATE} failed. ${PARTITION} at ${HOSTNAME} reached $(df -h / | grep "${PARTITION}" | awk '{ print $4 }') of free disk.";
-  exit;
+  exit 1;
 fi;
 
 DUMPDATE="`date -u`"
