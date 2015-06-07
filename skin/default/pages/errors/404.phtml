@@ -38,7 +38,7 @@
       <div id="table-container">
         <div id="table-cell"><?php
             use PhpProxy\Keyserver;
-            if (Keyserver::getRequest()->query->get('search')):
+            if (Keyserver::getRequest()->query->get('search', FALSE)!==FALSE):
           ?>
           0 keys found..
           <?php else: ?>
