@@ -15,7 +15,7 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
  * 8 skins (thank you folks!), but you can make your own (with dynamic php blocks or static html).
  * Optionally auto addition and validation of user submitted membership lines for new peers.
  * Optionally auto indent and validation of html pages before output html responses.
- * Meaningful (hope you like stack traces) error messages while developing skins/pages (log or display).
+ * Meaningful (hope you like stack traces) error messages while developing skins/pages.
  * Webserver configs ready for apache2 (you may need to mimic pub/.htaccess for your webserver).
  * HKP meets PHP! (fast and lightweight as possible, supporting static skins for historical purposes).
 
