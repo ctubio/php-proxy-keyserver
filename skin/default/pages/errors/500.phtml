@@ -41,6 +41,8 @@
             if (Keyserver::getRequest()->query->get('search', FALSE)!==FALSE):
           ?>
           keyword too short..
+          <?php elseif (Keyserver::getRequest()->server->get('REQUEST_URI', FALSE)==='/pks/add'): ?>
+          key format error..
           <?php else: ?>
           internal server error..
           <?php endif; ?>
