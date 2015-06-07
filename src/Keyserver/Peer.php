@@ -95,7 +95,7 @@ class Peer {
       'format' => 'Membership line mal-formed, ',
       'exists' => 'Your membership line was already added to '.Keyserver::getConfig()->hostname.'.</span><br /><br />',
       'admin' => 'Your membership line is correct, and '.Keyserver::getConfig()->hostname.' was found as a Gossip Peer in the stats page of '.$subject.', but an error occurred while saving your membership line, please send an email to <a href="mailto:'.Keyserver::getConfig()->bugs_contact_mail.'">&lt;'.Keyserver::getConfig()->bugs_contact_mail.'&gt;</a> as usual.',
-      'server' => 'Your membership line is correct, but after checking the stats page of '.$subject.', '.Keyserver::getConfig()->hostname.' was not found as a Gossip Peer.</span><br /><br /><span class="uid" style="text-decoration:none;">Please, add the following line to your membership file and wait until it is refreshed before continue:</span><br /><br /><span><input style="width:100%;padding:5px;;text-align:center;font-weight:600;" value="'.htmlentities(Keyserver::getConfig()->membership_line).'" />'
+      'server' => 'Your membership line is correct, but after checking the stats page of '.$subject.', '.Keyserver::getConfig()->hostname.' was not found as a Gossip Peer.</span><br /><br /><span class="uid" style="text-decoration:none;">Please, add the following line to your membership file and wait until it is refreshed before continue:</span><br /><br /><input style="width:100%;padding:5px;;text-align:center;font-weight:600;" value="'.htmlentities(Keyserver::getConfig()->membership_line).'" />'
     )).$msg.'</span><br />';
   }
 
