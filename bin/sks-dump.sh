@@ -25,8 +25,7 @@ for DEL in `ls -1t dump | grep -v current | tail -n +$((BACKUPS+1))`; do
 done;
 
 if (($(df -h / | grep "${PARTITION}" | awk '{ print $4 }' | sed 's/\..*//g' | sed 's/G.*//g') < ${MINFREEG})); then
-  ALERT="Dump ${SKSDATE} failed. ${PARTITION} at ${HOSTNAME} reached $(df -h / | grep "${PARTITION}" | awk '{ print $4 }') of free disk.";
-  echo "${ALERT}" && echo "${ALERT}" | mail -s "${ALERT}" "${MAIL}";
+  echo "Dump ${SKSDATE} failed. ${PARTITION} at ${HOSTNAME} reached $(df -h / | grep "${PARTITION}" | awk '{ print $4 }') of free disk.";
   exit;
 fi;
 
