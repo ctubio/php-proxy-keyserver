@@ -13,8 +13,9 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
  * Minimalistic php framework focused to extend and prettify the default web interface of a keyserver.
  * PHPize any request at any port for humans, but keep the original output for gpg/pool clients.
  * 8 skins (thank you folks!), but you can make your own (with dynamic php blocks or static html).
+ * Optionally auto addition and validation of user submitted membership lines for new peers.
  * Optionally auto indent and validation of html pages before output html responses.
- * Meaningful (hope you like stack traces) error messages while developing skins (log or display).
+ * Meaningful (hope you like stack traces) error messages while developing skins/pages (log or display).
  * Webserver configs ready for apache2 (you may need to mimic pub/.htaccess for your webserver).
  * HKP meets PHP! (fast and lightweight as possible, supporting static skins for historical purposes).
 
