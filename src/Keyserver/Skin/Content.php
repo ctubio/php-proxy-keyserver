@@ -54,7 +54,7 @@ abstract class Content {
       )));
 
     Keyserver::getConfig()->head_title = (preg_match('/<h2>(.*)<\/h2>/', $content, $matches) and isset($matches[1]))
-      ? strtok($matches[1], '<') : Keyserver::getConfig()->html_title;
+      ? strtok($matches[1], '<').Keyserver::getRequest()->query->get('search') : Keyserver::getConfig()->html_title;
 
     return $content;
   }
@@ -69,7 +69,7 @@ abstract class Content {
   }
 
   private function _importHead($content) {
-    $content = preg_replace('/<title>(.*)<\/title>/s',
+    $content = preg_replace('/<title>(.*)<\/title>/',
       '<title>'
       .((preg_match('/<title>(.*)<\/title>/', $content, $matches) and isset($matches[1]) and strip_tags($matches[1]))
         ? Keyserver::getConfig()->html_title.' | '.strip_tags($matches[1]) : (
