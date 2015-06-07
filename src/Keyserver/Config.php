@@ -22,6 +22,7 @@ class Config {
           'hostname' => $request->server->get('SERVER_NAME'),
           'bugs_contact_mail' => 'bugs@'.$request->server->get('SERVER_NAME'),
           'site_contact_link' => NULL,
+          'membership_line' => NULL,
           'html_title' => 'PGP Public Key Server',
           'head_title' => NULL,
           'google_verification' => NULL,

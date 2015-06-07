@@ -6,6 +6,7 @@
 ;hostname            = SERVER_NAME.environment.variable
 ;site_contact_link   = http://example.com
 bugs_contact_mail   = carles.tubio@key-server.io
+;membership_line     = hostname port # name <mail> key
 ;expose_keyserver    = 0
 ;expose_source       = 0
 ;expose_dump         = 0
@@ -31,6 +32,7 @@ display_exceptions  = 1
 ;; default hostname value is $_SERVER['SERVER_NAME'], any value is valid
 ;; default site_contact_link value is NULL, valid values are url or email
 ;; default bugs_contact_mail value is bugs@hostname, any value is valid
+;; default membership_line value is NULL, valid value is your membership line (show /peers in topmenu and allow automatic additions of membership lines?).
 ;; default expose_keyserver value is 0, valid values are 0 or 1 (hide keyserver version in Via header or display?).
 ;; default expose_source value is 0, valid values are 0 or 1 (show php-proxy-keyserver link to github in topmenu?).
 ;; default expose_dump value is 0, valid values are 0 or 1 (show /dump link in topmenu?).

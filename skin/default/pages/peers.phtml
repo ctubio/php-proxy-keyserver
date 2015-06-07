@@ -1,0 +1,18 @@
+<?php
+  use PhpProxy\Keyserver;
+  use PhpProxy\Keyserver\Peer;
+?><h2>Collaborate as Gossip Peer</h2>
+If you are the administrator of another PGP Public Key Server, and you would like to peer with <?php echo $this->getConfig('hostname'); ?>, you can automatically add yourself to my membership file by submitting the following information:
+<br />
+<br />
+<form action="/<?php echo strtok(basename(__FILE__),'.'); ?>" method="post">
+  <p>
+    Your membership line:
+    <input name="membership" size="50" type="text" value="" />
+    <input type="submit" value="Let's Peer!" />
+  </p>
+</form>
+<?php
+  if (Keyserver::getRequest()->getMethod()=='POST')
+    echo Peer::validate(Keyserver::getRequest()->request->get('membership', NULL));
+?>
