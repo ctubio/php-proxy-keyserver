@@ -134,7 +134,7 @@ class Peer {
       echo 'Checking http://'.$hostname.$url.'..<br />';
       $content = self::_get('http://'.$hostname.$url);
     }
-    if (!$content) echo '<span class="warn">Please, try again later.</span><br /><br />';
+    if (!$content) echo '<span class="warn">Unreachable stats page, please double-check the hostname.</span><br /><br />';
     return $content;
   }
 }
