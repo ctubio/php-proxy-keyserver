@@ -87,7 +87,7 @@ Alternatively, on unix-like systems, you may manually follow the 3 steps below:
   $ rm -rf dump
   $ mkdir dump
   $ cd dump
-  $ wget -c -r -p -e robots=off -N -l1 --cut-dirs=3 -nH https://${HOSTNAME}/dump/current/
+  $ wget -c -r -p -e robots=off -N -l1 --cut-dirs=3 -nH http://${HOSTNAME}/dump/current/
 
  2) After downloading the dump files, you should validate them all executing:
 

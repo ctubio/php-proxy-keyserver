@@ -1,4 +1,3 @@
-fix  --no-check-certificate
 clean rubbish Peer class
 show count of results in searches
 show render time as comment
