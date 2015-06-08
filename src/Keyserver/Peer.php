@@ -86,7 +86,7 @@ class Peer {
     $file = '/var/lib/sks/membership';
     if (!file_exists($file) or !is_readable($file) or !is_writable($file)) return FALSE;
     file_put_contents($file, (file_get_contents($file).PHP_EOL.$line));
-    return (strpos($file, $line)!==FALSE);
+    return (strpos(file_get_contents($file), $line)!==FALSE);
   }
 
   public static function warn($scope, $msg = NULL, $subject = NULL) {
