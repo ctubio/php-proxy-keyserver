@@ -115,7 +115,7 @@ class Peer {
       curl_setopt ($ch, CURLOPT_URL, $url);
       curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
       curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-      $content = @curl_exec($ch);
+      $content = curl_exec($ch);
       $info = ($content) ? curl_getinfo($ch) : array();
       curl_close($ch);
     }

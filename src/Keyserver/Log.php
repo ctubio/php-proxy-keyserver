@@ -12,10 +12,10 @@ class Log {
 
     if (!(bool)(int)Keyserver::getConfig()->display_exceptions) {
       if (!$path=realpath('../log'))
-        @mkdir($path=realpath('..').'/log',0777,TRUE);
+        mkdir($path=realpath('..').'/log',0777,TRUE);
       $path .= '/php-proxy-keyserver.log';
-      @file_put_contents($path, $e.PHP_EOL
-        .(file_exists($path)?@file_get_contents($path):NULL)
+      file_put_contents($path, $e.PHP_EOL
+        .(file_exists($path)?file_get_contents($path):NULL)
       );
       return "An error ocurred. Please, read the logs or contact the keyserver administrator.";
     }
