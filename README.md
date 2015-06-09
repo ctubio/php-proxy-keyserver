@@ -6,7 +6,7 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
 
 [![Build Status](https://img.shields.io/travis/ctubio/php-proxy-keyserver/master.svg?label=test%20suite)](https://travis-ci.org/ctubio/php-proxy-keyserver)
 [![Coverage Status](https://img.shields.io/coveralls/ctubio/php-proxy-keyserver/master.svg?label=code%20coverage)](https://coveralls.io/r/ctubio/php-proxy-keyserver?branch=master)
-[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/9333c486-bc87-4728-91f4-a5ec377a51be.svg)](https://insight.sensiolabs.com/projects/9333c486-bc87-4728-91f4-a5ec377a51be)
+[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/492ba682-9e9b-4c6e-b207-42aa5041d624.svg)](https://insight.sensiolabs.com/projects/492ba682-9e9b-4c6e-b207-42aa5041d624)
 [![Dependency Status](https://www.versioneye.com/user/projects/5562f9753664660019240200/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5562f9753664660019240200)
 [![Open Issues](https://img.shields.io/github/issues/ctubio/php-proxy-keyserver.svg)](https://github.com/ctubio/php-proxy-keyserver/issues)
 
