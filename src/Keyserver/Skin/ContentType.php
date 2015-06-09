@@ -534,7 +534,7 @@ class ContentType {
 
     if (function_exists('mime_content_type')) {
       $mtype = mime_content_type($filename);
-      if($mtype == false && isset($allowed_ext[$fext]) && $allowed_ext[$fext]){
+      if($mtype === FALSE && isset($allowed_ext[$fext]) && $allowed_ext[$fext]){
         $mtype = $allowed_ext[$fext];
       }
     }else if (isset($allowed_ext[$fext]) && $allowed_ext[$fext]) {
