@@ -107,7 +107,7 @@ class Peer {
     return  preg_replace('!\s+!', ' ', $nbsp?str_replace($nbsp?chr(7):' ', '&nbsp;', $line):$line);
   }
 
-  public static function _get($url) {
+  public static function getContent($url) {
     $content = NULL;
     $info = array();
     if (function_exists('curl_init')) {
@@ -125,14 +125,14 @@ class Peer {
 
   public static function get($hostname, $url) {
     echo 'Checking https://'.$hostname.$url.'..<br />';
-    $content = self::_get('https://'.$hostname.$url);
+    $content = self::getContent('https://'.$hostname.$url);
     if (!$content) {
       echo 'Checking http://'.$hostname.':11371'.$url.'..<br />';
-      $content = self::_get('http://'.$hostname.':11371'.$url);
+      $content = self::getContent('http://'.$hostname.':11371'.$url);
     }
     if (!$content) {
       echo 'Checking http://'.$hostname.$url.'..<br />';
-      $content = self::_get('http://'.$hostname.$url);
+      $content = self::getContent('http://'.$hostname.$url);
     }
     if (!$content) echo '<span class="warn">Unreachable stats page, please double-check the hostname.</span><br /><br />';
     return $content;

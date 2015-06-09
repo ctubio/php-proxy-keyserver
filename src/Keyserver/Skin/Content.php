@@ -13,13 +13,13 @@ abstract class Content {
   public function __construct($page, $content = FALSE, $skin = FALSE) {
     $this->_page = (string)$page;
     if ($content)
-      $this->_content = $this->_importContent($content);
+      $this->_content = $this->importContent($content);
     $this->_skin = (string)$skin;
   }
 
   public function __toString() {
     try {
-      return $this->_importHead($this->_parsePhtml(Skin::getPath($this->_skin).((
+      return $this->importHead($this->parsePhtml(Skin::getPath($this->_skin).((
         strpos($this->_page, '/errors/')===0
         && !Keyserver::getConfig()->layout_html_errors
       ) ? '/plain_'.ltrim($this->_page,'/') : '/skin_layout' ).'.phtml'));
@@ -28,7 +28,7 @@ abstract class Content {
     }
   }
 
-  public function _importContent($content) {
+  public function importContent($content) {
     if (substr(trim($content), 0, 1)!=='<')
       return '<pre>'.htmlentities($content).'</pre>';
 
@@ -59,7 +59,7 @@ abstract class Content {
     return $content;
   }
 
-  protected function _parsePhtml($file) {
+  protected function parsePhtml($file) {
     if (strpos(realpath($file), realpath(Skin::getPath($this->_skin)))!==0)
       throw new \Exception('Unknown skin path: "'.$file.'".');
 
@@ -68,7 +68,7 @@ abstract class Content {
     return ob_get_clean();
   }
 
-  private function _importHead($content) {
+  private function importHead($content) {
     $content = preg_replace('/<title>(.*)<\/title>/',
       '<title>'
       .((preg_match('/<title>(.*)<\/title>/', $content, $matches) && isset($matches[1]) && strip_tags($matches[1]))

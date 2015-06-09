@@ -18,7 +18,7 @@ class Phtml extends Content {
     )))
       throw new \Exception('Unknown block: "'.$path.'".');
 
-    return $this->_parsePhtml($file);
+    return $this->parsePhtml($file);
   }
 
   protected function getPage($phtml = NULL) {
@@ -33,6 +33,6 @@ class Phtml extends Content {
     )))
       throw new \Exception('Unknown page: "'.$path.'".');
 
-    return $this->_parsePhtml($file);
+    return $this->parsePhtml($file);
   }
 }

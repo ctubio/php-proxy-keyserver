@@ -11,7 +11,7 @@ class Router {
     $response = strpos($uri = preg_replace('/^\/$/', '/index',
       Keyserver::getRequest()->server->get('REQUEST_URI')
     ), '/pks/') === 0
-      ? Skin::parseContent(self::_getHKPResponse($uri))
+      ? Skin::parseContent(self::getHKPResponse($uri))
       : Skin::parsePhtml(new Response(), strtok($uri,'?'));
 
     if (($errno = (int)$response->getStatusCode()) !== 200)
@@ -20,7 +20,7 @@ class Router {
     return $response;
   }
 
-  public static function _getHKPResponse($uri) {
+  public static function getHKPResponse($uri) {
     $config = Keyserver::getConfig();
 
     try {

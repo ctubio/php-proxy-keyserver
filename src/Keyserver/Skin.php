@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class Skin {
 
-  public static function _isPhtml() {
+  public static function isPhtml() {
     return file_exists(self::getPath().'/skin_layout.phtml');
   }
 
@@ -17,7 +17,7 @@ class Skin {
   }
 
   public static function parsePhtml(Response $response, $phtml) {
-    return (self::_isPhtml() && file_exists(
+    return (self::isPhtml() && file_exists(
         self::getPath().'/pages/'.ltrim($phtml, '/').'.phtml'
     )) ? self::parseContent($response, (string)new Phtml($phtml))
       : self::parseNonPhtml($response, $phtml);
@@ -25,10 +25,11 @@ class Skin {
 
   public static function parseNonPhtml(Response $response, $file) {
     if (!file_exists(
-      $file = realpath(file_exists($file=self::getPath().$file)
+      $file = file_exists($file=self::getPath().$file)
         ? $file : (file_exists($file.'.html')
           ? $file.'.html' : (file_exists($file.'.xhtml')
-          ? $file.'.xhtml' : $file.'.php'))
+            ? $file.'.xhtml' : (file_exists($file.'.php')
+              ? $file.'.php' : $file))
     ))) {
       if ($response->getStatusCode() == 200) $response->setStatusCode(404);
       $response->setContent($file = (string)new Phtml(
@@ -72,12 +73,12 @@ class Skin {
       && strpos(Keyserver::getRequest()->server->get('REQUEST_URI'), '/pks/') === 0))
       return $response;
 
-    if (!$content) $content = self::_isPhtml()
+    if (!$content) $content = self::isPhtml()
       ? (string)new Phtml(FALSE, $response->getContent())
       : $response->getContent();
 
-    if (self::_isPhtml() && Keyserver::getConfig()->indent_strict_html)
-      $content = self::_indentStrictHtml($content);
+    if (self::isPhtml() && Keyserver::getConfig()->indent_strict_html)
+      $content = self::indentStrictHtml($content);
 
     $response->headers->set('Content-Type', 'text/html;charset=UTF-8');
     $response->headers->set('Content-Length', strlen($content));
@@ -85,7 +86,7 @@ class Skin {
     return $response->setContent($content);
   }
 
-  public static function _indentStrictHtml($content) {
+  public static function indentStrictHtml($content) {
     $dom = new \DOMDocument('1.0');
     $dom->preserveWhiteSpace = false;
     $dom->formatOutput = true;
