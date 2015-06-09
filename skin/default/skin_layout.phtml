@@ -10,13 +10,15 @@
   </head>
   <body>
     <?php echo $this->getBlock('analytics'); ?>
-    <?php echo $this->getBlock('gnu_inside'); ?>
-    <div id="content">
-      <h1 style="margin-bottom:0px;"><?php echo $this->getConfig('html_title') ?></h1>
-      <?php echo $this->getBlock('navigation'); ?>
-      <hr />
-      <?php echo $this->getPage(); ?>
-      <?php echo $this->getBlock('footer'); ?>
+    <div id="container">
+      <?php echo $this->getBlock('gnu_inside'); ?>
+      <div id="content">
+        <h1 style="margin-bottom:0px;"><?php echo $this->getConfig('html_title') ?></h1>
+        <?php echo $this->getBlock('navigation'); ?>
+        <hr />
+        <?php echo $this->getPage(); ?>
+        <?php echo $this->getBlock('footer'); ?>
+      </div>
     </div>
   </body>
 </html>
