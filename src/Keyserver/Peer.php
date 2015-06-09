@@ -27,7 +27,7 @@ class Peer {
     $server = trim($server);
     $contact = trim($contact);
     echo 'Checking keyserver..<br />';
-    if (!$server or !$contact)
+    if (!$server || !$contact)
       return self::warn('format', 'the server or the contact part is missing.');
     if (substr_count($server, ' ')!==1)
       return self::warn('format', 'the server address part contains unknown data.');
@@ -35,7 +35,7 @@ class Peer {
     if (!is_numeric($port))
       return self::warn('format', 'the server port is not numeric.');
     echo 'Checking contact..<br />';
-    if (substr_count($contact, '<')!==1 or substr_count($contact, '>')!==1)
+    if (substr_count($contact, '<')!==1 || substr_count($contact, '>')!==1)
       return self::warn('format', 'the contact part contains unknown data.');
     list($contact, $key) = explode('>', $contact);
     $key = trim($key);
@@ -76,7 +76,7 @@ class Peer {
   public static function missingLine($hostname) {
     echo 'Checking membership file..<br />';
     $file = '/var/lib/sks/membership';
-    if (!file_exists($file) or !is_readable($file)) return TRUE;
+    if (!file_exists($file) || !is_readable($file)) return TRUE;
     $file = file_get_contents($file);
     return (strpos($file, $hostname)===FALSE);
   }
@@ -84,7 +84,7 @@ class Peer {
   public static function save($line) {
     echo 'Saving membership..<br />';
     $file = '/var/lib/sks/membership';
-    if (!file_exists($file) or !is_readable($file) or !is_writable($file)) return FALSE;
+    if (!file_exists($file) || !is_readable($file) || !is_writable($file)) return FALSE;
     file_put_contents($file, (file_get_contents($file).PHP_EOL.$line));
     return (strpos(file_get_contents($file), $line)!==FALSE);
   }
@@ -119,7 +119,7 @@ class Peer {
       $info = ($content) ? curl_getinfo($ch) : array();
       curl_close($ch);
     }
-    return ($content and isset($info['http_code']) and $info['http_code']===200)
+    return ($content && isset($info['http_code']) && $info['http_code']===200)
       ? $content : NULL;
   }
 

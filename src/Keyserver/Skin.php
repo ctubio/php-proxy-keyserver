@@ -17,7 +17,7 @@ class Skin {
   }
 
   public static function parsePhtml(Response $response, $phtml) {
-    return (self::_isPhtml() and file_exists(
+    return (self::_isPhtml() && file_exists(
         self::getPath().'/pages/'.ltrim($phtml, '/').'.phtml'
     )) ? self::parseContent($response, (string)new Phtml($phtml))
       : self::parseNonPhtml($response, $phtml);
@@ -66,17 +66,17 @@ class Skin {
     );
 
     if (strpos($response->headers->get('Content-Disposition'), 'attachment')===0
-     or !Keyserver::getRequest()->server->get('HTTP_USER_AGENT')
-     or (Keyserver::getRequest()->server->get('SERVER_PORT') === Keyserver::getConfig()->hkp_port
-      and !Keyserver::getConfig()->layout_hkp_request
-      and strpos(Keyserver::getRequest()->server->get('REQUEST_URI'), '/pks/') === 0))
+     || !Keyserver::getRequest()->server->get('HTTP_USER_AGENT')
+     || (Keyserver::getRequest()->server->get('SERVER_PORT') === Keyserver::getConfig()->hkp_port
+      && !Keyserver::getConfig()->layout_hkp_request
+      && strpos(Keyserver::getRequest()->server->get('REQUEST_URI'), '/pks/') === 0))
       return $response;
 
     if (!$content) $content = self::_isPhtml()
       ? (string)new Phtml(FALSE, $response->getContent())
       : $response->getContent();
 
-    if (self::_isPhtml() and Keyserver::getConfig()->indent_strict_html)
+    if (self::_isPhtml() && Keyserver::getConfig()->indent_strict_html)
       $content = self::_indentStrictHtml($content);
 
     $response->headers->set('Content-Type', 'text/html;charset=UTF-8');

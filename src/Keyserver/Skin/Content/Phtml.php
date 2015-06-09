@@ -23,7 +23,7 @@ class Phtml extends Content {
 
   protected function getPage($phtml = NULL) {
     if (is_null($phtml)) {
-      if (!$this->_page and $this->_content)
+      if (!$this->_page && $this->_content)
         return $this->_content;
       $phtml = $this->_page;
     }
