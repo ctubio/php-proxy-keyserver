@@ -43,7 +43,7 @@ class Skin {
 
       if (basename($file)=='sitemap.xml') {
         ob_start();
-        include($file.'.php');
+        require $file.'.php';
         $file = ob_get_clean();
       } else
         $file = file_get_contents($file);

@@ -64,7 +64,7 @@ abstract class Content {
       throw new \Exception('Unknown skin path: "'.$file.'".');
 
     ob_start();
-    include($file);
+    require $file;
     return ob_get_clean();
   }
 
