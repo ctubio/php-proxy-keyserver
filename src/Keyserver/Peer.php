@@ -43,37 +43,37 @@ class Peer {
       return self::warn('format', 'the contact key part is missing.');
     list($name, $mail) = explode('<', $contact);
     $name = trim($name);
-    if (!self::validate_key($key, $mail))
+    if (!self::validateKey($key, $mail))
       return self::warn('format', 'the contact mail is not within the key.');
-    if (!self::validate_contact($hostname, $key))
+    if (!self::validateContact($hostname, $key))
       return self::warn('contact', NULL, $key.' was not found as Server contact of '.$hostname);
-    if (!self::validate_server($hostname))
+    if (!self::validateServer($hostname))
       return self::warn('server', '<br /><br /><span class="uid" style="text-decoration:none;">Thank you '.strtok($name, ' ').'!', $hostname);
-    if (!self::missing_line($hostname))
+    if (!self::missingLine($hostname))
       return self::warn('exists', '<span class="uid" style="text-decoration:none;">Thank you '.strtok($name, ' ').'!', $hostname);
     if (!self::save($line))
       return self::warn('admin', NULL, $hostname);
     else return '<span class="uid" style="text-decoration:none;">Your line was added successfully to the membership file of '.Keyserver::getConfig()->hostname.'.<br /><br />The <a href="/pks/lookup?op=stats">stats</a> page will be refreshed soon with your changes.</span><br /><br /><span class="uid" style="text-decoration:none;">Thank you '.strtok($name, ' ').'!</span>';
   }
 
-  public static function validate_key($key, $mail) {
+  public static function validateKey($key, $mail) {
     echo 'Checking '.$mail.'..<br />';
     return (strpos(Factory::forward(Request::create('/pks/lookup?search='.$key.'&op=vindex'))->to(
       'http://'.Keyserver::getConfig()->hkp_addr.':'.Keyserver::getConfig()->hkp_port.'/pks/lookup?search='.$key.'&op=vindex'
     )->getContent(), $mail)!==FALSE);
   }
 
-  public static function validate_server($hostname) {
+  public static function validateServer($hostname) {
     echo 'Checking '.Keyserver::getConfig()->hostname.' in '.$hostname.'..<br />';
     return (strpos(self::getStats($hostname), '<td>'.Keyserver::getConfig()->hostname.' 11370</td>')!==FALSE);
   }
 
-  public static function validate_contact($hostname, $key) {
+  public static function validateContact($hostname, $key) {
     echo 'Checking '.$key.'..<br />';
     return (strpos(self::getStats($hostname), '<td>'.$key.'</td>')!==FALSE);
   }
 
-  public static function missing_line($hostname) {
+  public static function missingLine($hostname) {
     echo 'Checking membership file..<br />';
     $file = '/var/lib/sks/membership';
     if (!file_exists($file) or !is_readable($file)) return TRUE;
