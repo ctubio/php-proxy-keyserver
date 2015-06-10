@@ -9,7 +9,7 @@ quickstart:
 	@echo "   make config     - if you need help to configure php-proxy-keyserver"
 	@echo "   make skins      - if you wish to download extra skins"
 	@echo "   make help       - if you wish to read extended help"
-	
+
 help:
 	@echo
 	@echo "Available commands inside the main directory:"
@@ -22,7 +22,7 @@ help:
 	@echo "   make clean      - remove logs"
 	@echo "   make quickstart - show minimal help"
 	@echo "   make help       - show extended help"
-	
+
 config:
 	@cd etc && test -e php-proxy-keyserver.ini || cp php-proxy-keyserver.ini.dist php-proxy-keyserver.ini
 	@echo
@@ -45,8 +45,8 @@ composer-install:
 	$(if $(shell sh -c 'composer -v >/dev/null 2>&1 && echo 1'),,$(warning $(ERR));$(error $(HINT)))
 	@composer self-update
 	@composer install
-	
-test: test/phpunit.xml
+
+test: test/phpunit.xml.dist
 	@vendor/bin/phpunit -c test
 
 coverage: test/clover.xml

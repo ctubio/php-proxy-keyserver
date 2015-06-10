@@ -9,11 +9,11 @@
   processIsolation="false"
   stopOnFailure="true"
   syntaxCheck="true"
-  bootstrap="phpunit_autoload.php"
+  bootstrap="phpunit.autoload.php"
 >
   <testsuites>
     <testsuite name="Keyserver Test Suite">
-      <file>KeyserverTest.php</file>
+      <file>ctubio/HKPProxy/KeyserverTest.php</file>
     </testsuite>
   </testsuites>
   <logging>
