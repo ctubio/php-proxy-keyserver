@@ -1,9 +1,9 @@
-<?php namespace PhpProxy\Keyserver;
+<?php namespace ctubio\HKPProxy\Keyserver;
 
 use Dflydev\ApacheMimeTypes\PhpRepository;
-use PhpProxy\Keyserver;
-use PhpProxy\Keyserver\Log;
-use PhpProxy\Keyserver\Skin\Content\Phtml;
+use ctubio\HKPProxy\Keyserver;
+use ctubio\HKPProxy\Keyserver\Log;
+use ctubio\HKPProxy\Keyserver\Skin\Content\Phtml;
 use Symfony\Component\HttpFoundation\Response;
 
 class Skin {

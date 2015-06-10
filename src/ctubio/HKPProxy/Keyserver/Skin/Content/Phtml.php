@@ -1,8 +1,8 @@
-<?php namespace PhpProxy\Keyserver\Skin\Content;
+<?php namespace ctubio\HKPProxy\Keyserver\Skin\Content;
 
-use PhpProxy\Keyserver;
-use PhpProxy\Keyserver\Skin;
-use PhpProxy\Keyserver\Skin\Content;
+use ctubio\HKPProxy\Keyserver;
+use ctubio\HKPProxy\Keyserver\Skin;
+use ctubio\HKPProxy\Keyserver\Skin\Content;
 
 class Phtml extends Content {
   protected function getConfig($key) {

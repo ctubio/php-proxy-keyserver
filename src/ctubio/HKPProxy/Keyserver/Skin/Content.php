@@ -1,8 +1,8 @@
-<?php namespace PhpProxy\Keyserver\Skin;
+<?php namespace ctubio\HKPProxy\Keyserver\Skin;
 
-use PhpProxy\Keyserver;
-use PhpProxy\Keyserver\Log;
-use PhpProxy\Keyserver\Skin;
+use ctubio\HKPProxy\Keyserver;
+use ctubio\HKPProxy\Keyserver\Log;
+use ctubio\HKPProxy\Keyserver\Skin;
 
 abstract class Content {
 

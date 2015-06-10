@@ -1,5 +1,5 @@
 <?php
-use PhpProxy\Keyserver;
+use ctubio\HKPProxy\Keyserver;
 
 require '../vendor/autoload.php';
 

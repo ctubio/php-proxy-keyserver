@@ -1,6 +1,6 @@
 <?php
-use PhpProxy\Keyserver;
-use PhpProxy\Keyserver\Config;
+use ctubio\HKPProxy\Keyserver;
+use ctubio\HKPProxy\Keyserver\Config;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 

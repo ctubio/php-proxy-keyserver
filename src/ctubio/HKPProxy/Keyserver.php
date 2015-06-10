@@ -1,7 +1,7 @@
-<?php namespace PhpProxy;
+<?php namespace ctubio\HKPProxy;
 
-use PhpProxy\Keyserver\Config;
-use PhpProxy\Keyserver\Router;
+use ctubio\HKPProxy\Keyserver\Config;
+use ctubio\HKPProxy\Keyserver\Router;
 use Symfony\Component\HttpFoundation\Request;
 
 class Keyserver {

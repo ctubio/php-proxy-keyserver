@@ -1,6 +1,6 @@
-<?php namespace PhpProxy\Keyserver;
+<?php namespace ctubio\HKPProxy\Keyserver;
 
-use PhpProxy\Keyserver;
+use ctubio\HKPProxy\Keyserver;
 use Symfony\Component\HttpFoundation\Request;
 
 class Config {
