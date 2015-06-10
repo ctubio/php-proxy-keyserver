@@ -16,7 +16,8 @@
   },
   "require": {
     "php": "~5.4",
-    "jenssegers/proxy": "2.*"
+    "jenssegers/proxy": "2.*",
+    "dflydev/apache-mime-types": "~1.0"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.4",

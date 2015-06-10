@@ -1,8 +1,8 @@
 <?php namespace PhpProxy\Keyserver;
 
+use Dflydev\ApacheMimeTypes\PhpRepository;
 use PhpProxy\Keyserver;
 use PhpProxy\Keyserver\Log;
-use PhpProxy\Keyserver\Skin\ContentType;
 use PhpProxy\Keyserver\Skin\Content\Phtml;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -40,7 +40,10 @@ class Skin {
         throw new \Exception('Unknown skin path: "'.$file.'".');
       $file = str_replace('sitemap.xml.php', 'sitemap.xml', $file);
 
-      $response->headers->set('Content-Type', ContentType::get($file));
+      $repository = new PhpRepository();
+      $response->headers->set('Content-Type', $repository->findType(
+        strtolower(substr(strrchr($file, '.'), 1)) ?: $file
+      ) ?: 'text/plain');
 
       if (basename($file)=='sitemap.xml') {
         ob_start();
