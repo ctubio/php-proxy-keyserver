@@ -1,6 +1,6 @@
 
       <address>
-      <a id="co2" title="Powered with Green Energy" target="_blank" href="//www.dreamhost.com/green.cgi?<?php echo $this->getConfig('hostname') ?>">CO<sub>2</sub> Neutral</a>
+      <?php if($co2_neutral_link=$this->getConfig('co2_neutral_link')): ?><a id="co2" title="Powered with Green Energy" target="_blank" href="<?php echo $co2_neutral_link ?>">CO<sub>2</sub> Neutral</a><?php endif; ?>
       Please send bug reports to
       <a href="mailto:<?php echo $this->getConfig('bugs_contact_mail') ?>">&lt;<?php echo $this->getConfig('bugs_contact_mail') ?>&gt;</a>
       only after reading the <a title="FAQ" href="/doc/faq">FAQ</a>.
