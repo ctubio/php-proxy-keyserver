@@ -11,6 +11,7 @@ class Keyserver {
   public static function getRequest() {
     if (self::$request_instance === NULL)
       self::$request_instance = Request::createFromGlobals();
+
     return self::$request_instance;
   }
 

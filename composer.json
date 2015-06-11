@@ -16,6 +16,7 @@
   },
   "require": {
     "php": "~5.4",
+    "monolog/monolog": "~1.13",
     "jenssegers/proxy": "2.*",
     "dflydev/apache-mime-types": "~1.0"
   },
