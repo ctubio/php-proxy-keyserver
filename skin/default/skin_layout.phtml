@@ -4,21 +4,20 @@
     <title><?php echo $this->getConfig('head_title'); ?></title>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <meta charset="utf-8" />
-    <link href="/styles.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/css/styles.css" media="screen" rel="stylesheet" type="text/css" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <?php if($google_verification=$this->getConfig('google_verification')): ?><meta name="google-site-verification" content="<?php echo $google_verification; ?>" /><?php endif; ?>
   </head>
   <body>
     <?php echo $this->getBlock('analytics'); ?>
-    <div id="container">
-      <?php echo $this->getBlock('gnu_inside'); ?>
-      <div id="content">
-        <h1 style="margin-bottom:0px;"><?php echo $this->getConfig('html_title') ?></h1>
-        <?php echo $this->getBlock('navigation'); ?>
-        <hr />
+    <div id="wrapper">
+      <h1><?php echo $this->getConfig('html_title') ?></h1>
+      <?php echo $this->getBlock('navigation'); ?>
+      <div id="main">
+    <?php echo $this->getBlock('gnu_inside'); ?>
         <?php echo $this->getPage(); ?>
-        <?php echo $this->getBlock('footer'); ?>
       </div>
+      <?php echo $this->getBlock('footer'); ?>
     </div>
   </body>
 </html>

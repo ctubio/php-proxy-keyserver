@@ -1,4 +1,4 @@
-      <div style="text-align:right;font-size:14px;">
+      <div id="navigation">
         <?php if($SERVER_PORT_443=(isset($_SERVER['SERVER_PORT']) and $_SERVER['SERVER_PORT'] !== '443')): ?><a title="https" href="https://<?php echo $this->getConfig('hostname'); ?><?php echo htmlentities($_SERVER['REQUEST_URI']); ?>" style="font-style:italic;">https</a><?php endif; ?>
         <?php if(isset($_SERVER['SERVER_PORT']) and $_SERVER['SERVER_PORT'] !== '11371'): ?><?php if ($SERVER_PORT_443): ?><span> | </span><?php endif; ?><a title="hkp" href="http://<?php echo $this->getConfig('hostname'); ?>:<?php echo $this->getConfig('hkp_port'); ?><?php echo htmlentities($_SERVER['REQUEST_URI']); ?>" style="font-style:italic;">hkp</a><?php endif; ?>
         <b> :// </b><a title="home" href="/">home</a>
