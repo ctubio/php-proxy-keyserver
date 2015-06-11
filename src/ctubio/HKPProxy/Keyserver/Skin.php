@@ -3,6 +3,7 @@
 use Dflydev\ApacheMimeTypes\PhpRepository;
 use ctubio\HKPProxy\Keyserver;
 use ctubio\HKPProxy\Keyserver\Log;
+use ctubio\HKPProxy\Keyserver\Skin\Content;
 use ctubio\HKPProxy\Keyserver\Skin\Content\Phtml;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -46,9 +47,8 @@ class Skin {
       ) ?: 'text/plain');
 
       if (basename($file)=='sitemap.xml') {
-        ob_start();
-        require $file.'.php';
-        $file = ob_get_clean();
+        $phtml = new Phtml(NULL);
+        $file = $phtml->parsePhtml($file.'.php');
       } else
         $file = file_get_contents($file);
 

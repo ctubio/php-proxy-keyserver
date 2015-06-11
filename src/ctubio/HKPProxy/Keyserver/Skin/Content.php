@@ -59,7 +59,7 @@ abstract class Content {
     return $content;
   }
 
-  protected function parsePhtml($file) {
+  public function parsePhtml($file) {
     if (strpos(realpath($file), realpath(Skin::getPath($this->_skin)))!==0)
       throw new \Exception('Unknown skin path: "'.$file.'".');
 
