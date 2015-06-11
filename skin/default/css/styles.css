@@ -15,8 +15,9 @@ body {
 }
 h1 {
   font-size:32px;
-  margin-top:5px;
-  margin-bottom:5px;
+  margin-left:14px;
+  margin-top:7px;
+  margin-bottom:0px;
   color:white;
   text-shadow:-3px 3px 5px black;
 }
@@ -40,16 +41,15 @@ div#wrapper {
   border: 1px solid #2a2a2a;
   background-color: #ddd;
   box-shadow: 0 0 5px #b1b1b1;
-}
-
-#main {
   line-height: 20px;
-  margin-top: 0px;border-radius: 10px;
+  margin-top: 0px;
+  border-radius: 10px;
   padding: 0 20px 13px;
-  background-color: #fff;/*
-  background-image:url("/css/green.png");
-  background-position:bottom center;
-  background-repeat:no-repeat;*/
+  background-color: #fff;
+}
+div#gnulinux-inside {
+  overflow:hidden;
+    border-top-right-radius: 10px;
 }
 a#co2 {
   float:left;
@@ -57,11 +57,12 @@ a#co2 {
 address {
   text-align:right;
   color:#999;
-  margin-top:2px;;
+  padding:2px 4px;
 }
 div#navigation {
   text-align:right;
   color:#666;
+  padding-right:4px;
 }
 div#navigation a, address a {
   color: #61C30B;
