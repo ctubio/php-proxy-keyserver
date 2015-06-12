@@ -31,6 +31,7 @@ class Config {
           'skin_path' => 'default',
           'layout_html_errors' => 0,
           'layout_hkp_request' => 0,
+          'show_friendly_urls' => 0,
           'repair_hkp_h1_tags' => 0,
           'indent_strict_html' => 0,
           'expose_keyserver' => 0,
