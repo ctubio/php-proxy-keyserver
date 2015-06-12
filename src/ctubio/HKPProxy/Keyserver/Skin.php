@@ -55,6 +55,7 @@ class Skin {
       $response->setContent($file);
     }
 
+    $response->headers->set('Cache-Control', 'max-age=604800');
     $response->headers->set('Content-Length', strlen($file));
 
     return $response;

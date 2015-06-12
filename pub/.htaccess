@@ -1,4 +1,5 @@
 IndexOptions -FancyIndexing
+SetOutputFilter DEFLATE
 RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_METHOD} ^TRAC[EK]
