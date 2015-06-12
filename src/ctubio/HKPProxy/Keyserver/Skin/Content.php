@@ -30,7 +30,7 @@ abstract class Content {
 
   public function importContent($content) {
     if (substr(trim($content), 0, 1)!=='<')
-      return '<pre>'.htmlentities($content).'</pre>';
+      return '<pre>'.trim(htmlentities($content)).'</pre>';
 
     $dom = new \DOMDocument('1.0');
     libxml_use_internal_errors(true);

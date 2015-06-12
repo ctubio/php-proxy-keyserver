@@ -21,6 +21,7 @@ h1 {
   color:white;
   text-shadow:-3px 3px 5px black;
 }
+h2:first-of-type {margin-top:7px;}
 h2 {font-size:22px;}
 h3 {font-size:19px;}
 pre {font-size:12px;line-height: 16px;}
@@ -44,12 +45,16 @@ div#wrapper {
   line-height: 20px;
   margin-top: 0px;
   border-radius: 10px;
-  padding: 0 20px 13px;
+  padding:13px 20px;
   background-color: #fff;
 }
 div#gnulinux-inside {
   overflow:hidden;
-    border-top-right-radius: 10px;
+  border-top-right-radius: 10px;
+  position: relative;
+  top: -13px;
+  right: -20px;
+  float: right;
 }
 a#co2 {
   float:left;
@@ -63,6 +68,7 @@ div#navigation {
   text-align:right;
   color:#666;
   padding-right:4px;
+  margin-bottom: 2px;
 }
 div#navigation a, address a {
   color: #61C30B;
