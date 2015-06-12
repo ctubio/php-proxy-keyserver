@@ -23,7 +23,7 @@ h1 {
 }
 h2 {font-size:22px;}
 h3 {font-size:19px;}
-pre {font-size:12px;}
+pre {font-size:12px;line-height: 16px;}
 a:active,
 a:hover {
   outline: 0;

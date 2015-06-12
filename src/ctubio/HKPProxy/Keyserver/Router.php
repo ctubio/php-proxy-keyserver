@@ -8,9 +8,9 @@ use Symfony\Component\HttpFoundation\Response;
 class Router {
 
   public static function getResponse() {
-    $response = strpos($uri = preg_replace('/^\/$/', '/index',
+    $response = strpos($uri = self::fixFriendlyUrl(preg_replace('/^\/$/', '/index',
       Keyserver::getRequest()->server->get('REQUEST_URI')
-    ), '/pks/') === 0
+    )), '/pks/') === 0
       ? Skin::parseContent(self::getHKPResponse($uri))
       : Skin::parsePhtml(new Response(), strtok($uri,'?'));
 
@@ -18,6 +18,20 @@ class Router {
       $response = Skin::parsePhtml($response, '/errors/'.$errno);
 
     return $response;
+  }
+
+  public static function fixFriendlyUrl($uri) {
+    Keyserver::getRequest()->server->set('ORIGINAL_REQUEST_URI', $uri);
+    if (strpos($_uri=$uri,'/get/')===0 || strpos($uri,'/0x')===0 || strpos($uri,'/search/')===0) {
+      Keyserver::getRequest()->query->set('search', $uri = str_replace('+',' ',array_pop(explode('/',trim($uri,'/')))));
+      $uri = (strpos($_uri,'/search/')===0
+        ? '/pks/lookup?fingerprint=on&op=vindex&search='
+        : '/pks/lookup?op=get&search='
+      ).$uri;
+    }
+
+    Keyserver::getRequest()->server->set('REQUEST_URI', $uri);
+    return $uri;
   }
 
   public static function getHKPResponse($uri) {

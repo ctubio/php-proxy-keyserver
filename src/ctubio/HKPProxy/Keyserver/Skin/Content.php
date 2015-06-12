@@ -48,10 +48,10 @@ abstract class Content {
     );
 
     if (Keyserver::getConfig()->repair_hkp_h1_tags)
-      $content = preg_replace('/<h1>(Public Key Server -- )?(.*?)(( "| \')(.*?)( "|\')?)?<\/h1>/s', '<h2>$2:'.(Keyserver::getRequest()->query->get('search')?' <i>'.Keyserver::getRequest()->query->get('search').'</i>':NULL).'</h2>',
-        preg_replace('/<h2>(.*)<\/h2>/', '<h3>$1</h3>', preg_replace('/<h3>(.*)<\/h3>/', '<h4>$1</h4>',
+      $content = preg_replace('/<h1>(Public Key Server -- )?(.*?)(( "| \')(.*?)( "|\')?)?<\/h1>/s', '<h2>$2:'.(Keyserver::getRequest()->query->get('search')?' <i>'.Keyserver::getRequest()->query->get('search').'</i>'.(Keyserver::getRequest()->server->get('ORIGINAL_REQUEST_URI')==Keyserver::getRequest()->server->get('REQUEST_URI')?' <small style="line-height:15px;font-size:14px;">(<a href="/'.(Keyserver::getRequest()->query->get('op')!='get'?'search/':(strpos(Keyserver::getRequest()->query->get('search'),'0x')!==0?'get/':NULL)).str_replace(' ','+',Keyserver::getRequest()->query->get('search')).'" title="'.Keyserver::getRequest()->query->get('search').'">Permalink</a>)</small>':NULL):NULL).'</h2>',
+        preg_replace('/<h2>(.*)<\/h2>/', '<h3>$1</h3>', preg_replace('/<h3>(.*)<\/h3>/', '<h4>$1</h4>', preg_replace('/<pre>&#13;(.*)<\/pre>/s', '<pre style="font-size:16px;line-height:17px;">$1</pre>',
           $content
-      )));
+      ))));
 
     Keyserver::getConfig()->head_title = (preg_match('/<h2>(.*)<\/h2>/', $content, $matches) && isset($matches[1]))
       ? strtok($matches[1], '<').Keyserver::getRequest()->query->get('search') : Keyserver::getConfig()->html_title;
