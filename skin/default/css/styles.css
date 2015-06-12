@@ -24,7 +24,7 @@ h1 {
 h2:first-of-type {margin-top:7px;}
 h2 {font-size:22px;}
 h3 {font-size:19px;}
-pre {font-size:12px;line-height: 16px;}
+pre {font-family: monospace, courier;font-size:13px;line-height: 16px;}
 a:active,
 a:hover {
   outline: 0;
