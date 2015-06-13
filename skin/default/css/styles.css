@@ -25,12 +25,13 @@ h2:first-of-type {margin-top:7px;}
 h2 {font-size:22px;}
 h3 {font-size:19px;}
 pre {font-family: monospace, courier;font-size:13px;line-height: 16px;}
+pre a {background-color:white;}
 a:active,
 a:hover {
   outline: 0;
 }
 div#wrapper {
-  width: 685px;
+  width: 700px;
   margin: 0 auto;
   padding: 0 10px;
   background:#333;
