@@ -1,0 +1,23 @@
+php-proxy-keyserver:
+  author: Carles Tubio <carles.tubio@key-server.io>
+  source: https://github.com/ctubio/php-proxy-keyserver
+
+skin/HTML5,  skin/OpenPKG, skin/XHTML+ES:
+  author: sks-keyserver
+  source: https://bitbucket.org/skskeyserver/sks-keyserver/src
+
+skin/OpenSKS:
+  author: bauer-power.net
+  source: http://ftp.bauer-power.net/misc/gpg/sks/
+
+skin/pgpkeyserver-lite:
+  author: mattrude
+  source: https://github.com/mattrude/pgpkeyserver-lite
+
+skin/sks-bootstrap-index:
+  author: bbs4us
+  source: https://github.com/bbs4us/sks-bootstrap-index
+
+skin/sks-web:
+  author: abr4xas
+  source: https://github.com/abr4xas/sks-web
