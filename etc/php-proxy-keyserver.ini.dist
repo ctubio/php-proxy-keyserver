@@ -1,29 +1,29 @@
 [proxy]
-;hkp_port = 11371
-;hkp_addr = 127.0.0.1
+;hkp_port            = 11371
+;hkp_addr            = 127.0.0.1
+;expose_keyserver    = 0
 
 [whoami]
 ;hostname            = SERVER_NAME.environment.variable
-;site_contact_link   = http://example.com
-bugs_contact_mail   = carles.tubio@key-server.io
+;bugs_contact_mail   = bugs@hostname
 ;membership_line     = hostname port # name <mail> key
-;expose_keyserver    = 0
-;expose_source       = 0
-;expose_dump         = 0
-;expose_pool         = 0
 ;html_title          = PGP Public Key Server
+;site_contact_link   = http://example.com
 ;google_verification = token
 ;google_analytics    = id
-co2_neutral_link     = http://example.com
+;co2_neutral_link    = http://example.com
 
-[options]
-;skin_path           = default
-;layout_html_errors  = 0
+[frontend]
+display_exceptions  = 1
+skin_path           = default
+expose_source       = 0
+expose_dump         = 0
+expose_pool         = 1
+layout_html_errors  = 0
 layout_hkp_request  = 1
 show_friendly_urls  = 1
 repair_hkp_h1_tags  = 1
 indent_strict_html  = 1
-display_exceptions  = 1
 
 [custom_options]
 
@@ -31,25 +31,25 @@ display_exceptions  = 1
 ;;; STAND BACK, REDUNDANT DOCUMENTATION BELOW
 ;; default hkp_port value is 11371, any value is valid but 11371 is recommended
 ;; default hkp_addr value is 127.0.0.1, any value is valid but 127.0.0.1 is recommended
+;; default expose_keyserver value is 0, valid values are 0 or 1 (hide keyserver version in Via header or display?).
 ;; default hostname value is $_SERVER['SERVER_NAME'], any value is valid
-;; default site_contact_link value is NULL, valid values are url or email
 ;; default bugs_contact_mail value is bugs@hostname, any value is valid
 ;; default membership_line value is NULL, valid value is your membership line (show /peers in topmenu and allow automatic additions of membership lines?).
-;; default expose_keyserver value is 0, valid values are 0 or 1 (hide keyserver version in Via header or display?).
-;; default expose_source value is 0, valid values are 0 or 1 (show php-proxy-keyserver link to github in topmenu?).
-;; default expose_dump value is 0, valid values are 0 or 1 (show /dump link in topmenu?).
-;; default expose_pool value is 0, valid values are 0 or 1 (show https://sks-keyservers.net/status/ link in topmenu?).
 ;; default html_title value is PGP Public Key Server, any value is valid
+;; default site_contact_link value is NULL, valid values are url or email
 ;; default google_verification value is NULL, any google token is valid
 ;; default google_analytics value is NULL, any google tracking id is valid
 ;; default co2_neutral_link value is NULL, any url is valid (show footer link about CO2 Neutral hosting?)
+;; default display_exceptions value is 0, valid values are 0 or 1 (write in /log or display all exceptions?)
 ;; default skin_path value is default, valid values are folder names inside /skin
+;; default expose_source value is 0, valid values are 0 or 1 (show php-proxy-keyserver link to github in topmenu?).
+;; default expose_dump value is 0, valid values are 0 or 1 (show /dump link in topmenu?).
+;; default expose_pool value is 0, valid values are 0 or 1 (show https://sks-keyservers.net/status/ link in topmenu?).
 ;; default layout_html_errors value is 0, valid values are 0 or 1 (use /plain_errors or skin_layout.phtml?)
 ;; default layout_hkp_request value is 0, valid values are 0 or 1 (always plain responses on hkp_port or use skin_layout.phtml if web browser?)
 ;; default show_friendly_urls value is 0, valid values are 0 or 1 (show download and permalink links using of /0x, /get, /search and /download?)
 ;; default repair_hkp_h1_tags value is 0, valid values are 0 or 1 (replace h1 tags of hkp responses by refactored h2 tags with utf8 support? only works if layout_hkp_request)
 ;; default indent_strict_html value is 0, valid values are 0 or 1 (raw or auto indent with strict validation?)
-;; default display_exceptions value is 0, valid values are 0 or 1 (write in /log or display all exceptions?)
 ;; default custom_option is throw Exception, feel free to add your own option=value under [custom_options] section
 ;;; STAND BACK, REDUNDANT DOCUMENTATION ABOVE
 ;;;; EODEFAULTS
