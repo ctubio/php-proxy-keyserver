@@ -23,7 +23,7 @@ echo '<', '?'; ?>xml version="1.0" encoding="UTF-8"<?php echo '?','>'; ?>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>http<?php if ($SERVER_PORT_443):?>s<?php endif; ?>://<?php echo Keyserver::getConfig()->hostname; ?><?php if($SERVER_PORT_HKP): ?>:<?php echo Keyserver::getConfig()->hkp_port; ?><?php endif; ?>/doc/faq</loc>
+    <loc>http<?php if ($SERVER_PORT_443):?>s<?php endif; ?>://<?php echo Keyserver::getConfig()->hostname; ?><?php if($SERVER_PORT_HKP): ?>:<?php echo Keyserver::getConfig()->hkp_port; ?><?php endif; ?>/faq</loc>
     <lastmod><?php echo date('Y-m-d'); ?></lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

@@ -102,11 +102,11 @@ echo $this->getBlock('happy/gnu_inside'); # parse and print skin/block/happy/gnu
 ```php
 # get any page form skin/page/*
 string $this->getPage([string $page]);
-# (useful in the layout, or to show the faq page in the footer of all pages?)
+# (useful in the layout, or to show some page in the footer of all pages?)
 # for example:
-echo $this->getPage();          # parse and print the current page based on http request
-echo $this->getPage('index');   # parse and print page/index.phtml
-echo $this->getPage('doc/faq'); # parse and print page/doc/faq.phtml
+echo $this->getPage();            # parse and print the current page based on http request
+echo $this->getPage('index');     # parse and print page/index.phtml
+echo $this->getPage('path/file'); # parse and print path/file.phtml
 ```
 
 ##### ..i don't want to use php?

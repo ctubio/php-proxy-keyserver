@@ -28,7 +28,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
     public function testFaq()
     {
       $request = Request::createFromGlobals();
-      $request->server->set('REQUEST_URI', '/doc/faq');
+      $request->server->set('REQUEST_URI', '/faq');
       $request->server->set('HTTP_USER_AGENT', __METHOD__);
       Keyserver::$request_instance = $request;
       $response = Keyserver::getResponse();
