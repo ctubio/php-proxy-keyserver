@@ -123,7 +123,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
     public function testDeletekey()
     {
       $request = Request::createFromGlobals();
-      $request->server->set('REQUEST_URI', '/doc/faq?search=0xFA101D1FC3B39DE0');
+      $request->server->set('REQUEST_URI', '/faq?search=0xFA101D1FC3B39DE0');
       $request->server->set('HTTP_USER_AGENT', __METHOD__);
       Keyserver::$request_instance = $request;
       $response = Keyserver::getResponse();
