@@ -7,6 +7,11 @@ Skins wanted:
   please, make a pull request at github (see link above).
   You can choose to maintain it yourself, just add a submodule.
 
+nginx configs wanted:
+  Please, share your nginx config if you happen to setup one.
+  A pull request directly to the README.md file (seciont What if..)
+  would be very appreciated.
+
 Improvements and bugfixes are very welcome:
   If your issue is not tracked yet, feel free to open a new issue
   or make a pull request directly at github (see link above).
