@@ -204,6 +204,10 @@ please take this files as an examples, where you should replace the keywords ```
 
 Enable support for standard HKP requests:
 ```
+Listen YOUR.PUBLIC.IPv4:11371
+NameVirtualHost YOUR.PUBLIC.IPv4:11371
+Listen [YOUR.PUBLIC.IPv6]:11371
+NameVirtualHost [YOUR.PUBLIC.IPv6]:11371
 <VirtualHost YOUR.PUBLIC.IPv4:11371 [YOUR.PUBLIC.IPv6]:11371>
   ServerAdmin webmaster@localhost
   ServerName www.YOUR.DOMAIN.NAME
@@ -242,6 +246,10 @@ Enable support for standard HKP requests:
 ```
 Enable support for HTTP requests:
 ```
+Listen YOUR.PUBLIC.IPv4:80
+NameVirtualHost YOUR.PUBLIC.IPv4:80
+Listen [YOUR.PUBLIC.IPv6]:80
+NameVirtualHost [YOUR.PUBLIC.IPv6]:80
 <VirtualHost YOUR.PUBLIC.IPv4:80 [YOUR.PUBLIC.IPv6]:80>
   ServerAdmin webmaster@localhost
   ServerName www.YOUR.DOMAIN.NAME
@@ -281,6 +289,10 @@ Enable support for HTTP requests:
 Enable support for HTTPS requests:
 ```
 <IfModule mod_ssl.c>
+Listen YOUR.PUBLIC.IPv4:443
+NameVirtualHost YOUR.PUBLIC.IPv4:443
+Listen [YOUR.PUBLIC.IPv6]:443
+NameVirtualHost [YOUR.PUBLIC.IPv6]:443
 <VirtualHost YOUR.PUBLIC.IPv4:443 [YOUR.PUBLIC.IPv6]:443>
   ServerAdmin webmaster@localhost
   ServerName www.YOUR.DOMAIN.NAME
