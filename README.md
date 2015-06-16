@@ -31,12 +31,24 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
   $ # Decide if you wanna download and compile the latest sks version.
 
   $ # Check if your keyserver is up and running:
-  $ netstat -l | grep hkp
+  $ netstat -anp | egrep --color 'sks'
+  tcp   0    0 0.0.0.0:11370         0.0.0.0:*     LISTEN      8198/sks
+  tcp   0    0 127.0.0.1:11371       0.0.0.0:*     LISTEN      8197/sks
+  tcp6  0    0 :::11370              :::*          LISTEN      8198/sks
+  unix  2    [ ACC ]    STREAM    LISTENING   29826    8197/sks     /var/lib/sks/db_com_sock
+  unix  2    [ ACC ]    STREAM    LISTENING   29835    8198/sks     /var/lib/sks/recon_com_sock
   $ # If you don't see any output, please start the keyserver daemons.
 
   $ # Check if your webserver is up and running:
-  $ netstat -l | grep http
+  $ netstat -anp | egrep --color 'apache2|nginx'
+  tcp        0      0 10.10.10.2:11371        0.0.0.0:*     LISTEN      3197/apache2
+  tcp        0      0 10.10.10.2:80           0.0.0.0:*     LISTEN      3197/apache2
+  tcp        0      0 10.10.10.2:443          0.0.0.0:*     LISTEN      3197/apache2
+  tcp6       0      0 2607:f298:6050:6f:11371 :::*          LISTEN      9647/apache2
+  tcp6       0      0 2607:f298:6050:6f81::80 :::*          LISTEN      9647/apache2
+  tcp6       0      0 2607:f298:6050:6f81:443 :::*          LISTEN      9647/apache2
   $ # If you don't see any output, please start the webserver daemon.
+  $ # Note that the 4th column is for the current public IPs of the virtual machine/server.
 
   $ # Download and compose the php proxy with the extensible web interface:
   $ cd /var/www
