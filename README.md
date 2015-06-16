@@ -35,9 +35,9 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
   tcp   0    0 0.0.0.0:11370         0.0.0.0:*     LISTEN      8198/sks
   tcp   0    0 127.0.0.1:11371       0.0.0.0:*     LISTEN      8197/sks
   tcp6  0    0 :::11370              :::*          LISTEN      8198/sks
-  unix  2    [ ACC ]    STREAM    LISTENING   29826    8197/sks     /var/lib/sks/db_com_sock
-  unix  2    [ ACC ]    STREAM    LISTENING   29835    8198/sks     /var/lib/sks/recon_com_sock
-  $ # If you don't see any output, please start the keyserver daemons.
+  unix  2    [ ACC ]    STREAM    LISTENING   29826   8197/sks   /var/lib/sks/db_com_sock
+  unix  2    [ ACC ]    STREAM    LISTENING   29835   8198/sks   /var/lib/sks/recon_com_sock
+  $ # If you don't see any output, please start the keyserver daemons with similar configs.
 
   $ # Check if your webserver is up and running:
   $ netstat -anp | egrep --color 'apache2|nginx'
@@ -47,8 +47,8 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
   tcp6    0    0    2607:f298:6050:6f:11371   :::*          LISTEN      9647/apache2
   tcp6    0    0    2607:f298:6050:6f81::80   :::*          LISTEN      9647/apache2
   tcp6    0    0    2607:f298:6050:6f81:443   :::*          LISTEN      9647/apache2
-  $ # If you don't see any output, please start the webserver daemon.
-  $ # Note that in the 4th column you should see your own current public IPs of the virtual machine/server.
+  $ # The 4th column may be your own public IPs of your virtual machine/server.
+  $ # If you don't see any output, please start the webserver daemon with similar configs.
 
   $ # Download and compose the php proxy with the extensible web interface:
   $ cd /var/www
