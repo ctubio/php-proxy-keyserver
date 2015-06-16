@@ -1,4 +1,12 @@
 #! /bin/sh
+### BEGIN INIT INFO
+# Provides: sks
+# Required-Start:    $local_fs $syslog $remote_fs
+# Required-Stop:     $local_fs $syslog $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start sks daemons
+### END INIT INFO
 
 DAEMON=/usr/local/bin/sks
 DIR=/var/lib/sks
