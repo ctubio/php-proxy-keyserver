@@ -2,7 +2,7 @@
 SKS_PATH="/var/lib/sks"
 DUMP_PATH="dump"
 
-CURRENT_DUMP_URL="https://pgp.key-server.io/dump/current/"
+CURRENT_DUMP_URL="http://pgp.key-server.io/dump/current/"
 
 test ! -e ${SKS_PATH} && echo "Error: install sks first." && exit 1;
 echo "Before install a new database,"
