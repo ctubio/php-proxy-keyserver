@@ -50,7 +50,7 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
   $ # The 4th column may be your own public IPs of your virtual machine/server.
   $ # If you don't see any output, please start the webserver daemon with similar configs.
 
-  $ # Download and compose the php proxy with the extensible web interface:
+  $ # Download and compose the php proxy and the extensible web interface between them:
   $ cd /var/www
   $ mkdir your.domain.name
   $ cd your.domain.name
