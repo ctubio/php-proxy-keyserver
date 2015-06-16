@@ -197,7 +197,7 @@ ptree_pagesize:    8
 ```
 
 ##### ..i would like to see some nginx configs:
-i didn't had time to setup an nginx instance, but if you are more lucky than me and would like to contribute, please feel free to make a PR and add some examples here.
+i didn't had time (yaa i know the config files of nginx are smaller than apache) to setup an nginx instance, but if you are more lucky than me and would like to contribute, please feel free to make a PR and add some examples here.
 
 ##### ..i would like to see some apache2 configs:
 please take this files as an examples, where you should replace the keywords ```YOUR.PUBLIC.IPv4```, ```YOUR.PUBLIC.IPv6``` and ```YOUR.DOMAIN.NAME```.
