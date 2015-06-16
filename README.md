@@ -41,14 +41,14 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
 
   $ # Check if your webserver is up and running:
   $ netstat -anp | egrep --color 'apache2|nginx'
-  tcp        0      0 10.10.10.2:11371        0.0.0.0:*     LISTEN      3197/apache2
-  tcp        0      0 10.10.10.2:80           0.0.0.0:*     LISTEN      3197/apache2
-  tcp        0      0 10.10.10.2:443          0.0.0.0:*     LISTEN      3197/apache2
-  tcp6       0      0 2607:f298:6050:6f:11371 :::*          LISTEN      9647/apache2
-  tcp6       0      0 2607:f298:6050:6f81::80 :::*          LISTEN      9647/apache2
-  tcp6       0      0 2607:f298:6050:6f81:443 :::*          LISTEN      9647/apache2
+  tcp     0    0    10.10.10.2:11371          0.0.0.0:*     LISTEN      3197/apache2
+  tcp     0    0    10.10.10.2:80             0.0.0.0:*     LISTEN      3197/apache2
+  tcp     0    0    10.10.10.2:443            0.0.0.0:*     LISTEN      3197/apache2
+  tcp6    0    0    2607:f298:6050:6f:11371   :::*          LISTEN      9647/apache2
+  tcp6    0    0    2607:f298:6050:6f81::80   :::*          LISTEN      9647/apache2
+  tcp6    0    0    2607:f298:6050:6f81:443   :::*          LISTEN      9647/apache2
   $ # If you don't see any output, please start the webserver daemon.
-  $ # Note that the 4th column is for the current public IPs of the virtual machine/server.
+  $ # Note that in the 4th column you should see your own current public IPs of the virtual machine/server.
 
   $ # Download and compose the php proxy with the extensible web interface:
   $ cd /var/www
