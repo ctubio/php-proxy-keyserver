@@ -42,11 +42,11 @@ class Router {
 
     try {
       return Factory::forward(Keyserver::getRequest())->to(
-        'http://'.$config->hkp_addr.':'.$config->hkp_port.$uri
+        'http://'.$config->hkp_load_balanced_addr.':'.($config->hkp_load_balanced_port ?: $config->hkp_public_port).$uri
       );
     } catch (\Exception $e) {
       return new Response(
-        Log::catchError($e, 'Double-check if the keyserver is up and running at the expected address:port ('.$config->hkp_addr.':'.$config->hkp_port.').')
+        Log::catchError($e, 'Double-check if the keyserver is up and running at the expected address:port ('.$config->hkp_load_balanced_addr.':'.($config->hkp_load_balanced_port ?: $config->hkp_public_port).').')
       );
     }
   }

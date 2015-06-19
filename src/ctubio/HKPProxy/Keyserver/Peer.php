@@ -59,7 +59,7 @@ class Peer {
   public static function validateKey($key, $mail) {
     echo 'Checking '.$mail.'..<br />';
     return (strpos(Factory::forward(Request::create('/pks/lookup?search='.$key.'&op=vindex'))->to(
-      'http://'.Keyserver::getConfig()->hkp_addr.':'.Keyserver::getConfig()->hkp_port.'/pks/lookup?search='.$key.'&op=vindex'
+      'http://'.Keyserver::getConfig()->hkp_load_balanced_addr.':'.(Keyserver::getConfig()->hkp_load_balanced_port ?: Keyserver::getConfig()->hkp_public_port).'/pks/lookup?search='.$key.'&op=vindex'
     )->getContent(), $mail)!==FALSE);
   }
 

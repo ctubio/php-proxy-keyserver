@@ -64,7 +64,7 @@ class Skin {
   public static function parseContent(Response $response, $content = FALSE) {
     $response->headers->set('Via',
       '1.1 '.Keyserver::getConfig()->hostname
-      .':'.Keyserver::getConfig()->hkp_port
+      .':'.Keyserver::getConfig()->hkp_public_port
       .' ('.(Keyserver::getConfig()->expose_keyserver
         ? $response->headers->get('Server') : 'php-proxy-keyserver'
       ).')'
@@ -72,7 +72,7 @@ class Skin {
 
     if (strpos($response->headers->get('Content-Disposition'), 'attachment')===0
      || !Keyserver::getRequest()->server->get('HTTP_USER_AGENT')
-     || (Keyserver::getRequest()->server->get('SERVER_PORT') === Keyserver::getConfig()->hkp_port
+     || (Keyserver::getRequest()->server->get('SERVER_PORT') === Keyserver::getConfig()->hkp_public_port
       && !Keyserver::getConfig()->layout_hkp_request
       && strpos(Keyserver::getRequest()->server->get('REQUEST_URI'), '/pks/') === 0))
       return $response;

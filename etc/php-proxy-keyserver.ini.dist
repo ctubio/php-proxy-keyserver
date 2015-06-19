@@ -1,6 +1,7 @@
 [proxy]
-;hkp_port            = 11371
-;hkp_addr            = 127.0.0.1
+;hkp_public_port        = 11371
+;hkp_load_balanced_port = 11369
+;hkp_load_balanced_addr = 127.0.0.1
 ;expose_keyserver    = 0
 
 [whoami]
@@ -29,8 +30,9 @@ indent_strict_html  = 1
 
 ;;;; BODEFAULTS
 ;;; STAND BACK, REDUNDANT DOCUMENTATION BELOW
-;; default hkp_port value is 11371, any value is valid but 11371 is recommended
-;; default hkp_addr value is 127.0.0.1, any value is valid but 127.0.0.1 is recommended
+;; default hkp_public_port value is 11371, any value is valid but 11371 is recommended
+;; default hkp_load_balanced_port value is 0, any private service port value is valid
+;; default hkp_load_balanced_addr value is 127.0.0.1, any private address value is valid
 ;; default expose_keyserver value is 0, valid values are 0 or 1 (hide keyserver version in Via header or display?).
 ;; default hostname value is $_SERVER['SERVER_NAME'], any value is valid
 ;; default bugs_contact_mail value is bugs@hostname, any value is valid
@@ -46,7 +48,7 @@ indent_strict_html  = 1
 ;; default expose_dump value is 0, valid values are 0 or 1 (show /dump link in topmenu?).
 ;; default expose_pool value is 0, valid values are 0 or 1 (show https://sks-keyservers.net/status/ link in topmenu?).
 ;; default layout_html_errors value is 0, valid values are 0 or 1 (use /plain_errors or skin_layout.phtml?)
-;; default layout_hkp_request value is 0, valid values are 0 or 1 (always plain responses on hkp_port or use skin_layout.phtml if web browser?)
+;; default layout_hkp_request value is 0, valid values are 0 or 1 (always plain responses on hkp_public_port or use skin_layout.phtml if web browser?)
 ;; default show_friendly_urls value is 0, valid values are 0 or 1 (show download and permalink links using of /0x, /get, /search and /download?)
 ;; default repair_hkp_h1_tags value is 0, valid values are 0 or 1 (replace h1 tags of hkp responses by refactored h2 tags with utf8 support? only works if layout_hkp_request)
 ;; default indent_strict_html value is 0, valid values are 0 or 1 (raw or auto indent with strict validation?)

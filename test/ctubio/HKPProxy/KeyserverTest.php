@@ -99,7 +99,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
       $config = Keyserver::getConfig();
 
       $this->assertTrue($config instanceof Config);
-      $this->assertGreaterThan(1, $config->hkp_port);
+      $this->assertGreaterThan(1, $config->hkp_public_port);
       $this->assertGreaterThan(1, strlen($config->skin_path));
     }
 
@@ -196,7 +196,7 @@ class KeyserverTest extends PHPUnit_Framework_TestCase
       $request->server->set('REQUEST_URI', '/pks/lookup?op=stats');
       $request->server->set('HTTP_USER_AGENT', __METHOD__);
       Keyserver::$request_instance = $request;
-      Keyserver::getConfig()->hkp_addr = 'bad.domain.tld';
+      Keyserver::getConfig()->hkp_load_balanced_addr = 'bad.domain.tld';
       $response = Keyserver::getResponse();
 
       $this->assertTrue($response instanceof Response);
