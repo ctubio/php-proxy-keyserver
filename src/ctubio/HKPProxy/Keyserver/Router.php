@@ -12,7 +12,7 @@ class Router {
       Keyserver::getRequest()->server->get('REQUEST_URI')
     )), '/pks/') === 0
       ? Skin::parseContent(self::getHKPResponse($uri))
-      : Skin::parsePhtml(new Response(), strtok($uri,'?'));
+      : Skin::parsePhtml(new Response(), rtrim(strtok($uri,'?'),'/'));
 
     if (($errno = (int)$response->getStatusCode()) !== 200)
       $response = Skin::parsePhtml($response, '/errors/'.$errno);
