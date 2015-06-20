@@ -2,10 +2,10 @@
 <ul>
 <?php foreach(glob(($prefix=realpath('dump')).'/*') as $dump):
   $dump = substr($dump, strlen($prefix)+1); ?>
-<li><a href="/dump/<?php echo $dump; ?>/"> <i><?php echo $dump; ?></i></a></li>
+<li><a title="<?php echo $dump; ?>" href="/dump/<?php echo $dump; ?>/"> <i><?php echo $dump; ?></i></a></li>
 <?php endforeach; ?>
 </ul>
 <?php if (is_file($file=realpath('dump/current/README.txt')) and is_readable($file)): ?>
-<h2>README of current dump</h2>
+<h2>README of <a title="current" href="/dump/current">current</a> keydump</h2>
 <pre><?php echo htmlentities(file_get_contents($file)); ?></pre>
 <?php endif;?>
