@@ -201,10 +201,10 @@ here is a basic setup for a network with a single ```apache2``` running a single
 ```
 global
   log /dev/log local0
-  log /dev/log local1 debug
+  log /dev/log local1 notice
   chroot /var/lib/haproxy
   maxconn 4096
-  user haproxy
+  user  haproxy
   group haproxy
   daemon
 
