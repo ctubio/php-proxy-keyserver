@@ -198,7 +198,7 @@ ptree_pagesize:    8
 ```
 
 ##### ..i would like to see some haproxy configs:
-here is a basic setup for a network with a single ```apache2``` running a single ```php-proxy-keyserver``` that forwards hkp request to a single ```haproxy``` to balance the load of multiple redundant ```sks``` keyservers (the objective here is to avoid the downtimes while making daily keydumps, additionaly you can put apache2 behind another load balancing setup, ofcourse):
+here is a basic setup for a network with a single ```apache2``` running a single ```php-proxy-keyserver``` that forwards hkp request to a single ```haproxy``` to balance the load of multiple redundant ```sks``` keyservers (the objective here is to avoid the downtimes while making daily keydumps, additionaly you can put the webserver behind another load balancing setup, ofcourse):
 ```
 global
   log /dev/log local0
