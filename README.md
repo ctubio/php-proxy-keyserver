@@ -196,6 +196,49 @@ word_pagesize:		 8
 ptree_pagesize:    8
 ```
 
+##### ..i would like to see some haproxy configs:
+here is a basic setup for a network with a single ```apache2``` running a single ```php-proxy-keyserver``` that forwards hkp request to a single ```haproxy``` to balance the load of multiple redundant ```sks``` keyservers (the objective is to avoid the downtimes while making daily keydumps):
+```
+global
+  log /dev/log local0
+  log /dev/log local1 debug
+  chroot /var/lib/haproxy
+  maxconn 4096
+  user haproxy
+  group haproxy
+  daemon
+
+defaults
+  log     global
+  mode    http
+  option  httplog
+  option  dontlognull
+  option  http-server-close
+  option  forwardfor
+  timeout connect 5000
+  timeout client  50000
+  timeout server  50000
+  retries 2
+  option  redispatch
+  stats enable
+  stats hide-version
+  stats uri /haproxy
+  errorfile 400 /etc/haproxy/errors/400.http
+  errorfile 403 /etc/haproxy/errors/403.http
+  errorfile 408 /etc/haproxy/errors/408.http
+  errorfile 500 /etc/haproxy/errors/500.http
+  errorfile 502 /etc/haproxy/errors/502.http
+  errorfile 503 /etc/haproxy/errors/503.http
+  errorfile 504 /etc/haproxy/errors/504.http
+
+listen php-proxy-keyserver *:11369
+  balance leastconn
+  server carles.tubio.sks-database_0 127.0.0.1:11371 check
+  server carles.tubio.sks-database_1 10.10.10.21:11371 check
+  server carles.tubio.sks-database_2 10.10.10.22:11371 check
+  server carles.tubio.sks-database_3 10.10.10.23:11371 check
+```
+
 ##### ..i would like to see some nginx configs:
 i didn't had time (yaa i know the config files of nginx are smaller than apache) to setup an nginx instance, but if you are more lucky than me and would like to contribute, please feel free to make a PR and add some examples right here.
 
