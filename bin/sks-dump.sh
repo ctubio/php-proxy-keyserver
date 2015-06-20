@@ -7,14 +7,14 @@ TZ='UTC'
 HOSTNAME='pgp.key-server.io'
 MAIL='carles.tubio@key-server.io'
 BACKUPS=7
-USER="debian-sks"
+USER="dhc-user"
 GROUP="www-data"
 INDIR="/var/lib/sks"
 PREDIR="dump"
 SKSDATE=`date -u +%Y-%m-%d`
 OUTDIR="$INDIR/$PREDIR/$SKSDATE"
 COUNT="10000"
-MINFREEG=$((1+$(du -sh ${INDIR}/${PREDIR}/`ls -1t ${INDIR}/${PREDIR} | head -n 1` | sed 's/\..*//g' | sed 's/G.*//g')))
+MINFREEG=$((1+$(du -sh ${INDIR}/${PREDIR}/`ls -1t ${INDIR}/${PREDIR} | head -n 1` | sed 's/\..*//g' | sed 's/G.*//g' | awk '{ print $1 }')))
 MINFREEG=${MINFREEG:=8}
 PARTITION=`df ${INDIR} | awk '/^\/dev/ {print $1}'`
 
