@@ -34,14 +34,14 @@ a:hover {
   outline: 0;
 }
 div#wrapper {
-  width: 700px;
+  display: table;
   margin: 0 auto;
   padding: 0 10px;
   background:#333;
   border:1px solid #2a2a2a;
   box-shadow: 0 0 5px #b1b1b1;
 }
-
+.minwrap {width:650px;text-align:justify;}
 #main {
   border: 1px solid #2a2a2a;
   background-color: #ddd;
