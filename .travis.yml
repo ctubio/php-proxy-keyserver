@@ -18,7 +18,7 @@ before_install:
   # make skins
 
 before_script:
-  - sed -i "s/^;\(hkp_addr\).*$/\1 = pgp.key-server.io/" etc/php-proxy-keyserver.ini
+  - sed -i "s/^;\(hkp_load_balanced_addr\).*$/\1 = pgp.key-server.io/" etc/php-proxy-keyserver.ini
 
 script:
   - make test
