@@ -6,6 +6,6 @@
 <?php endforeach; ?>
 </ul>
 <?php if (is_file($file=realpath('dump/current/README.txt')) and is_readable($file)): ?>
-<h2>README of <a title="current" href="/dump/current">current</a> keydump</h2>
+<h2>README of <a title="current" href="/dump/current/">current</a> keydump</h2>
 <pre><?php echo htmlentities(file_get_contents($file)); ?></pre>
 <?php endif;?>
