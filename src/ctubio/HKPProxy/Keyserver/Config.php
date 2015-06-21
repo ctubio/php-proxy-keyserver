@@ -20,6 +20,7 @@ class Config {
           'hkp_public_port' => '11371',
           'hkp_load_balanced_port' => 0,
           'hkp_load_balanced_addr' => '127.0.0.1',
+          'hkp_primary_keyserver_addr' => NULL,
           'hostname' => $request->server->get('SERVER_NAME'),
           'bugs_contact_mail' => 'bugs@'.$request->server->get('SERVER_NAME'),
           'site_contact_link' => NULL,
