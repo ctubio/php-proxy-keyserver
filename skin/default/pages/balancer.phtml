@@ -12,8 +12,8 @@
     str_replace('font-family: helvetica, arial;',NULL,
       preg_replace('/.*(<style type="text\/css">.*<\/style>).*$/s', '$1', $content
   )))));
-  echo '<div><style type="text/css" scoped>td.noborder{font-size:16px!important;}table.tbl td{font-family: monospace;}table.tbl tr.active0 td, table.tbl tr.active1 td,table.tbl tr.active2 td,table.tbl tr.active3 td, table.tbl tr.active4 td,table.tbl tr.active8 td,table.tbl tr.active8 td,table.tbl tr.active9 td,table.tbl tr.maintain td,table.tbl tr.backup2 td,table.tbl tr.backup3 td,table.tbl tr.bakcup4 td,.pxname,td[align=left]{font-family: monospace;font-size:13px!important;}td[align=left]{font-size:11px!important;}table:first-of-type{float:right;}h2:last-of-type,hr,h3,td[valign=top]{display:none;}</style>';
-  echo str_replace('<h1><a href="http://www.haproxy.org/" style="text-decoration: none;">HAProxy</a></h1>', '<h2 style="float: left;">HAProxy Load Balancer statistics<br />Taken at '.date('Y-m-d H:m:s T').':</h2>',
+  echo '<div><style type="text/css" scoped>td.noborder{font-size:16px!important;}table.tbl td{font-family: monospace;}table.tbl tr.active0 td, table.tbl tr.active1 td,table.tbl tr.active2 td,table.tbl tr.active3 td, table.tbl tr.active4 td,table.tbl tr.active8 td,table.tbl tr.active8 td,table.tbl tr.active9 td,table.tbl tr.maintain td,table.tbl tr.backup2 td,table.tbl tr.backup3 td,table.tbl tr.bakcup4 td,.pxname,td[align=left], table.lgd td,th{font-family: monospace;font-size:13px!important;}td[align=left]{font-size:11px!important;}th{font-size:10px!important;}table:first-of-type td[align=center]{padding-left: 21px;}h2:last-of-type,hr,h3,td[valign=top]{display:none;}</style>';
+  echo str_replace('<h1><a href="http://www.haproxy.org/" style="text-decoration: none;">HAProxy</a></h1>', '<h2 style="margin-bottom:0px;">HAProxy Load Balancer statistics<br />Taken at '.date('Y-m-d H:m:s T').':</h2>',
     str_replace('Note: "NOLB"/"DRAIN" = UP with load-balancing disabled.',NULL,
     preg_replace('/.*<body>(.*)<\/body>.*$/s', '$1', $content
   )));

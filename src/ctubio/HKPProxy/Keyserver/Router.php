@@ -42,7 +42,7 @@ class Router {
 
     try {
       return Factory::forward(Keyserver::getRequest())->to(
-        'http://'.(($stats=($config->hkp_primary_keyserver_addr && $uri=='/pks/lookup?op=stats'))?$config->hkp_primary_keyserver_addr:$config->hkp_load_balanced_addr).':'.((!$stats && $config->hkp_load_balanced_port)?$config->hkp_load_balanced_port:$config->hkp_public_port).$uri
+        'http://'.(($stats=($config->hkp_primary_keyserver_addr && strpos($uri, '/pks/lookup?op=stats')===0))?$config->hkp_primary_keyserver_addr:$config->hkp_load_balanced_addr).':'.((!$stats && $config->hkp_load_balanced_port)?$config->hkp_load_balanced_port:$config->hkp_public_port).$uri
       );
     } catch (\Exception $e) {
       return new Response(
