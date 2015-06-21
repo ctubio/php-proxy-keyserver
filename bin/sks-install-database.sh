@@ -4,7 +4,7 @@ DUMP_PATH="dump"
 
 CURRENT_DUMP_URL="http://pgp.key-server.io/dump/current/"
 
-test ! -e ${SKS_PATH} && echo "Error: install sks first." && exit 1;
+test ! -e ${SKS_PATH} && echo "Error: install sks first or if you already compiled it manually, create /var/lib/sks before install the database. && exit 1;
 echo "Before install a new database,"
 echo "the following paths will be deleted:";
 echo " - ${SKS_PATH}/${DUMP_PATH}";
