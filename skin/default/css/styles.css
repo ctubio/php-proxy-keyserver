@@ -35,6 +35,7 @@ a:hover {
 }
 div#wrapper {
   display: table;
+  min-width: 690px;
   margin: 0 auto;
   padding: 0 10px;
   background:#333;
