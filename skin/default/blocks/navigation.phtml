@@ -5,7 +5,7 @@
         <b> | </b><a title="faq" href="/faq">faq</a>
         <?php if($this->getConfig('membership_line')): ?><b> | </b><a title="peers" href="/peers">peers</a><?php endif; ?>
         <b> | </b><a title="stats" href="/pks/lookup?op=stats">stats</a>
-        <?php if($this->getConfig('hkp_load_balanced_port')): ?><b> | </b><a title="load" href="/balancer">load</a><?php endif; ?>
+        <?php if($this->getConfig('hkp_load_balanced_port')): ?><b> | </b><a title="load" href="/load">load</a><?php endif; ?>
         <?php if($this->getConfig('expose_dump')): ?><b> | </b><a title="dump" href="/sks-dump">dump</a><?php endif; ?>
         <?php if($this->getConfig('expose_source')): ?><b> | </b><a title="source" href="https://github.com/ctubio/php-proxy-keyserver" style="font-style:italic;">source</a><?php endif; ?>
         <?php if($site_contact_link=$this->getConfig('site_contact_link')): ?><b> | </b><a title="contact" href="<?php echo (strpos($site_contact_link,'@')?'mailto:':NULL).$site_contact_link ?>" style="font-style:italic;">contact</a><?php endif; ?>
