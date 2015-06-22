@@ -66,9 +66,9 @@ fi;
 SIZE=`du -shc $OUTDIR |grep 'total' |awk '{ print $1 }'`;
 DCOUNT=`grep "#Key-Count" $OUTDIR/metadata-sks-dump.txt |awk '{ print $2 }'`;
 FILES=`grep "#Files-Count" $OUTDIR/metadata-sks-dump.txt |awk '{ print $2 }'`;
-echo "This is the keyserver dump from ${HOSTNAME} created at: ${DUMPDATE}
+echo "This is the keyserver dump from ${HOSTNAME} generated at: ${DUMPDATE}
 
-The current archive size is approximately ${SIZE}, holding ${DCOUNT} keys in ${FILES} files.
+The archive size is approximately ${SIZE}, holding ${DCOUNT} keys in ${FILES} files.
 
 These files were created basically running: $ sks dump ${COUNT} ${SKSDATE}/ sks-dump
 At your convenience, the full script is available at github:
@@ -109,7 +109,7 @@ The content of /var/lib/sks/dump directory can be removed, and additionally,
 can be replaced by backups of daily dumps of your own database.
 
 Also, if you would like to peer with this server, please send an email
-to <${MAIL}> with your membership line." > $OUTDIR/README.txt;
+to <${MAIL}> with your membership line." > $OUTDIR/README;
 
 cd $INDIR;
 chown -R $USER:$GROUP $PREDIR;

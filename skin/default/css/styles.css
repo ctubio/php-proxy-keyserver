@@ -16,6 +16,10 @@ body {
   margin:0px;
   padding:0px;
 }
+*::selection {
+  background-color: yellow;
+  color: black;
+}
 h1 {
   font-size:32px;
   margin-left:14px;
