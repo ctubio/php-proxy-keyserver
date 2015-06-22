@@ -1,7 +1,7 @@
+fix broken stats while dump
 check if all custom data is an option
 add nightlydev tools
 add friendly urls tool
-real fix instead of white background fix
 copy key to clipboard
 show import key command
 clean rubbish Peer class
