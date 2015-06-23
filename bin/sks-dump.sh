@@ -18,10 +18,10 @@ MINFREEG=$((1+$(du -sh ${INDIR}/${PREDIR}/`ls -1t ${INDIR}/${PREDIR} | head -n 1
 MINFREEG=${MINFREEG:=8}
 PARTITION=`df ${INDIR} | awk '/^\/dev/ {print $1}'`
 
-cd $INDIR;
-for DEL in `ls -1t dump | grep -v current | tail -n +$((BACKUPS+1))`; do
+cd ${INDIR};
+for DEL in `ls -1t $PREDIR | grep -v current | tail -n +$((BACKUPS+1))`; do
   echo "Deleting old directory $PREDIR/$DEL";
-  rm -rf $PREDIR/$DEL;
+  rm -rf ${PREDIR}/$DEL;
 done;
 
 if (($(df -h / | grep "${PARTITION}" | awk '{ print $4 }' | sed 's/\..*//g' | sed 's/G.*//g') < ${MINFREEG})); then
