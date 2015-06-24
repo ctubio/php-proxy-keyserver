@@ -30,8 +30,10 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
   $ # Check your current sks version:
   $ sks version
   $ # Decide if you wanna download and compile the latest sks version.
-
-  $ # Check if your keyserver is up and running:
+  
+  $ # In the README file you can find configuration examples for apache, haproxy and sks.
+  
+  $ # Check if your keyserver is up and running (all servers):
   $ netstat -anp | egrep --color 'sks'
   tcp   0    0 0.0.0.0:11370                 0.0.0.0:*     LISTEN      8198/sks
   tcp   0    0 127.0.0.1:11371               0.0.0.0:*     LISTEN      8197/sks
@@ -40,15 +42,15 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
   unix  2    [ ACC ]    STREAM   LISTENING   29835   8198/sks   /var/lib/sks/recon_com_sock
   $ # If you don't see any output, please start the keyserver daemons with similar configs.
 
-  $ # Optionally, check if your load balancer is up and running:
+  $ # Optionally, check if your load balancer is up and running (primary server):
   $ netstat -anp | egrep --color 'haproxy'
   tcp   0     0 0.0.0.0:11369                0.0.0.0:*     LISTEN      2438/haproxy
-  unix  2     [ ]       DGRAM                11553   2008/rsyslogd    /var/lib/haproxy/dev/log
+  unix  2     [ ]       DGRAM                11553   2008/rsyslogd  /var/lib/haproxy/dev/log
   unix  2     [ ]       DGRAM                12323   2438/haproxy
   $ # Here port 11369 is used, but you are free to choose any other number if you wish.
   $ # A load balancer isn't mandatory, unless you plan to generate daily keydumps.
   
-  $ # Check if your webserver is up and running:
+  $ # Check if your webserver is up and running (primary server):
   $ netstat -anp | egrep --color 'apache2|nginx'
   tcp   0     0    10.10.10.2:11371          0.0.0.0:*     LISTEN      3197/apache2
   tcp   0     0    10.10.10.2:80             0.0.0.0:*     LISTEN      3197/apache2
@@ -67,13 +69,10 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
   $ composer create-project ctubio/php-proxy-keyserver . --keep-vcs
   $ make config
   $ make help
+  $ # All done, thank you!
 
-  $ # ProxyPass doesn't need to be configured because PHP supplies the proxy.
-  $ # PHP forwards all external request from the webserver to a local (or remote) keyserver.
-  $ # Make your webserver listen to public ip ports 80, 443 and 11371.
-  $ # Make your keyserver listen to public ip port 11370 and local ip port 11371.
   $ # Validate if your website can search/retrieve/submit pgp public keys.
-  $ # Validate if your keyserver works using the command line tool gpg.
+  $ # Validate if your keyserver works using the command line tool gpg (or others).
   $ # Import the most recent database dump, and use the mailing list to find peers.
   $ # Please, feel free to extend or customize as you need the web interface!
 ```
@@ -206,7 +205,7 @@ ptree_pagesize:    8
 ```
 
 ##### ..i would like to see some haproxy configs:
-here is a basic setup for a network with a single ```apache2``` running a single ```php-proxy-keyserver``` that forwards hkp request to a single ```haproxy``` to balance the load of multiple redundant ```sks``` keyservers (the objective here is to avoid the downtimes while making daily keydumps, additionaly you can put the webserver behind another load balancing setup, ofcourse):
+here is a basic setup for a network (see the output of netstat command at the top of the README file) with a single ```apache2``` running a single ```php-proxy-keyserver``` that forwards hkp request to a single ```haproxy``` to balance the load of multiple redundant ```sks``` keyservers (the objective here is to avoid the downtimes while making daily keydumps, additionaly you can put the webserver behind another load balancing setup, ofcourse):
 ```
 global
   log /dev/log local0
@@ -513,7 +512,6 @@ NameVirtualHost [YOUR.PUBLIC.IPv6]:443
 </VirtualHost>
 </IfModule>
 ```
-
 
 ##### ..i really don't want a keyserver, but a webserver that uses ```gpg``` locally to answer the request?
 hey, the other day i found https://github.com/remko/phkp, hope it helps!
