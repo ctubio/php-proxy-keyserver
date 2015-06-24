@@ -41,7 +41,7 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
   $ # If you don't see any output, please start the keyserver daemons with similar configs.
 
   $ # Optionally, check if your load balancer is up and running:
-  $ sudo netstat -anp | egrep --color 'haproxy'
+  $ netstat -anp | egrep --color 'haproxy'
   tcp   0     0 0.0.0.0:11369                0.0.0.0:*     LISTEN      2438/haproxy
   unix  2     [ ]       DGRAM                11553   2008/rsyslogd    /var/lib/haproxy/dev/log
   unix  2     [ ]       DGRAM                12323   2438/haproxy
