@@ -31,7 +31,7 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
   $ sks version
   $ # Decide if you wanna download and compile the latest sks version.
   
-  $ # In the README file you can find configuration examples for apache, haproxy and sks.
+  $ # The README file have examples of configuration files for apache, haproxy and sks.
   
   $ # Check if your keyserver is up and running (all servers):
   $ netstat -anp | egrep --color 'sks'
