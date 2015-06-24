@@ -68,7 +68,7 @@ DCOUNT=`grep "#Key-Count" $OUTDIR/metadata-sks-dump.txt |awk '{ print $2 }'`;
 FILES=`grep "#Files-Count" $OUTDIR/metadata-sks-dump.txt |awk '{ print $2 }'`;
 echo "This is the keyserver dump from ${HOSTNAME} generated at: ${DUMPDATE}
 
-The archive size is approximately ${SIZE}, holding ${DCOUNT} keys in ${FILES} files.
+Tonight's archive size is approximately ${SIZE}, holding ${DCOUNT} keys in ${FILES} files.
 
 These files were created basically running: $ sks dump ${COUNT} ${SKSDATE}/ sks-dump
 At your convenience, the full script is available at github:
