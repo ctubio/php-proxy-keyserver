@@ -39,10 +39,12 @@ class Router {
 
   public static function getHKPResponse($uri) {
     $config = Keyserver::getConfig();
-
+    // ob_start();
+    // var_dump(Keyserver::getRequest(),file_get_contents('php://input'),$_POST);
+    // file_put_contents('/var/www/pgp.key-server.io/log/www',file_get_contents('/var/www/pgp.key-server.io/log/www').PHP_EOL.ob_get_clean());
     try {
       return Factory::forward(Keyserver::getRequest())->to(
-        'http://'.(($stats=($config->hkp_primary_keyserver_addr && strpos($uri, '/pks/lookup?op=stats')===0))?$config->hkp_primary_keyserver_addr:$config->hkp_load_balanced_addr).':'.((!$stats && $config->hkp_load_balanced_port)?$config->hkp_load_balanced_port:$config->hkp_public_port).$uri
+        'http://'.(($primary=($config->hkp_primary_keyserver_addr && (strpos($uri, '/pks/lookup?op=stats')===0 || strpos($uri, '/pks/hashquery')===0)))?$config->hkp_primary_keyserver_addr:$config->hkp_load_balanced_addr).':'.((!$primary && $config->hkp_load_balanced_port)?$config->hkp_load_balanced_port:$config->hkp_public_port).$uri
       );
     } catch (\Exception $e) {
       return new Response(
