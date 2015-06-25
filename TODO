@@ -1,6 +1,4 @@
-fix broken stats while dump
 use header and readme in indexes
-check if all custom data is an option
 add nightlydev tools
 add friendly urls tool
 copy key to clipboard
