@@ -2,7 +2,7 @@
   use ctubio\HKPProxy\Keyserver;
   use ctubio\HKPProxy\Keyserver\Peer;
 ?><h2>Collaborate as Gossip Peer</h2>
-<div class="minwrap">If you are the administrator of another PGP Public Key Server, and you would like to peer with <?php echo $this->getConfig('hostname'); ?>, you can automatically add yourself to my membership file by submitting the following information:</div>
+<div class="minwrap">If you are the administrator of another PGP Public Key Server, and you would like to peer with <?php echo $this->getConfig('hostname'); ?>, you can automatically add yourself to my membership file by submitting the following information (alternatively, send an email to<?php echo strrchr(Keyserver::getConfig()->membership_line,' '); ?>):</div>
 <br />
 <form action="/<?php echo strtok(basename(__FILE__),'.'); ?>" method="post">
   <p>

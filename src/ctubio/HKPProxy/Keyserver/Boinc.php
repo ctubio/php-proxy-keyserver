@@ -48,7 +48,7 @@ class Boinc {
 
       $return .= '<table style="margin:0px auto;" class='.$class.'>'
         .'<tr><td width="150">Result name: </td><td width="450">'.$node->name.'</td></tr>'
-        .'<tr><td>State: </td><td>'.strtr($node->state,array('5'=>'Completed, waiting for validation','2'=>$node->active_task?'In progress':'In Queue')).'</td></tr>'
+        .'<tr><td>State: </td><td>'.strtr($node->state,array('5'=>'Completed, waiting for validation','2'=>$node->active_task?'In progress':'Queued')).'</td></tr>'
         .'<tr><td>Received: </td><td>'.$this->timestampToStr($node->received_time).'</td></tr>'
         .'<tr><td>Deadline: </td><td>'.$this->timestampToStr($node->report_deadline).'</td></tr>';
       if ($node->active_task) {
