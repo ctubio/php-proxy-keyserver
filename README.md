@@ -19,6 +19,7 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
  * Meaningful (hope you like stack traces) error messages while developing skins/pages.
  * Webserver configs ready for apache2 (you may need to mimic pub/.htaccess for your webserver).
  * Load Balancer configs ready for haproxy (between PHP and HKP, or balance PHP too).
+ * BOINC Status GUI RPC ready for display current assigned tasks on your server farm.
  * HKP meets PHP that meets HAProxy! (lightweight as possible; static skins for historical purposes).
 
 ### How to run your own SKS Keyserver with PHP and friends:
