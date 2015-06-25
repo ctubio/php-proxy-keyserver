@@ -24,7 +24,8 @@ class Router {
     if (!Keyserver::getConfig()->show_friendly_urls) return  $uri;
     Keyserver::getRequest()->server->set('ORIGINAL_REQUEST_URI', $uri);
     if (strpos($_uri=$uri,'/get/')===0 || strpos($uri,'/0x')===0 || strpos($uri,'/search/')===0 || strpos($uri,'/download/')===0) {
-      Keyserver::getRequest()->query->set('search', $uri = str_replace('+',' ',array_pop(explode('/',trim($uri,'/')))));
+      $uri = explode('/',trim($uri,'/'));
+      Keyserver::getRequest()->query->set('search', $uri = str_replace('+',' ',array_pop($uri)));
       $uri = (strpos($_uri,'/search/')===0
         ? '/pks/lookup?fingerprint=on&op=vindex&search='
         : (strpos($_uri,'/download/')===0
