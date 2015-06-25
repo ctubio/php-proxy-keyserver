@@ -31,6 +31,7 @@ class Config {
           'google_analytics' => NULL,
           'co2_neutral_link' => NULL,
           'boinc_machines_addr' => NULL,
+          'boinc_machines_port' => '31416',
           'skin_path' => 'default',
           'layout_html_errors' => 0,
           'layout_hkp_request' => 0,

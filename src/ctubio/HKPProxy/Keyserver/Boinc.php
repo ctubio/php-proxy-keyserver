@@ -18,7 +18,7 @@ class Boinc {
   }
 
   private function getState($host) {
-    $fp = fsockopen ($host, 31416, $errno, $errstr, 30);
+    $fp = fsockopen ($host, (int)Keyserver::getConfig()->boinc_machines_port, $errno, $errstr, 30);
     if (!$fp) return 'Server down.';
 
     $request=sprintf("<boinc_gui_rpc_request>\n%s\n</boinc_gui_rpc_request>\n\003",'<get_state/>');

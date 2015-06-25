@@ -15,6 +15,7 @@
 ;google_analytics    = id
 ;co2_neutral_link    = http://example.com
 ;boinc_machines_addr = 127.0.0.1, 127.0.0.2
+;boinc_machines_port = 31416
 
 [frontend]
 display_exceptions  = 1
@@ -46,6 +47,7 @@ indent_strict_html  = 1
 ;; default google_analytics value is NULL, any google tracking id is valid
 ;; default co2_neutral_link value is NULL, any url is valid (show footer link about CO2 Neutral hosting?)
 ;; default boinc_machines_addr value is NULL, any internal ip address is valid and csv are allowed (dont forget to add the ip of the webserver to /etc/boinc-client/remote_hosts.cfg in each machine. for more info see https://boinc.berkeley.edu/trac/wiki/RpcAuth#remote_hosts)
+;; default boinc_machines_port value is 31416, any port value is valid (where boinccmd is listen for RPCs calls. for more info see http://linux.die.net/man/1/boinc)
 ;; default display_exceptions value is 0, valid values are 0 or 1 (write in /log or display all exceptions?)
 ;; default skin_path value is default, valid values are folder names inside /skin
 ;; default expose_source value is 0, valid values are 0 or 1 (show php-proxy-keyserver link to github in topmenu?).
