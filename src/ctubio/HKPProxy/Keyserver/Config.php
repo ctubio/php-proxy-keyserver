@@ -30,6 +30,7 @@ class Config {
           'google_verification' => NULL,
           'google_analytics' => NULL,
           'co2_neutral_link' => NULL,
+          'boinc_machines_addr' => NULL,
           'skin_path' => 'default',
           'layout_html_errors' => 0,
           'layout_hkp_request' => 0,

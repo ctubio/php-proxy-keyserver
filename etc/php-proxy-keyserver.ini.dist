@@ -1,9 +1,9 @@
 [proxy]
-;hkp_public_port        = 11371
-;hkp_load_balanced_port = 11369
-;hkp_load_balanced_addr = 127.0.0.1
+;hkp_public_port            = 11371
+;hkp_load_balanced_port     = 11369
+;hkp_load_balanced_addr     = 127.0.0.1
 ;hkp_primary_keyserver_addr = 127.0.0.1
-;expose_keyserver    = 0
+;expose_keyserver           = 0
 
 [whoami]
 ;hostname            = SERVER_NAME.environment.variable
@@ -14,6 +14,7 @@
 ;google_verification = token
 ;google_analytics    = id
 ;co2_neutral_link    = http://example.com
+;boinc_machines_addr = 127.0.0.1, 127.0.0.2
 
 [frontend]
 display_exceptions  = 1
@@ -34,7 +35,7 @@ indent_strict_html  = 1
 ;; default hkp_public_port value is 11371, any value is valid but 11371 is recommended (used for render the values of href attributes in <a> elements at public pages)
 ;; default hkp_load_balanced_port value is 0, any private service port value is valid (if you dont have a load balancer but a single keyserver, leave this blank)
 ;; default hkp_load_balanced_addr value is 127.0.0.1, any private address value is valid (if you dont have a load balancer but a single keyserver, put the address here)
-;; default hkp_primary_keyserver_addr value is NULL, any private or public address value is valid (show stats only from this keyserver or balance the stats page too?)
+;; default hkp_primary_keyserver_addr value is NULL, any private address value is valid (show stats only from this keyserver or balance the stats page too?)
 ;; default expose_keyserver value is 0, valid values are 0 or 1 (hide keyserver version in Via header or display?).
 ;; default hostname value is $_SERVER['SERVER_NAME'], any value is valid
 ;; default bugs_contact_mail value is bugs@hostname, any value is valid
@@ -44,6 +45,7 @@ indent_strict_html  = 1
 ;; default google_verification value is NULL, any google token is valid
 ;; default google_analytics value is NULL, any google tracking id is valid
 ;; default co2_neutral_link value is NULL, any url is valid (show footer link about CO2 Neutral hosting?)
+;; default boinc_machines_addr value is NULL, any internal ip address is valid and csv are allowed (dont forget to add the ip of the webserver to /etc/boinc-client/remote_hosts.cfg in each machine. for more info see https://boinc.berkeley.edu/trac/wiki/RpcAuth#remote_hosts)
 ;; default display_exceptions value is 0, valid values are 0 or 1 (write in /log or display all exceptions?)
 ;; default skin_path value is default, valid values are folder names inside /skin
 ;; default expose_source value is 0, valid values are 0 or 1 (show php-proxy-keyserver link to github in topmenu?).
