@@ -16,10 +16,10 @@ OUTDIR="$INDIR/$PREDIR/$SKSDATE"
 COUNT="10000"
 MINFREEG=$((1+$(du -sh ${INDIR}/${PREDIR}/`ls -1t ${INDIR}/${PREDIR} | head -n 1` | sed 's/\..*//g' | sed 's/G.*//g' | awk '{ print $1 }')))
 MINFREEG=${MINFREEG:=8}
-PARTITION=`df ${INDIR} | awk '/^\/dev/ {print $1}'`
+PARTITION=`df ${INDIR}/${PREDIR} | tail -n 1 | awk '{print $1}'`
 
 cd ${INDIR};
-for DEL in `ls -1t $PREDIR | grep -v current | tail -n +$((BACKUPS+1))`; do
+for DEL in `ls -1t $PREDIR | egrep -v "current|lost\+found" | tail -n +$((BACKUPS+1))`; do
   echo "Deleting old directory $PREDIR/$DEL";
   rm -rf ${PREDIR}/$DEL;
 done;
