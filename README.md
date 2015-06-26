@@ -34,7 +34,7 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
   
   $ # The README file have examples of configuration files for apache, haproxy and sks.
   
-  $ # Check if your keyserver is up and running (all servers):
+  $ # Check if your keyserver is up and running (in all machines):
   $ netstat -anp | egrep --color 'sks'
   tcp   0    0 0.0.0.0:11370                 0.0.0.0:*     LISTEN      8198/sks
   tcp   0    0 127.0.0.1:11371               0.0.0.0:*     LISTEN      8197/sks
@@ -43,7 +43,7 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
   unix  2    [ ACC ]    STREAM   LISTENING   29835   8198/sks   /var/lib/sks/recon_com_sock
   $ # If you don't see any output, please start the keyserver daemons with similar configs.
 
-  $ # Optionally, check if your load balancer is up and running (primary server):
+  $ # Optionally, check if your load balancer is up and running (in primary machine):
   $ netstat -anp | egrep --color 'haproxy'
   tcp   0     0 0.0.0.0:11369                0.0.0.0:*     LISTEN      2438/haproxy
   unix  2     [ ]       DGRAM                11553   2008/rsyslogd  /var/lib/haproxy/dev/log
@@ -51,7 +51,7 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
   $ # Here port 11369 is used, but you are free to choose any other number if you wish.
   $ # A load balancer isn't mandatory, unless you plan to generate daily keydumps.
   
-  $ # Check if your webserver is up and running (primary server):
+  $ # Check if your webserver is up and running (in primary machine):
   $ netstat -anp | egrep --color 'apache2|nginx'
   tcp   0     0    10.10.10.2:11371          0.0.0.0:*     LISTEN      3197/apache2
   tcp   0     0    10.10.10.2:80             0.0.0.0:*     LISTEN      3197/apache2
