@@ -49,3 +49,8 @@ If you would like to create your own daily dumps of your working database, custo
 Please understand, in order to avoid downtimes, you must have your keyserver behind a load balancer running additional keyserver instances. That is because the dump process stops the keyserver daemons for about 1 or 2 minutes, locking all the database files to be able to export all keys, and when all files are finally generated, it starts the keyserver daemons again.
 
 In order to generate the dump from a secondary keyserver instance (or if you have the webserver or ftp serving the dump in another machine), you can make use of [sks-dump-nfs.sh](sks-dump-nfs.sh), that is the same script but making the assumption that the dump directory is a remote directory mounted over [NFS](https://help.ubuntu.com/14.04/serverguide/network-file-system.html).
+
+Remember that there's no need to duplicate nothing, and is possible to run remote sourced scripts from any machine in your private network with a command similar to:
+```
+$ bash -c "$(ssh user@host -C cat /var/www/your.domain.name/bin/sks-dump-nfs.sh)"
+```
