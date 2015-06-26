@@ -137,7 +137,7 @@ the ```skin/default``` uses a php layout to build the given page with blocks. Bu
 feel free to use my keyserver for your development, the address is ```pgp.key-server.io``` (see the answer below).
 
 ##### ..my server is just a webserver?
-the keyserver may be provided by another different server, if that is your case, please edit ```etc/php-proxy-keyserver.ini``` and customize the value of ```hkp_addr``` to match the address of the keyserver.
+the keyserver may be provided by another different server, if that is your case, please edit ```etc/php-proxy-keyserver.ini``` and customize the value of ```hkp_load_balanced_addr``` to match the address of the keyserver.
 
 ##### ..i want to upgrade to a new version of php-proxy-keyserver?
 please run the following commands (using v1.2.3 as an example):
