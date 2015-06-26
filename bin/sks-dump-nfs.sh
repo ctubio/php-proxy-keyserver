@@ -2,8 +2,8 @@
 
 # This script will delete outdated backups, stop the sks server,
 # dump its contents to the $OUTDIR, then restart the sks server.
-# $OUTDIR will be mounted over NFS (in the host server, you will need
-# to install nfs-kernel-server and edit /etc/exports )
+# $OUTDIR will be mounted over NFS (in the host server, you
+# will need to install nfs-kernel-server and edit /etc/exports)
 
 TZ='UTC'
 HOSTNAME='pgp.key-server.io'
