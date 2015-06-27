@@ -107,8 +107,8 @@ Yes Sir/Milady, please make use of ```$this``` 3 built-in methods from any phtml
 string $this->getConfig(string $option);
 # (you can add new options to the config file as you need)
 # for example:
-echo $this->getConfig('hkp_addr');   # may print 127.0.0.1
-echo $this->getConfig('custom_var'); # may print custom_value
+echo $this->getConfig('hkp_load_balanced_addr'); # may print 127.0.0.1
+echo $this->getConfig('custom_var');             # may print custom_value
 ```
 
 ```php
