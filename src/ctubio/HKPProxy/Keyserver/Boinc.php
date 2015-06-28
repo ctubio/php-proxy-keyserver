@@ -43,11 +43,15 @@ class Boinc {
     $result = $xml->xpath('/boinc_gui_rpc_reply/client_state/result');
     while(list( , $node) = each($result)) {
       $class='state-done';
-      if ($node->active_task) $class='state-active';
+      if ($node->active_task) {
+        if ($node->active_task->active_task_state=='1') $class='state-active';
+        else $class='state-pause';
+      }
       else if ($node->state==2) $class='state-queue';
 
       $return .= '<table style="margin:0px auto;" class='.$class.'>'
-        .'<tr><td width="150">Result name: </td><td width="450">'.$node->name.'</td></tr>'
+        .'<tr><td width="150">Project: </td><td width="450">'.current(array_slice(explode('/',$node->project_url),2,1)).'</td></tr>'
+        .'<tr><td width="150">Task: </td><td width="450">'.$node->name.'</td></tr>'
         .'<tr><td>State: </td><td>'.strtr($node->state,array('5'=>'Completed, waiting for validation','2'=>$node->active_task?($node->active_task->active_task_state=='1'?'In progress':'Paused'):'Queued')).'</td></tr>'
         .'<tr><td>Received: </td><td>'.$this->timestampToStr($node->received_time).'</td></tr>'
         .'<tr><td>Deadline: </td><td>'.$this->timestampToStr($node->report_deadline).'</td></tr>';
