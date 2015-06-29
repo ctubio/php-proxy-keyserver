@@ -25,7 +25,7 @@ MINFREEG=${MINFREEG:=8}
 PARTITION=`df ${INDIR}/${PREDIR} | tail -n 1 | awk '{print $1}'`
 
 cd $INDIR;
-for DEL in `ls -1t ${PREDIR} | egrep -v "current|lost\+found" | tail -n +$((BACKUPS+1))`; do
+for DEL in `ls -1t ${PREDIR} | egrep -v "current|lost\+found" | tail -n +${BACKUPS}`; do
   echo "Deleting old directory $PREDIR/$DEL";
   rm -rf $PREDIR/$DEL;
 done;
