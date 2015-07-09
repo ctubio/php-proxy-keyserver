@@ -109,7 +109,7 @@ The content of /var/lib/sks/dump directory can be removed, and additionally,
 can be replaced by backups of daily dumps of your own database.
 
 Also, if you would like to peer with this server, please send an email
-to <${MAIL}> with your membership line." > $OUTDIR/README;
+to <${MAIL}> with your membership line." > $OUTDIR/README.txt;
 
 cd $INDIR;
 chown -R $USER:$GROUP $PREDIR;
