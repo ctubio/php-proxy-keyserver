@@ -17,7 +17,7 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
  * Optionally auto addition and validation of user submitted membership lines for new peers.
  * Optionally auto indent and validation of html pages before output html responses.
  * Meaningful (hope you like stack traces) error messages while developing skins/pages.
- * Webserver configs ready for apache2 (you may need to mimic pub/.htaccess for your webserver).
+ * Webserver configs ready for apache2 or nginx.
  * Load Balancer configs ready for haproxy (between PHP and HKP, or balance PHP too).
  * BOINC Status GUI RPC ready for display current assigned tasks on your server farm.
  * Or trash all *modern* features and stick with the great old plain html frontend (for historical purposes).
@@ -249,8 +249,68 @@ listen php-proxy-keyserver *:11369
 ```
 
 ##### ..i would like to see some nginx configs:
-i didn't had time (yaa i know the config files of nginx are smaller than apache) to setup an nginx instance, but if you are more lucky than me and would like to contribute, please feel free to make a PR and add some examples right here.
+please take this files as an examples, where you should replace the keywords ```YOUR.PUBLIC.IPv4```, ```YOUR.PUBLIC.IPv6``` and ```YOUR.DOMAIN.NAME```.
 
+Enable support for standard HKP, HTTP and HTTTPS requests:
+```
+server {
+        listen   YOUR.PUBLIC.IPv4:80;
+        listen   [YOUR.PUBLIC.IPv6]:80;
+        listen   YOUR.PUBLIC.IPv4:443 ssl;
+        listen   [YOUR.PUBLIC.IPv6]:443 ssl;
+        server_name www.YOUR.DOMAIN.NAME;
+        rewrite ^ $scheme://YOUR.DOMAIN.NAME$uri permanent;
+        ssl_certificate /etc/nginx/keys/YOUR.DOMAIN.NAME.crt;
+        ssl_certificate_key /etc/nginx/keys/YOUR.DOMAIN.NAME.key;
+        ssl_session_timeout 5m;
+        ssl_protocols SSLv3 TLSv1;
+        ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
+        ssl_prefer_server_ciphers on;
+}
+
+server {
+        listen   YOUR.PUBLIC.IPv4:80;
+        listen   [YOUR.PUBLIC.IPv6]:80;
+        listen   YOUR.PUBLIC.IPv4:11371;
+        listen   [YOUR.PUBLIC.IPv6]:11371;
+        listen   YOUR.PUBLIC.IPv4:443 ssl;
+        listen   [YOUR.PUBLIC.IPv6]:443 ssl;
+
+        root /var/www/YOUR.DOMAIN.NAME/pub;
+        index php-proxy-keyserver.php;
+
+        disable_symlinks off;
+
+        server_name YOUR.DOMAIN.NAME pool.sks-keyservers.net *.pool.sks-keyservers.net;
+
+        location /dump {
+         autoindex on;
+         add_before_body /dump/.css;
+        }
+
+        location / {
+         try_files $uri $uri/ /php-proxy-keyserver.php?$query_string;
+        }
+
+        location ~ \.php$ {
+         fastcgi_split_path_info ^(.+\.php)(/.+)$;
+         fastcgi_pass unix:/var/run/php5-fpm.sock;
+         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+         include fastcgi_params;
+        }
+
+        location ~ /\.ht {
+         deny all;
+        }
+
+        ssl_certificate /etc/nginx/keys/YOUR.DOMAIN.NAME.crt;
+        ssl_certificate_key /etc/nginx/keys/YOUR.DOMAIN.NAME.key;
+        ssl_session_timeout 5m;
+        ssl_protocols SSLv3 TLSv1;
+        ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
+        ssl_prefer_server_ciphers on;
+}
+```
 ##### ..i would like to see some apache2 configs:
 please take this files as an examples, where you should replace the keywords ```YOUR.PUBLIC.IPv4```, ```YOUR.PUBLIC.IPv6``` and ```YOUR.DOMAIN.NAME```.
 
