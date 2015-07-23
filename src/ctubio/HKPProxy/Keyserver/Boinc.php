@@ -52,7 +52,7 @@ class Boinc {
       $return .= '<table style="margin:0px auto;" class='.$class.'>'
         .'<tr><td width="150">Project: </td><td width="450">'.current(array_slice(explode('/',$node->project_url),2,1)).'</td></tr>'
         .'<tr><td width="150">Task: </td><td width="450">'.$node->name.'</td></tr>'
-        .'<tr><td>State: </td><td>'.strtr($node->state,array('5'=>'Completed, waiting for validation','2'=>$node->active_task?($node->active_task->active_task_state=='1'?'In progress':'Paused'):'Queued')).'</td></tr>'
+        .'<tr><td>State: </td><td>'.strtr($node->state,array('1'=>'Completed, transferring..','5'=>'Completed, waiting for validation','2'=>$node->active_task?($node->active_task->active_task_state=='1'?'In progress':'Paused'):'Queued')).'</td></tr>'
         .'<tr><td>Received: </td><td>'.$this->timestampToStr($node->received_time).'</td></tr>'
         .'<tr><td>Deadline: </td><td>'.$this->timestampToStr($node->report_deadline).'</td></tr>';
       if ($node->active_task) {
@@ -60,7 +60,7 @@ class Boinc {
         .'<tr><td>Elapsed CPU time: </td><td>'.$this->secToStr($node->active_task->current_cpu_time).'</td></tr>'
         .'<tr><td>Slot: </td><td>'.$node->active_task->slot.'</td></tr>'
         .'<tr><td>Fraction done: </td><td>'.number_format(floatval($node->active_task->fraction_done)*100,1).'%'.'</td></tr>';
-      } else if ($node->state!=2) {
+      } else if (!in_array($node->state, array(1,2))) {
         $return .= '<tr><td>Complete: </td><td>'.$this->timestampToStr($node->completed_time).'</td></tr>'
         .'<tr><td>Final CPU time: </td><td>'.$this->secToStr($node->final_cpu_time).'</td></tr>'
         .'<tr><td>Total elapsed time: </td><td>'.$this->secToStr($node->final_elapsed_time).'</td></tr>';
