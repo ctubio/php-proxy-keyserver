@@ -39,7 +39,15 @@ fi;
 DUMPDATE="`date -u`"
 /usr/sbin/service sks stop;
 sleep 2;
-
+if [ `ps -eaf | grep "sks " | grep -v 'grep sks' | wc -l` > "0" ]; then
+  sleep 3;
+  if [ `ps -eaf | grep "sks " | grep -v 'grep sks' | wc -l` > "0" ]; then
+    sleep 4;
+    if [ `ps -eaf | grep "sks " | grep -v 'grep sks' | wc -l` > "0" ]; then
+      sleep 5;
+    fi;
+  fi;
+fi;
 if [ `ps -eaf | grep "sks " | grep -v 'grep sks' | wc -l` == "0" ]; then
   rm -rf $OUTDIR && mkdir -p $OUTDIR && \
   chown -R $USER:$GROUP $PREDIR && \
