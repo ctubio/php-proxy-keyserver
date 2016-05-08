@@ -29,6 +29,7 @@ class Config {
           'head_title' => NULL,
           'google_verification' => NULL,
           'google_analytics' => NULL,
+          'tor_hostname' => NULL,
           'co2_neutral_link' => NULL,
           'boinc_machines_addr' => NULL,
           'boinc_machines_port' => '31416',
