@@ -11,7 +11,7 @@
   <body>
     <?php echo $this->getBlock('analytics'); ?>
     <div id="wrapper">
-      <?php if($tor_hostname=$this->getConfig('tor_hostname')): ?><small style="float:right;color:#D2D2D2;font-size: 14px;">(Tor hidden service at <a style="color:white;" href="http://<?php echo $tor_hostname; ?>"><?php echo $tor_hostname; ?></a>)</small><?php endif; ?>
+      <?php if($tor_hostname=$this->getConfig('tor_hostname')): ?><small style="float:right;color:#D2D2D2;font-size: 14px;margin-top: 4px;">Tor hidden service at <a style="color:white;" href="http://<?php echo $tor_hostname; ?>"><?php echo $tor_hostname; ?></a></small><?php endif; ?>
       <h1><?php echo $this->getConfig('html_title') ?></h1>
       <?php echo $this->getBlock('navigation'); ?>
       <div id="main">
