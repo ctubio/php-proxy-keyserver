@@ -17,7 +17,7 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
  * Optionally auto addition and validation of user submitted membership lines for new peers.
  * Optionally auto indent and validation of html pages before output html responses.
  * Meaningful (hope you like stack traces) error messages while developing skins/pages.
- * Webserver configs ready for apache2 or nginx.
+ * Webserver configs ready for apache2 or nginx (and tor hidden service).
  * Load Balancer configs ready for haproxy (between PHP and HKP, or balance PHP too).
  * BOINC Status GUI RPC ready for display current assigned tasks on your server farm.
  * Or trash all *modern* features and stick with the great old plain html frontend (for historical purposes).
@@ -203,6 +203,18 @@ word_pagesize:		 8
 #
 # PTree/ptree		   4096
 ptree_pagesize:    8
+```
+
+##### ..i would like to see some tor configs:
+please take this as an example, where you should replace the keyword ```YOUR.PUBLIC.IPv4```.
+
+Enable Tor Hidden Service for SKS:
+```
+DataDirectory /var/lib/tor
+HiddenServiceDir /var/lib/tor/hidden_service/
+HiddenServicePort 11371 YOUR.PUBLIC.IPv4:11371
+HiddenServicePort 80    YOUR.PUBLIC.IPv4:80
+HiddenServicePort 443   YOUR.PUBLIC.IPv4:443
 ```
 
 ##### ..i would like to see some haproxy configs:
