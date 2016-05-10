@@ -32,7 +32,7 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
   $ sks version
   $ # Decide if you wanna download and compile the latest sks version.
   
-  $ # The README file have examples of configuration files for apache, haproxy and sks.
+  $ # The README file have examples of configuration files for sks, nginx/apache, haproxy and tor.
   
   $ # Check if your keyserver is up and running (in all machines):
   $ netstat -anp | egrep --color 'sks'
@@ -50,7 +50,16 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
   unix  2     [ ]       DGRAM                12323   2438/haproxy
   $ # Here port 11369 is used, but you are free to choose any other number if you wish.
   $ # A load balancer isn't mandatory, unless you plan to generate daily keydumps.
-  
+
+  $ # Optionally, check if your tor is up and running (in primary machine):
+  $ netstat -anp | egrep --color 'tor'
+  tcp   0    0 127.0.0.1:9050                0.0.0.0:*     LISTEN      11655/tor
+  unix  2    [ ACC ]   STREAM    LISTENING   53139133 11655/tor   /var/run/tor/control
+  unix  3    [ ]       STREAM    CONNECTED   53139131 11655/tor
+  unix  3    [ ]       STREAM    CONNECTED   53139130 11655/tor
+  $ # Here port 9050 is used, but you are free to choose any other number if you wish.
+  $ # A tor hidden service isn't mandatory, unless you plan to provide anonymity.
+
   $ # Check if your webserver is up and running (in primary machine):
   $ netstat -anp | egrep --color 'apache2|nginx'
   tcp   0     0    10.10.10.2:11371          0.0.0.0:*     LISTEN      3197/apache2
