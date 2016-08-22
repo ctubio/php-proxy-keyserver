@@ -1,0 +1,11 @@
+<style>
+* {font-family:monospace;}
+h1 {font-family:'Press Start 2P';  font-size: 22px;}
+*::selection {
+  background-color: yellow;
+  color: black;
+}
+a,table td:first-child {padding-left:7px;}
+table td {padding-right:7px;}
+</style>
+<link href='//fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css' />
