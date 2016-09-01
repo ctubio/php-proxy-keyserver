@@ -33,7 +33,7 @@ class Boinc {
 
     try {
       $xml = new \SimpleXMLElement($res);
-    } catch (Exception $ex) {
+    } catch (\Exception $ex) {
       return 'Service down.';
     }
 
