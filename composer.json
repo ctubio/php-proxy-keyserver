@@ -15,7 +15,7 @@
     "issues": "https://github.com/ctubio/php-proxy-keyserver/issues"
   },
   "require": {
-    "php": "~5.5",
+    "php": "~5.6",
     "monolog/monolog": "~1.13",
     "jenssegers/proxy": "2.*",
     "dflydev/apache-mime-types": "~1.0"
