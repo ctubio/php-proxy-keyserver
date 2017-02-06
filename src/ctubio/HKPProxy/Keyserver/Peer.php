@@ -18,7 +18,7 @@ class Peer {
 
   public static function validate($line) {
     $line = self::tab2space($line);
-    echo '<small>Checking line..<br />';
+    echo '<div style="font-size: smaller;">Checking line..<br />';
     if (substr_count($line, '#')===0)
       return self::warn('format', 'the server and/or contact part/s doesn\'t exists.</span><br /><br /><span class="uid" style="text-decoration:none;">But it was fun to parse.</span><br /><br /><span>Please, next time submit a real membership line.');
     if (substr_count($line, '#')!==1)
@@ -90,7 +90,7 @@ class Peer {
   }
 
   public static function warn($scope, $msg = NULL, $subject = NULL) {
-    return '</small><br /><span class="warn">'.strtr($scope, array(
+    return '</div><br /><span class="warn">'.strtr($scope, array(
       'contact' => 'Your membership line is correct, but after checking your stats page, '.$subject.' (or the page was unreachable).',
       'format' => 'Membership line mal-formed, ',
       'exists' => 'Your membership line was already added to '.Keyserver::getConfig()->hostname.'.</span><br /><br />',
