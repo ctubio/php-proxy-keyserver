@@ -349,6 +349,7 @@ NameVirtualHost [YOUR.PUBLIC.IPv6]:11371
   RewriteEngine on
   RewriteCond %{HTTP_HOST}  =www.YOUR.DOMAIN.NAME       [NC]
   RewriteRule ^(.*)         http://YOUR.DOMAIN.NAME$1  [R=301,NE]
+  RewriteRule ^(.*)$ /php-proxy-keyserver.php?$1 [QSA,L]
 	<Directory />
 		Options FollowSymLinks
 		AllowOverride None
@@ -391,6 +392,7 @@ NameVirtualHost [YOUR.PUBLIC.IPv6]:80
   RewriteEngine on
   RewriteCond %{HTTP_HOST}  =www.YOUR.DOMAIN.NAME       [NC]
   RewriteRule ^(.*)         http://YOUR.DOMAIN.NAME$1  [R=301,NE]
+  RewriteRule ^(.*)$ /php-proxy-keyserver.php?$1 [QSA,L]
 	<Directory />
 		Options FollowSymLinks
 		AllowOverride None
@@ -433,6 +435,7 @@ NameVirtualHost [YOUR.PUBLIC.IPv6]:443
   RewriteEngine on
   RewriteCond %{HTTP_HOST}  =www.YOUR.DOMAIN.NAME       [NC]
   RewriteRule ^(.*)         https://YOUR.DOMAIN.NAME$1  [R=301,NE]
+  RewriteRule ^(.*)$ /php-proxy-keyserver.php?$1 [QSA,L]
 	DocumentRoot /var/www/YOUR.DOMAIN.NAME/pub
 	<Directory />
 		Options FollowSymLinks
