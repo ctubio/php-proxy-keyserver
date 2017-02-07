@@ -85,7 +85,7 @@ class Peer {
     echo 'Saving membership..<br />';
     $file = '/var/lib/sks/membership';
     if (!file_exists($file) || !is_readable($file) || !is_writable($file)) return FALSE;
-    file_put_contents($file, (file_get_contents($file).PHP_EOL.$line));
+    file_put_contents($file, (file_get_contents($file).$line.PHP_EOL));
     return (strpos(file_get_contents($file), $line)!==FALSE);
   }
 
