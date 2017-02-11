@@ -20,7 +20,7 @@ class Peer {
     $line = self::tab2space($line);
     echo '<div style="font-size: smaller;">Checking line..<br />';
     if (substr_count($line, '#')===0)
-      return self::warn('format', 'the server and/or contact part/s doesn\'t exists.</span><br /><br /><span class="uid" style="text-decoration:none;">But it was fun to parse.</span><br /><br /><span>Please, next time submit a real membership line.');
+      return self::warn('format', 'the server and/or contact part/s doesn\'t exists.</div><br /><div class="uid" style="text-decoration:none;">But it was fun to parse.</div><br /><div>Please, next time submit a real membership line.');
     if (substr_count($line, '#')!==1)
       return self::warn('format', 'the symbol # appears more than once.');
     list($server, $contact) = explode('#', $line);
@@ -48,12 +48,12 @@ class Peer {
     if (!self::validateContact($hostname, $key))
       return self::warn('contact', NULL, $key.' was not found as Server contact of '.$hostname);
     if (!self::validateServer($hostname))
-      return self::warn('server', '<br /><br /><span class="uid" style="text-decoration:none;">Thank you '.strtok($name, ' ').'!', $hostname);
+      return self::warn('server', '<br /><br /><div class="uid" style="text-decoration:none;">Thank you '.strtok($name, ' ').'!', $hostname);
     if (!self::missingLine($hostname))
-      return self::warn('exists', '<span class="uid" style="text-decoration:none;">Thank you '.strtok($name, ' ').'!', $hostname);
+      return self::warn('exists', '<div class="uid" style="text-decoration:none;">Thank you '.strtok($name, ' ').'!', $hostname);
     if (!self::save($line))
       return self::warn('admin', NULL, $hostname);
-    else return '<span class="uid" style="text-decoration:none;">Your line was added successfully to the membership file of '.Keyserver::getConfig()->hostname.'.<br /><br />The <a href="/pks/lookup?op=stats">stats</a> page will be refreshed soon with your changes.</span><br /><br /><span class="uid" style="text-decoration:none;">Thank you '.strtok($name, ' ').'!</span>';
+    else return '</div><div class="uid" style="text-decoration:none;">Your line was added successfully to the membership file of '.Keyserver::getConfig()->hostname.'.<br /><br />The <a href="/pks/lookup?op=stats">stats</a> page will be refreshed soon with your changes.</div><br /><div class="uid" style="text-decoration:none;">Thank you '.strtok($name, ' ').'!</div>';
   }
 
   public static function validateKey($key, $mail) {
@@ -90,13 +90,13 @@ class Peer {
   }
 
   public static function warn($scope, $msg = NULL, $subject = NULL) {
-    return '</div><br /><span class="warn">'.strtr($scope, array(
+    return '</div><br /><div class="warn">'.strtr($scope, array(
       'contact' => 'Your membership line is correct, but after checking your stats page, '.$subject.' (or the page was unreachable).',
       'format' => 'Membership line mal-formed, ',
-      'exists' => 'Your membership line was already added to '.Keyserver::getConfig()->hostname.'.</span><br /><br />',
+      'exists' => 'Your membership line was already added to '.Keyserver::getConfig()->hostname.'.</div><br /><br />',
       'admin' => 'Your membership line is correct, and '.Keyserver::getConfig()->hostname.' was found as a Gossip Peer in the stats page of '.$subject.', but an error occurred while saving your membership line, please send an email to <a href="mailto:'.Keyserver::getConfig()->bugs_contact_mail.'">&lt;'.Keyserver::getConfig()->bugs_contact_mail.'&gt;</a> as usual.',
-      'server' => 'Your membership line is correct, but after checking the stats page of '.$subject.', '.Keyserver::getConfig()->hostname.' was not found as a Gossip Peer.</span><br /><br /><span class="uid" style="text-decoration:none;">Please, add the following line to your membership file and wait until it is refreshed before continue:</span><br /><br /><input style="width:100%;padding:5px;;text-align:center;font-weight:600;" value="'.htmlentities(Keyserver::getConfig()->membership_line).'" />'
-    )).$msg.'</span><br />';
+      'server' => 'Your membership line is correct, but after checking the stats page of '.$subject.', '.Keyserver::getConfig()->hostname.' was not found as a Gossip Peer.</div><br /><div class="uid" style="text-decoration:none;">Please, add the following line to your membership file and wait until it is refreshed before continue:</div><br /><br /><input style="width:100%;padding:5px;;text-align:center;font-weight:600;" value="'.htmlentities(Keyserver::getConfig()->membership_line).'" />'
+    )).$msg.'</div><br />';
   }
 
   public static function tab2space($line, $tab = 1, $nbsp = FALSE) {
@@ -134,7 +134,7 @@ class Peer {
       echo 'Checking http://'.$hostname.$url.'..<br />';
       $content = self::getContent('http://'.$hostname.$url);
     }
-    if (!$content) echo '<span class="warn">Unreachable stats page, please double-check the hostname.</span><br /><br />';
+    if (!$content) echo '<div class="warn">Unreachable stats page, please double-check the hostname.</div><br />';
     return $content;
   }
 }
