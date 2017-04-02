@@ -17,7 +17,7 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
  * Optionally auto addition and validation of user submitted membership lines for new peers.
  * Optionally auto indent and validation of html pages before output html responses.
  * Meaningful (hope you like stack traces) error messages while developing skins/pages.
- * Webserver configs ready for apache2 or nginx (and tor hidden service).
+ * Webserver configs ready for apache2 or nginx (and tor hidden service and piwik tracker).
  * Load Balancer configs ready for haproxy (between PHP and HKP, or balance PHP too).
  * BOINC Status GUI RPC ready for display current assigned tasks on your server farm.
  * Or trash all *modern* features and stick with the great old plain html frontend (for historical purposes).
@@ -31,9 +31,9 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
   $ # Check your current sks version:
   $ sks version
   $ # Decide if you wanna download and compile the latest sks version.
-  
+
   $ # The README file have examples of configuration files for sks, nginx/apache, haproxy and tor.
-  
+
   $ # Check if your keyserver is up and running (in all machines):
   $ netstat -anp | egrep --color 'sks'
   tcp   0    0 0.0.0.0:11370                 0.0.0.0:*     LISTEN      8198/sks
@@ -70,7 +70,7 @@ These sources are happy serving public keys at https://pgp.key-server.io (check 
   tcp6  0     0    2607:f298:6050:6f81:443   :::*          LISTEN      9647/apache2
   $ # The 4th column may be your own public IPs of your virtual machine/server.
   $ # If you don't see any output, please start the webserver daemon with similar configs.
-  
+
   $ # Download and compose the php proxy and the extensible web interface between them:
   $ cd /var/www
   $ mkdir your.domain.name

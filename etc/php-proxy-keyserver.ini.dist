@@ -13,7 +13,8 @@
 ;site_contact_link   = http://example.com
 ;tor_hostname        = example.onion
 ;google_verification = token
-;google_analytics    = id
+;piwik_url           = //example.com/
+;piwik_site_id       = id
 ;co2_neutral_link    = http://example.com
 ;boinc_machines_addr = 127.0.0.1, 127.0.0.2
 ;boinc_machines_port = 31416
@@ -46,7 +47,8 @@ indent_strict_html  = 1
 ;; default site_contact_link value is NULL, valid values are url or email
 ;; default tor_hostname value is NULL, valid values are any .onion hostname
 ;; default google_verification value is NULL, any google token is valid
-;; default google_analytics value is NULL, any google tracking id is valid
+;; default piwik_url value is NULL, any piwik server url (without the piwik.php part) is valid
+;; default piwik_site_id value is NULL, any numeric piwik site id is valid
 ;; default co2_neutral_link value is NULL, any url is valid (show footer link about CO2 Neutral hosting?)
 ;; default boinc_machines_addr value is NULL, any internal ip address is valid and csv are allowed (dont forget to add the ip of the webserver to /etc/boinc-client/remote_hosts.cfg in each machine. for more info see https://boinc.berkeley.edu/trac/wiki/RpcAuth#remote_hosts)
 ;; default boinc_machines_port value is 31416, any port value is valid (where boinccmd is listen for RPCs calls. for more info see http://linux.die.net/man/1/boinc)
