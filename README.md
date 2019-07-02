@@ -284,7 +284,7 @@ server {
         ssl_certificate /etc/nginx/keys/YOUR.DOMAIN.NAME.crt;
         ssl_certificate_key /etc/nginx/keys/YOUR.DOMAIN.NAME.key;
         ssl_session_timeout 5m;
-        ssl_protocols SSLv3 TLSv1;
+        ssl_protocols SSLv3 TLSv1.2;
         ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
         ssl_prefer_server_ciphers on;
 }
@@ -327,7 +327,7 @@ server {
         ssl_certificate /etc/nginx/keys/YOUR.DOMAIN.NAME.crt;
         ssl_certificate_key /etc/nginx/keys/YOUR.DOMAIN.NAME.key;
         ssl_session_timeout 5m;
-        ssl_protocols SSLv3 TLSv1;
+        ssl_protocols SSLv3 TLSv1.2;
         ssl_ciphers ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv3:+EXP;
         ssl_prefer_server_ciphers on;
 }
